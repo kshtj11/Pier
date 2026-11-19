@@ -1,6 +1,6 @@
 # Pier
 
-**Pier is a web prototype only. The AI hats are scripted, not a working AI. The PDF reader works, and you can open your own PDFs.**
+**Pier is a web prototype only. The AI hats are scripted, not a working AI. The PDF reader works, and you can open your own PDFs. (Drag and Drop them onto any board)**
 
 **Try it:** https://kshtj11.github.io/Pier/
 
