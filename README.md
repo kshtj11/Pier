@@ -8,7 +8,7 @@
 
 Pier is a literature-review thinking environment. You collect papers on a board, really read them, pull out quotes, and build an argument in your own words. A small set of AI "hats" (MINER, PROSPECTOR, ARCHITECT, SHADOW and CONDUCTOR) react after you act, with questions and counter-evidence quoted from your own papers. Their job is constructive friction: to make you think, not to think for you.
 
-It comes from Kshitij Ghag's B.Des design project at IDC School of Design, IIT Bombay.
+Created by Kshitij Ghag, IDC School of Design, as his P1 project, Autumn 26
 
 ## How to open it
 
