@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pier</title>
 <link rel="icon" href="data:,">
-<meta name="description" content="Pier: a literature-review thinking environment. A design prototype; the AI hats are scripted.">
+<meta name="description" content="Pier: a literature-review thinking environment. A design prototype by Kshitij Ghag, IDC School of Design, IIT Bombay.">
 <link rel="stylesheet" href="vendor/fonts/fonts.css"><!-- Inter + Source Serif 4, kept locally so the app runs offline -->
 <style>
   :root { --bg:#F7F7F8; --ink:#1D1D1F; --ink2:#55555A; --ink3:#69696E; --line:#D9D9DE; --soft:#ECECF0;
@@ -13,7 +13,7 @@
           --pap:#1D5BD6; --papbg:#EEF4FF; --papln:#C8D9FB; --paphl:#D3E3FF; --paphl2:#A9C7FF;
           --me:#E0A800; --mebg:#FFF4C4; --meln:#F1D46A; --ai:#8E8E93;
           --quote:#1E3A7B; --mink:#7A5C00; --ok:#1F6A2E; --bad:#8A2A23; --focus:#0A63CE;
-          --serif:"Source Serif 4",Georgia,"Iowan Old Style",serif; --cw:430px; --sbw:300px; --rpw:360px; --wlw:300px; --wrw:320px; --ldw:360px; }
+          --serif:"Source Serif 4",Georgia,"Iowan Old Style",serif; --cw:470px; --sbw:300px; --rpw:360px; --wlw:300px; --wrw:320px; --ldw:360px; }
   * { box-sizing:border-box; margin:0; padding:0; }
   html,body { height:100%; overflow:hidden; }
   body { font:14px/1.45 Inter,-apple-system,BlinkMacSystemFont,system-ui,sans-serif; color:var(--ink); background:var(--bg); -webkit-font-smoothing:antialiased; }
@@ -416,6 +416,10 @@
   #feed .bub .q.lead { border-left-color:#0F7FA6; background:#F0F8FB; color:var(--ink); }
   #feed .bub .tm { position:absolute; right:9px; bottom:3px; font-size:12px; color:var(--ink3); }
   #feed .msg .acts { display:none; flex-basis:100%; padding-left:30px; gap:5px; margin-top:3px; flex-wrap:wrap; } #feed .msg:hover .acts { display:flex; }
+  #feed .msg .bub { position:relative; } #feed .msg .wc { float:right; margin:-3px -5px 2px 8px; display:flex; gap:5px; opacity:0; transition:opacity .12s; } #feed .msg:hover .wc, #feed .msg .wc:focus-within { opacity:1; }
+  #feed .wc button { width:18px; height:18px; border-radius:50%; display:grid; place-items:center; padding:0; font:700 11px/1 Inter,system-ui,sans-serif; } #feed .wc svg { width:10px; height:10px; fill:none; stroke-width:1.6; stroke-linecap:round; }
+  #feed .wc-src { background:#E6EEFC; color:var(--pap); } #feed .wc-src svg { stroke:var(--pap); fill:none; } #feed .wc-why { background:#F9E29C; color:#6B5300; } #feed .wc-x { background:#ECECEF; } #feed .wc-x svg { stroke:var(--ink2); }
+  #feed .wc button:hover { filter:brightness(.94); }
   #feed .msg .acts button { font-size:12px; color:var(--ink2); background:#fff; border-radius:10px; padding:2px 9px; } #feed .msg .acts button:hover { color:var(--ink); background:#F5F5F7; }
   #feed .msg .acts .hint { font-size:12px; color:var(--ink3); padding:2px 2px; }
   #feed .ln { cursor:grab; } #feed .ln.flash .bub { animation:flash 1.4s; } @keyframes flash { 0%,40% { background:#FFF1B8; } }
@@ -874,6 +878,7 @@
   .pdfhl { position:absolute; z-index:1; mix-blend-mode:multiply; border-radius:2px; pointer-events:none; }
   #pdfvw .tb.wide { width:auto; padding:0 10px; font-size:13px; font-weight:600; }
   /* first run */
+  .top .crumb .cr[role="link"] { cursor:pointer; border-radius:4px; } .top .crumb .cr[role="link"]:hover { color:var(--ink); text-decoration:underline; text-underline-offset:3px; }
   .top .crumb .exm { font-size:12px; font-weight:600; color:var(--ink2); background:#F2F2F5; border-radius:6px; padding:1px 6px; margin-left:6px; }
   #bempty { position:absolute; left:50%; top:42%; transform:translate(-50%,-50%); text-align:center; color:var(--ink2); font-size:14px; line-height:1.7; pointer-events:none; }
   #bempty p:first-child { font-size:16px; font-weight:600; color:var(--ink); } #bempty button { pointer-events:auto; font-weight:600; color:var(--pap); text-decoration:underline; text-underline-offset:2px; }
@@ -936,7 +941,7 @@
   #seek .sk2prev .pact { display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; }
   #seek .sk2prev .pact button { height:32px; padding:0 14px; border-radius:8px; font-size:13px; font-weight:600; background:#F2F2F5; color:var(--ink); }
   #seek .sk2prev .pact button.pri { background:var(--ink); color:#fff; } #seek .sk2prev .pact button:hover { filter:brightness(.95); }
-  #seek .sk2prev .pact kbd { font:11px Inter,system-ui,sans-serif; color:var(--ink3); margin-left:6px; }
+  #seek .sk2prev .pact kbd { font:12px Inter,system-ui,sans-serif; color:var(--ink3); margin-left:6px; } #seek .sk2prev .pact button.pri kbd { color:rgba(255,255,255,.72); }
   #seek .sk2prev .pfol { margin-top:18px; } #seek .sk2prev .pfol button { display:block; font-size:13px; color:var(--pap); padding:4px 0; }
   #seek .sk2prev .pwhy { margin-top:12px; display:flex; flex-wrap:wrap; gap:6px; align-items:center; font-size:12px; color:var(--ink2); }
   #seek .sk2prev .pwhy button { font-size:12px; background:#fff; border:1px solid var(--line); border-radius:8px; padding:3px 9px; }
@@ -1248,7 +1253,130 @@
   #whats .wh[data-wh="CONDUCTOR"] { color:var(--ink) !important; }
   /* CONDUCTOR's name in feed messages was a span hidden by the "part" rule; show it. The hat row wraps instead of cutting a name off. */
   #feed .msg.hat .bub .who span.hn { display:inline; margin-left:0; color:var(--ink) !important; font-weight:700; letter-spacing:.06em; }
-  #hatrow, #council .hats, aside#council .hats { flex-wrap:wrap !important; row-gap:6px; overflow:visible !important; }
+  #hatrow, #council .hats, aside#council .hats { flex-wrap:nowrap !important; gap:4px !important; justify-content:space-between; overflow:visible !important; }
+  aside#council .hats .hp, #council .hats .hp { padding:3px 7px !important; white-space:nowrap; }
+  #council .hats .hp[data-h="CONDUCTOR"], aside#council .hats .hp[data-h="CONDUCTOR"] { background:#7E47D1 !important; color:#fff !important; display:inline-flex; align-items:center; }
+  #council .hats .hp[data-h="CONDUCTOR"]::before, aside#council .hats .hp[data-h="CONDUCTOR"]::before { width:14px; height:14px; margin-right:4px; vertical-align:0; filter:brightness(0) invert(1); }
+/* reader toolbar: one height, one shape, even gaps; Beside removed */
+  #rtool { gap:8px; } #rtool .grp { margin:0; height:36px; box-sizing:border-box; align-items:center; } #rtool > .grp:first-of-type { margin-left:auto; }
+  #rtool .bsx, #rbeside { display:none !important; }
+  #rsearch { height:36px; border-radius:9px; border:0; background:#F2F2F5; padding:0 3px; } #rsearch.open { width:240px; border:0; box-shadow:inset 0 0 0 1px var(--line); background:#fff; }
+  #rsearch #sbtn { width:30px; height:30px; border-radius:7px; } #rsearch .nv { width:28px; height:28px; }
+/* Find: one left edge, calm search, no empty panes (21 Nov) */
+  #seek .sk2top { display:flex !important; flex-wrap:wrap; align-items:center; gap:10px 12px; padding:16px 24px 12px; }
+  #seek .sk2top .sk2mode { flex:none; }
+  #seek .sk2top .skin { flex:1 1 calc(100% - 420px); height:40px; border:1px solid var(--line); border-radius:10px; background:#fff; }
+  #seek .sk2top .skin:focus-within { border-color:#0A63CE; box-shadow:0 0 0 3px rgba(10,99,206,.12); }
+  #seek .sk2top .tlx { flex:none; width:32px; height:32px; border-radius:8px; display:grid; place-items:center; color:var(--ink2); } #seek .sk2top .tlx:hover { background:var(--soft); }
+  #seek .sk2top .skghost { flex:0 1 auto; padding:0 !important; margin:0; min-height:0; font-size:13px; color:var(--ink2); }
+  #seek .sk2top .skscope { flex:1 1 auto; padding:0 !important; margin:0; gap:2px; }
+  #seek .sk2top .skghost:not(:empty)+.skscope { border-left:1px solid var(--line); padding-left:10px !important; }
+  #seek .sk2grid:not(:has(.skr)) { display:flex; } #seek .sk2grid:not(:has(.skr)) .sk2prev { display:none; }
+  #seek .sk2grid:not(:has(.skr)) .sk2list { flex:1; }
+  #seek .sk2list > .pempty { padding:40px 24px; font-size:15px; color:var(--ink2); max-width:560px; }
+body.side #reader { left:var(--sbw); transition:left .25s, right .3s; }
+/* sidebar: chevrons always visible (thin, rotate when closed); items flush with their heading text */
+  #side .sec .sch { visibility:visible !important; font-size:0; width:16px; height:16px; color:var(--ink3); }
+  #side .sec .sch::before { content:''; width:12px; height:12px; background:currentColor; -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2.5 3.75L5 6.25l2.5-2.5' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat; mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2.5 3.75L5 6.25l2.5-2.5' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat; transition:transform .15s; }
+  #side .sec[aria-expanded='false'] .sch::before { transform:rotate(-90deg); }
+  #side .sr.flat { padding-left:calc(26px + var(--d,0) * 14px); }
+.paper .qcol { display:flex; gap:14px; margin-top:12px; padding-top:8px; border-top:1px solid var(--soft); font:600 12px Inter,system-ui,sans-serif; }
+  .paper .qcol button { color:var(--ink2); padding:2px 0; } .paper .qcol button:hover { color:var(--ink); text-decoration:underline; text-underline-offset:2px; }
+#rdm { position:fixed; z-index:400; display:none; min-width:208px; background:#fff; border:1px solid var(--line); border-radius:10px; box-shadow:0 10px 28px rgba(0,0,0,.14); padding:4px; }
+  #rdm.on { display:block; }
+  #rdm button[data-rm]:not(.dot) { display:block; width:100%; text-align:left; height:32px; padding:0 12px; border-radius:7px; font:600 13px Inter,system-ui,sans-serif; color:var(--ink); white-space:nowrap; }
+  #rdm button[data-rm]:not(.dot):hover, #rdm button[data-rm]:not(.dot):focus { background:#F2F2F5; outline:none; }
+  #rdm button .k { float:right; font-weight:400; color:var(--ink3); margin-left:16px; }
+  #rdm .dots { display:flex; gap:6px; padding:6px 10px 8px; }
+  #rdm .dot { width:24px; height:24px; border-radius:50%; border:1px solid rgba(0,0,0,.12); }
+  #rdm .dot.on { box-shadow:0 0 0 2px #fff, 0 0 0 4px var(--ink); }
+  #rdm .dot:focus-visible { outline:2px solid #0A63CE; outline-offset:2px; }
+  #rdm hr { border:0; border-top:1px solid var(--soft); margin:4px 6px; }
+.ldg { display:inline-flex; gap:4px; align-items:center; height:1em; vertical-align:middle; }
+  .ldg i { width:5px; height:5px; border-radius:50%; background:var(--ink3); animation:ldg 1.1s infinite ease-in-out; }
+  .ldg i:nth-child(2) { animation-delay:.15s; } .ldg i:nth-child(3) { animation-delay:.3s; }
+  @keyframes ldg { 0%,80%,100% { opacity:.25; } 40% { opacity:1; } }
+  @media (prefers-reduced-motion: reduce) { .ldg i { animation:none; opacity:.6; } }
+.item.incol { border-radius:0; box-shadow:none; }
+  .item.incol.first { border-radius:10px 10px 0 0; } .item.incol.last { border-radius:0 0 10px 10px; box-shadow:0 4px 14px rgba(30,60,140,.07); } .item.incol.first.last { border-radius:10px; }
+  .item.incol .c { border-radius:0; } .item.incol.last .c { border-radius:0 0 9px 9px; }
+  .paper.magnet { outline:2px dashed var(--pap); outline-offset:8px; }
+  /* a quote's highlight colour is a folded top-left corner, the paper card's dog-ear mirrored (the full wash was too much colour) */
+  .an.hq, .k-frag { --d:16px; clip-path:polygon(calc(var(--d) + 400px) -400px, calc(100% + 400px) -400px, calc(100% + 400px) calc(100% + 400px), -400px calc(100% + 400px), -400px calc(var(--d) + 400px)); }
+  .k-frag { --d:18px; }
+  .an.hq::after, .k-frag::after { content:""; position:absolute; top:-1px; left:-1px; width:var(--d); height:var(--d); z-index:4; pointer-events:none; border-right:1px solid color-mix(in srgb, var(--hc, #CFE0FF), #000 22%); border-bottom:1px solid color-mix(in srgb, var(--hc, #CFE0FF), #000 22%); border-bottom-right-radius:4px;
+    background:linear-gradient(to bottom right, transparent calc(50% - .6px), color-mix(in srgb, var(--hc, #CFE0FF), #000 22%) calc(50% - .6px) calc(50% + .6px), var(--hc, #CFE0FF) calc(50% + .6px)); }
+  body.far .k-frag::after { opacity:1; }
+  .k-frag > .q, .an.hq .q { text-indent:8px; }
+  #rpanel .ph #rpclose { margin-left:4px; }
+  .rpx { width:32px; height:32px; border:0 !important; border-radius:7px !important; padding:0 !important; font-size:16px !important; color:var(--ink) !important; background:none; }
+  .rpx:hover { background:#F2F2F5; }
+  #rpopen { display:none; position:absolute; top:7px; right:12px; z-index:3; }
+  #reader.rpoff #rpanel { display:none; } #reader.on.rpoff { grid-template-columns:minmax(0,1fr) 0; } #reader.rpoff #rpopen { display:block; }
+  #reader.rpoff #rtool { padding-right:52px; }
+#sheet { position:relative; }
+  #explpop { position:absolute; z-index:30; background:#fff; border:1px solid var(--line); border-radius:10px; box-shadow:0 10px 28px rgba(0,0,0,.14); padding:10px 14px 12px; font:400 14px/1.5 Inter,system-ui,sans-serif; color:var(--ink); }
+  #explpop .exh { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  #explpop .cd { font:700 12px Inter,system-ui,sans-serif; letter-spacing:.04em; color:#fff; background:#7E47D1; border-radius:5px; padding:2px 7px; }
+  #explpop .exw { font-size:12px; color:var(--ink3); }
+  #explpop .exx { margin-left:auto; width:24px; height:24px; border-radius:6px; font-size:16px; color:var(--ink2); } #explpop .exx:hover { background:#F2F2F5; }
+#aipop .ahd { display:flex; align-items:center; gap:10px; margin:-2px 34px 12px 0; font:600 14px Inter,system-ui,sans-serif; color:var(--ink); cursor:grab; user-select:none; touch-action:none; }
+  #aipop .ahd.grab { cursor:grabbing; }
+  #aipop .ahd .dots { display:flex; } #aipop .ahd .dots i { width:12px; height:12px; border-radius:50%; margin-left:-4px; border:1px solid rgba(0,0,0,.15); } #aipop .ahd .dots i:first-child { margin-left:0; }
+.pico { width:20px; height:20px; display:block; margin:auto; }
+.an.bare:not(.adding) textarea { display:none; }
+  .an.has [data-think], .an.adding .acts { display:none !important; }
+  .an.bare { margin-bottom:16px; }
+  .an.bare .acts { bottom:-12px; right:10px; background:#fff; border:1px solid var(--line); border-radius:6px; padding:2px 8px; z-index:2; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+/* the page fits the column (the Hats pane or a note beside it narrows the reader; the paper never runs under it) */
+  #rscroll { scrollbar-gutter:stable; }
+  #rtool { height:auto; min-height:46px; flex-wrap:wrap; row-gap:4px; padding-top:5px; padding-bottom:5px; min-width:0; }
+  #reader:not(.rzoom) #rscroll .col { width:min(760px, calc(100% - 32px)); }
+  #reader:not(.rzoom) .sheet:not(.notesheet) { width:100%; max-width:760px; }
+  #reader:not(.rzoom) .sheet.pdfsheet { max-width:712px; margin:0 auto; } #reader:not(.rzoom) .pdfpages { width:100%; }
+  #reader .sheet:not(.pdfsheet):not(.notesheet) { padding-left:clamp(28px, 9%, 72px); padding-right:clamp(28px, 9%, 72px); }
+/* CONDUCTOR's line: never cut off mid-sentence (wraps to two lines), and never on top of the paper being read */
+  #cpill.on { white-space:normal; max-width:min(900px, calc(100vw - 32px)); } #cpill .cpt { white-space:normal; text-overflow:clip; overflow:visible; max-width:520px; } #cpill .cpa, #cpill .cpx { white-space:nowrap; }
+  #reader.on ~ #cpill { display:none !important; }
+/* Write mode: the hats column folds away and the page sits in the middle (it had kept an empty column on the right) */
+  #write.nolens:not(.focus) .wgrid { grid-template-columns:var(--wlw) minmax(0,1fr) 0; } #write.nolens .wgrid > .gw2 { display:none; }
+  #write.nolens #wpage { margin-left:auto; margin-right:auto; }
+/* timeline: centred on wide screens (it hugged the left edge) */
+  #tline .tl2grid { margin:0 auto; }
+  #tline .tl2top { padding-left:max(28px, calc((100% - 1180px) / 2 + 28px)); padding-right:max(28px, calc((100% - 1180px) / 2 + 28px)); }
+  #tline .tl2cd { margin-left:max(28px, calc((100% - 1180px) / 2 + 28px)); margin-right:max(28px, calc((100% - 1180px) / 2 + 28px)); }
+/* zoomed out, the hats button grows away from the card (it had grown over the note's text) */
+  body.far .aipill.has { transform-origin:bottom left; }
+/* the Hats pane sits beside every full view (writing room, Find, timeline, references, matrix), which narrows for it; it had opened underneath them */
+  #council { z-index:59; }
+  body.council #write, body.council #library, body.council #tline, body.council #seek, body.council #matrix { right:var(--cw); }
+  #write, #library, #tline, #seek, #matrix { transition:right .3s; }
+/* Write mode: the folded hats column takes no room at all (its chips had pushed out a sideways scrollbar) */
+  #write.nolens #wright { overflow:hidden; min-width:0; width:0; }
+/* the side menu pushes the board over instead of covering its left part (cards hid under it, the tool strip sat on them, an empty board centred under it) */
+  body.side #view { left:var(--sbw); } #view { transition:right .3s, left .3s; }
+/* zoomed out, titles shrink to fit whole words instead of breaking inside one ("Windo ws", "dou bt") */
+  .ft { word-wrap:normal; overflow-wrap:normal; }
+  #library .lbar .lcol, #library .lbar .lnum { white-space:nowrap; }
+/* in the writing room CONDUCTOR's line sits on a plain card at the foot of the material column (it read over the material text) */
+  #write.on ~ #cpill.on { background:#fff !important; border:1px solid var(--line); border-radius:10px; box-shadow:0 6px 22px rgba(0,0,0,.08) !important; flex-wrap:wrap; row-gap:6px; padding:10px 10px 10px 10px; }
+  #write.on ~ #cpill .cpt { background:none; padding:0; flex:1 1 160px; }
+  #write.on ~ #cpill.on { padding-right:30px; } #write.on ~ #cpill .cpx { position:absolute; top:4px; right:4px; }
+/* zoom (buttons, Ctrl+scroll) draws the PDF pages at the zoomed width; they had stayed at 712 px */
+  #reader.rzoom .sheet.pdfsheet { width:calc(712px * var(--rz)); } #reader.rzoom .pdfpages { width:100%; }
+/* board quotes are plain boxes again (the folded corner stays only in the notes panel); dragging out of the column leaves a dotted gap, and a blue line shows where a quote will land when it goes back */
+  .k-frag { clip-path:none !important; } .k-frag::after { display:none !important; } .k-frag > .q { text-indent:0 !important; }
+  .colgap { position:absolute; border:1.5px dashed #6F92DA; border-radius:4px; background:rgba(29,91,214,.03); pointer-events:none; z-index:0; }
+  .colins { position:absolute; height:3px; margin-top:-1.5px; border-radius:2px; background:var(--pap); box-shadow:0 0 0 2px rgba(29,91,214,.15); pointer-events:none; z-index:30; }
+  .colins::before, .colins::after { content:""; position:absolute; top:-3px; width:9px; height:9px; border-radius:50%; background:var(--pap); } .colins::before { left:-5px; } .colins::after { right:-5px; }
+/* CONDUCTOR is a plain chip like the other hats: white, purple name (it had been the only filled chip) */
+  #council .hats .hp[data-h="CONDUCTOR"], aside#council .hats .hp[data-h="CONDUCTOR"] { background:#fff !important; color:#7E47D1 !important; }
+  #council .hats .hp[data-h="CONDUCTOR"]::before, aside#council .hats .hp[data-h="CONDUCTOR"]::before { filter:none !important; }
+  #explpop .cd { background:none; color:#7E47D1; padding:0; }
+/* for now: no Colours section in the sidebar, and CONDUCTOR has no icon, only its purple name */
+  #side [data-mode="vocab"] { display:none !important; }
+  .hn.cd::before, .hn2.cd::before, .chip.cd::before, #council .hats .hp[data-h="CONDUCTOR"]::before, aside#council .hats .hp[data-h="CONDUCTOR"]::before, #hatrow [data-h="CONDUCTOR"]::before, #aipop .hp[data-h="CONDUCTOR"]::before, #whats .wh[data-wh="CONDUCTOR"]::before, #wright .wh[data-wh="CONDUCTOR"]::before { content:none !important; display:none !important; }
+  #cpill .cpn { font-size:12px !important; font-weight:700; letter-spacing:.06em; color:#7E47D1 !important; width:auto !important; height:auto !important; }
 /* LT-CSS-END */
 </style>
 <style id="pier-help-css">
@@ -1271,11 +1399,11 @@
 </head>
 <body>
 <div class="top">
-  <button class="menu" id="menuBtn" title="Projects, papers and notes">☰</button>
+  <button class="menu" id="menuBtn" title="Projects, papers and notes" aria-label="Open sidebar"><svg class="pico" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.75" y="3.75" width="14.5" height="12.5" rx="2.5"/><path d="M8 3.75v12.5"/><path d="M4.75 7h1.5M4.75 9.5h1.5M4.75 12h1.5" stroke-linecap="round"/></svg></button>
   <span class="crumb">Literature review / <b>Does sunlight make people happier?</b></span>
   <span class="hint" id="hint"></span>
-  <button id="hatsBtn" title="Hats (H)"><span class="dots" id="hdots"></span>Hats<span class="badge" id="badge"></span></button>
   <button id="helpBtn" title="How to use Pier" aria-label="How to use Pier">?</button>
+  <button id="hatsBtn" title="Hats (H)"><span class="dots" id="hdots"></span>Hats<span class="badge" id="badge"></span></button>
 </div>
 <div id="view"><div id="world"><svg id="links"></svg><div id="band"></div><div id="achoose"></div></div></div>
 <div class="tools">
@@ -1300,13 +1428,14 @@
       <div class="grp" id="pdfvw" style="display:none" role="group" aria-label="PDF view"><button class="tb wide" data-v="original" title="The original pages">Original</button><button class="tb wide" data-v="text" title="The text, reflowed for reading">Text</button></div>
       <div id="rsearch"><button id="sbtn" title="Search in this paper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg></button><input id="sin" placeholder="Search in paper"><span class="cnt" id="scnt"></span><button class="nv" id="sprev" title="Previous (Shift+Enter)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></button><button class="nv" id="snext" title="Next (Enter)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button></div>
     </div>
+      <button id="rpopen" class="rpx" title="Open notes" aria-label="Open notes"><svg class="pico" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.75" y="3.75" width="14.5" height="12.5" rx="2.5"/><path d="M12 3.75v12.5"/><path d="M13.75 7h1.5M13.75 9.5h1.5M13.75 12h1.5" stroke-linecap="round"/></svg></button>
     <div id="rscroll"><div class="col"><div class="sheet" id="sheet"></div></div></div>
   </div>
-  <aside id="rpanel"><div class="grip gl" data-k="rpw" data-dir="-1" title="Drag to resize, or focus it and use the arrow keys · double-click to reset" tabindex="0" role="separator" aria-orientation="vertical"></div><div class="ph"><b id="rptitle">Notes</b><span class="n" id="rpcount"></span><button id="rpadd" title="Add a general note on this paper">+ Note</button></div><div id="rlist"></div></aside>
+  <aside id="rpanel"><div class="grip gl" data-k="rpw" data-dir="-1" title="Drag to resize, or focus it and use the arrow keys · double-click to reset" tabindex="0" role="separator" aria-orientation="vertical"></div><div class="ph"><b id="rptitle">Notes</b><span class="n" id="rpcount"></span><button id="rpadd" title="Add a general note on this paper">+ Note</button><button id="rpclose" class="rpx" title="Close notes" aria-label="Close notes"><svg class="pico" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.75" y="3.75" width="14.5" height="12.5" rx="2.5"/><path d="M12 3.75v12.5"/><path d="M13.75 7h1.5M13.75 9.5h1.5M13.75 12h1.5" stroke-linecap="round"/></svg></button></div><div id="rlist"></div></aside>
 </div>
 <div id="rbar"></div>
 <div id="colmenu"></div>
-<div id="selbar"><button data-act="hl">Highlight</button><button data-act="cm">Highlight + comment</button></div>
+<div id="selbar"><button data-act="hl">Highlight</button><button data-act="cm">Highlight + comment</button><button data-act="ex">Explain</button></div><div id="rdm" role="menu" aria-label="Selection"></div>
 <div class="pop" id="reasons"><div class="h">Why remove it?</div><div id="rchips"></div></div>
 <div id="write"></div>
 <aside id="side"></aside>
@@ -1415,7 +1544,7 @@ const LEADS=['Long shot: building scientists measure daylight as "daylight auton
 
 /* ======================= state ======================= */
 const $=id=>document.getElementById(id); const view=$('view'), world=$('world'), svg=$('links'), reader=$('reader');
-const KEY='p1-protobeta-v3'; try{ localStorage.removeItem(KEY); indexedDB.deleteDatabase('p1-pdfs'); }catch(e){} /* demo build: every load starts from the clean example; nothing you add survives a refresh */ /* v2: the example is four real papers */ let S, pan={x:120,y:110}, zoom=.3, reading=null, uid=100, editing=null, checking=null;
+const KEY='p1-protobeta-3'; if(/[?&]reset(=|&|$)/.test(location.search)){ try{ localStorage.removeItem(KEY); indexedDB.deleteDatabase('p1-pdfs'); }catch(e){} history.replaceState(null,'',location.pathname); } /* test build: work is saved and survives a refresh; open with ?reset (or run newParticipant()) to start clean */ /* v2: the example is four real papers */ let S, pan={x:120,y:110}, zoom=.3, reading=null, uid=100, editing=null, checking=null;
 const P=pid=>PAPERS.find(p=>p.id===pid)||OUTSIDE.find(o=>o.id===pid); const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
 const I=id=>S.items.find(x=>x.id===id); const short=(s,n=60)=>{ s=String(s||'').replace(/\s+/g,' ').trim(); return s.length>n?s.slice(0,n-1)+'…':s; };
 const title=t=>String(t||'').split('\n')[0]; const rest=t=>String(t||'').split('\n').slice(1).join('\n');
@@ -1459,7 +1588,7 @@ function seed(){
   const m1={id:'i'+(uid++),kind:'ai',hat:'MINER',part:'Grounds',text:'Crouse et al. asked people how many hours they spend in daylight; they did not measure light itself.',src:srcQ('P2',/natural light was self-reported/),ok:false,x:2190,y:520};
   return {papers,items:[...F,n1,n2,n3,...(m1.src?[m1]:[])],hnotes:[],feed,archive:[],log:[],nextClaim:1,arrows,sections,colLabels:{r:'doubt'}}; }
 function load(){ try{ const s=JSON.parse(localStorage.getItem(KEY)); if(s&&s.papers){ S=s; S.arrows=S.arrows||[]; S.sections=S.sections||[]; S.papers.forEach(b=>{ if(b.opened==null) b.opened=!!b.take||S.items.some(i=>i.pid===b.pid&&i.kind==='frag'); }); uid=1000+S.items.length+S.feed.length+S.archive.length+S.hnotes.length; return; } }catch(e){} S=seed(); }
-function save(){ try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} }
+let saveWarned=false; function save(){ try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){ if(!saveWarned){ saveWarned=true; try{ toast('Could not save: browser storage is full. Run exportLog() now.'); }catch(_){} console.warn('save failed',e); } } }
 function toast(t){ const e=$('toast'); e.textContent=t; e.classList.add('show'); clearTimeout(toast.h); toast.h=setTimeout(()=>e.classList.remove('show'),2400); }
 const vr=()=>view.getBoundingClientRect(); const toWorld=(cx,cy)=>{ const r=vr(); return {x:(cx-r.left-pan.x)/zoom,y:(cy-r.top-pan.y)/zoom}; };
 /* semantic zoom: far out, text is counter-scaled (--k) so headers stay readable; the dot grid thins out instead of turning into noise */
@@ -1486,7 +1615,7 @@ function boardEmpty(){ let e=$('bempty'); const empty=!S.papers.length&&!S.items
   if(!e){ e=document.createElement('div'); e.id='bempty'; $('view').appendChild(e); }
   e.innerHTML='<p>This board is empty.</p><p><button data-be="find">Find papers</button> or drop a PDF here. Double-click to write a note.</p>'; }
 function renderBoard(popPid){ setTimeout(boardEmpty,0); setCrumb();
-  world.querySelectorAll('.paper,.item,.zone,.slot,.hnote,.section').forEach(e=>e.remove());
+  world.querySelectorAll('.paper,.item,.zone,.slot,.hnote,.section,.pilelab').forEach(e=>e.remove());
   const add=(cls,html,x,y,data={})=>{ const el=document.createElement('div'); el.className=cls; el.innerHTML=html; if(x!=null){ el.style.left=x+'px'; el.style.top=y+'px'; } Object.assign(el.dataset,data); world.appendChild(el); return el; };
   for(const sc of S.sections){ const el=add('section'+(S.sel==='s:'+sc.id?' sel':''),`<div class="sh"><div class="st" ${editing==='s:'+sc.id?'contenteditable="true"':''}>${esc(sc.title)}</div></div><div class="rz"></div>`,sc.x,sc.y,{sid:sc.id}); el.style.width=sc.w+'px'; el.style.height=sc.h+'px'; }
   const unseen=S.feed.filter(f=>f.type==='hat'&&!f.seen&&f.target);
@@ -1497,16 +1626,17 @@ function renderBoard(popPid){ setTimeout(boardEmpty,0); setCrumb();
     const keyhole=bp.keyWait?`<div class="keyq wait"><div class="eye"></div><span class="kl">Reading the file…</span></div>`:`<div class="keyq" data-act="keyhole" data-pid="${bp.pid}" title="Peek in: opens the paper at this line"><div class="eye"><div class="in"><q>${esc(keyLong(bp.pid,kh))}</q></div></div></div>`;
     add('paper'+(bp.opened?'':' unread')+(bp.pile?' piled r'+([...bp.pid].reduce((a,c)=>a+c.charCodeAt(0),0)%3):''),`${tags(bp.pid)}<div class="meta"><span>Paper · ${p.y}</span></div><h2>${esc(p.t)}</h2><div class="by">${esc(p.by)}${bp.file?` · <span class="fn">${esc(bp.file)}</span>`:''}</div>`+
       (bp.opened?`<div class="abs">${esc(p.a)}</div>`:keyhole)+
-      (bp.take?`<div class="take"><small>Your takeaway · confidence ${'●'.repeat(bp.conf)}${'○'.repeat(5-bp.conf)}</small>${esc(bp.take)}</div>`:bp.opened?`<div class="zoomhint">No takeaway yet · zoom in to read ↗</div>`:''),bp.x,bp.y,{pid:bp.pid}); }
+      (bp.take?`<div class="take"><small>Your takeaway · confidence ${'●'.repeat(bp.conf)}${'○'.repeat(5-bp.conf)}</small>${esc(bp.take)}</div>`:bp.opened?`<div class="zoomhint">No takeaway yet · zoom in to read ↗</div>`:'')+qcolHTML(bp),bp.x,bp.y,{pid:bp.pid}); }
   // free items (not in a slot, not inside a note)
   const placed=new Set();
   // a paper's annotations stack as one list down its right side, in reading order (mirrors the reader's right panel)
   const far=document.body.classList.contains('far');
   for(const bp of S.papers){ const card=world.querySelector(`.paper[data-pid="${bp.pid}"]`); let y=bp.y; const x=bp.x+card.offsetWidth+(far?24:36);
-    S.items.filter(i=>i.pid===bp.pid&&(i.kind==='frag'||i.kind==='mine'||i.kind==='area')&&!i.slot&&!i.att&&i.x==null).sort((a,b)=>(a.rel??0)-(b.rel??0)).forEach((i,k)=>{
-      const el=itemEl(i,tags); el.style.left=x+'px'; el.style.top=y+'px'; el.classList.add('stacked');
+    if(bp.fold){ S.items.forEach(i=>{ if(i.pid===bp.pid&&isColQ(i)&&i.x==null) placed.add(i.id); }); continue; }
+    S.items.filter(i=>i.pid===bp.pid&&(i.kind==='frag'||i.kind==='mine'||i.kind==='area')&&!i.slot&&!i.att&&i.x==null).sort((a,b)=>(a.rel??0)-(b.rel??0)).forEach((i,k,arr)=>{
+      const el=itemEl(i,tags); el.style.left=x+'px'; el.style.top=y+'px'; el.classList.add('stacked','incol'); if(k===0) el.classList.add('first'); if(k===arr.length-1) el.classList.add('last');
       if(popPid===bp.pid){ el.animate([{opacity:0,transform:'translateX(-180px) scale(.6)'},{opacity:1,transform:'none'}],{duration:480,delay:k*40,easing:'cubic-bezier(.2,.9,.3,1.2)',fill:'backwards'}); }
-      y+=el.offsetHeight+(far?6:12); placed.add(i.id); }); }
+      y+=el.offsetHeight-1; placed.add(i.id); }); }
   for(const i of S.items) if(!placed.has(i.id)&&!i.slot&&!i.att){ const el=itemEl(i,tags); el.style.left=(i.x??0)+'px'; el.style.top=(i.y??0)+'px'; }
   for(const n of S.items.filter(x=>x.kind==='note'||x.kind==='claim')){ const ne=world.querySelector(`[data-id="${n.id}"]`); if(!ne) continue; let y=ne.offsetTop;
     for(const a of S.items.filter(x=>x.att===n.id)){ const el=itemEl(a,tags); el.classList.add('stacked'); el.style.left=(ne.offsetLeft-el.offsetWidth-40)+'px'; el.style.top=y+'px'; y+=el.offsetHeight+12; } }
@@ -1525,9 +1655,9 @@ function renderBoard(popPid){ setTimeout(boardEmpty,0); setCrumb();
       if(bd) bd.onkeydown=e=>{ if(e.key==='Escape') bd.blur(); }; } }
 }
 function itemEl(i,tags){ const el=document.createElement('div'); el.className='item k-'+i.kind; el.dataset.id=i.id; let h='';
-  if(i.kind==='frag'){ const c=colOf(i.col); el.style.setProperty('--hc',c.c); h=`<div class="q">“${esc(short(i.quote,170))}”</div><div class="src"><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:${c.c};margin-right:5px;border:1px solid rgba(0,0,0,.12)"></i>${c.name?esc(c.name)+' · ':''}${i.pid} · ${esc(para(i.pid,i.pi).sec)}${i.via?' · via '+i.via:''}</div>${i.comment?`<div class="c">${esc(i.comment)}</div>`:''}`; }
-  else if(i.kind==='area'){ h=`<div class="lab">AREA CLIP · ${i.pid}</div><div class="thumb"></div>${i.comment?`<div class="c">${esc(i.comment)}</div>`:''}`; }
-  else if(i.kind==='mine') h=`<small>MY NOTE · ${i.pid}</small>${esc(i.text||'…')}`;
+  if(i.kind==='frag'){ const c=colOf(i.col); el.style.setProperty('--hc',c.c); h=`<div class="q">“${esc(short(i.quote,170))}”</div><div class="src">${esc(qLab(i))}${i.via?' · via '+i.via:''}</div>${i.comment?`<div class="c">${esc(i.comment)}</div>`:''}`; }
+  else if(i.kind==='area'){ h=`<div class="lab">AREA CLIP · ${esc(qLab(i))}</div><div class="thumb"></div>${i.comment?`<div class="c">${esc(i.comment)}</div>`:''}`; }
+  else if(i.kind==='mine') h=`<small>MY NOTE${inCol(i)?'':' · '+esc(pl(i.pid))}</small>${esc(i.text||'…')}`;
   else if(i.kind==='note'){ const att=S.items.filter(x=>x.att===i.id); if(i.ink==='ai') el.classList.add('aiink'); const nc=NCOLS.find(c=>c.k===i.col); if(nc) el.style.setProperty('--nc',nc.c);
     const swatch=editing===i.id?'':`<div class="ncols" role="group" aria-label="Note colour">${NCOLS.map(c=>`<button data-act="ncol" data-i="${i.id}" data-c="${c.k}" class="${(i.col||'yellow')===c.k?'on':''}" style="background:${c.c}" title="${c.k}" aria-label="${c.k}"></button>`).join('')}</div>`;
     h=editing===i.id?`<div class="t" contenteditable="true">${esc(title(i.text))}</div><div class="b ed" contenteditable="true" data-ph="Write your note…">${esc(rest(i.text))}</div>`:`${i.q?`<div class="asked">${hchip(i.q.hat)} asked: “${esc(short(i.q.text,90))}”</div>`:''}<div class="t">${esc(title(i.text))}</div><div class="b">${esc(rest(i.text))}</div>${i.ink==='ai'?`<div class="inkl">${dot('ARCHITECT')} ARCHITECT's words · rewrite to make it yours</div>`:''}`+
@@ -1536,7 +1666,7 @@ function itemEl(i,tags){ const el=document.createElement('div'); el.className='i
   else if(i.kind==='claim') h=`<div class="lab">◆ CLAIM C${i.num}</div>`+(editing===i.id?`<div class="t" contenteditable="true">${esc(i.text)}</div>`:`<div class="t">${esc(i.text)}</div>`);
   else if(i.kind==='ai'){ el.classList.toggle('ok',!!i.ok); el.classList.toggle('face',!!i.face); el.classList.toggle('lead',!!i.lead); el.classList.add('h-'+i.hat);
     if(i.face) h=`<div class="who">${dot('SHADOW')}<span class="hn" style="color:#fff">SHADOW</span><span class="pt">· face down</span></div><div class="tx">${esc(i.text)} What do you think it says?</div><textarea rows="2" data-guess="${i.id}" placeholder="Your guess, then flip…">${esc(i.guess)}</textarea><div class="acts"><button data-act="flip" data-i="${i.id}">Flip it</button></div>`;
-    else h=`<div class="who">${dot(i.hat)}${hn(i.hat)}<span class="pt">· ${i.lead?'Lead · low confidence':i.part}</span></div><div class="tx">${esc(i.text)}</div>`+(i.src?`<div class="q" data-act="checksrc" data-i="${i.id}" title="Open this line in the paper">“${esc(short(i.src.quote,160))}” <span style="font-style:normal;font-size:12px;color:var(--pap);font-weight:600">${i.src.pid} · ${esc(i.src.sec)}</span></div>`:'')+
+    else h=`<div class="who">${dot(i.hat)}${hn(i.hat)}<span class="pt">· ${i.lead?'Lead · low confidence':i.part}</span></div><div class="tx">${esc(i.text)}</div>`+(i.src?`<div class="q" data-act="checksrc" data-i="${i.id}" title="Open this line in the paper">“${esc(short(i.src.quote,160))}” <span style="font-style:normal;font-size:12px;color:var(--pap);font-weight:600">${esc(pl(i.src.pid))} · ${esc(i.src.sec)}</span></div>`:'')+
       (i.guess?`<div class="guess">Your guess: ${esc(i.guess)}</div>`:'')+(i.ok?`<div class="oktag">✓ checked by you</div>${i.assume?`<div class="assm">assumes: ${esc(i.assume)}</div>`:''}`:'')+
       `<div class="acts">${i.src?`<button data-act="checksrc" data-i="${i.id}">Open the line ↗</button>`:''}<button data-act="remove" data-i="${i.id}">Remove…</button></div>`; }
   el.innerHTML=(tags?tags(i.id):'')+h; if(i.kind==='area') el.querySelector('.thumb').appendChild(thumbFor(i,242)); world.appendChild(el); return el; }
@@ -1577,7 +1707,7 @@ function drawLinks(){ const cols=['#5B8DEF','#C9A227','#8E8E93','#C2410C','#6E6E
   world.querySelectorAll('.item').forEach(el=>{ const i=I(el.dataset.id); if(!i) return;
     if(i.slot){ const c=world.querySelector(`[data-id="${i.slot.c}"]`); if(c) h.push(curve(box(el),box(c),i.slot.part==='R'?'#C2410C':'#8E8E93',{dash:i.kind==='ai'&&!i.ok})); }
     if(i.att){ const ne=world.querySelector(`[data-id="${i.att}"]`); if(ne) h.push(curve(box(el),box(ne),'#5B8DEF',{op:.8})); }
-    if(i.pid&&!i.att){ const card=world.querySelector(`.paper[data-pid="${i.pid}"]`); if(!card) return; const a=box(el), b=box(card); const far=Math.hypot(a.x-b.x,a.y-b.y)>1100;
+    if(i.pid&&!i.att&&!inCol(i)){ const card=world.querySelector(`.paper[data-pid="${i.pid}"]`); if(!card) return; const a=box(el), b=box(card); const far=Math.hypot(a.x-b.x,a.y-b.y)>1100;
       h.push(curve(a,b,i.kind==='mine'?'#C9A227':'#5B8DEF',{dash:far,op:far?.45:1})); } });
   // paper → quote → note: a quote in a note still traces back to its paper
   S.items.filter(x=>x.att&&x.pid).forEach(a=>{ const qe=world.querySelector(`[data-id="${a.id}"]`), card=world.querySelector(`.paper[data-pid="${a.pid}"]`); if(qe&&card) h.push(curve(box(qe),box(card),'#5B8DEF',{dash:true,op:.45})); });
@@ -1586,7 +1716,7 @@ function drawLinks(){ const cols=['#5B8DEF','#C9A227','#8E8E93','#C2410C','#6E6E
     const T=a.auto?{c:'#6E6E73'}:ATYPES[a.type]||{c:'#AEAEB2',l:'?'};
     const c=curve(box(A),box(B),T.c,{w:sel?2.8:1.8,dash:!a.auto&&!a.type}); /* no words on the line: colour = type; the type and the reason show when you select it */
     if(sel) arrowMid=curve.mid;
-    h.push(c.replace('<path ',`<path class="arw" data-arrow="${a.id}" `).replace('/>',`><title>${a.auto?'link':(T.l||'untyped')}${a.why?': '+esc(a.why):''}</title></path>`)); const dm=c.match(/ d="([^"]+)"/); if(dm) h.push(`<path class="arw" data-arrow="${a.id}" d="${dm[1]}" stroke="transparent" stroke-width="16" fill="none"/>`); }
+    h.push(c.replace('<path ',`<path class="arw" data-arrow="${a.id}" `).replace('/>',`><title>Proto Beta 3</title></path>`)); const dm=c.match(/ d="([^"]+)"/); if(dm) h.push(`<path class="arw" data-arrow="${a.id}" d="${dm[1]}" stroke="transparent" stroke-width="16" fill="none"/>`); }
   if(arrowDraft){ const A=keyEl(arrowDraft.from); if(A){ const b=box(A); h.push(`<path d="M${b.x+b.w/2},${b.y+b.h/2} L${arrowDraft.x},${arrowDraft.y}" stroke="#0A84FF" stroke-width="2" stroke-dasharray="6 5" fill="none"/>`); } }
   svg.innerHTML=h.join(''); renderChooser(); }
 let arrowDraft=null;
@@ -1655,8 +1785,8 @@ view.addEventListener('pointermove',e=>{ if(!drag) return; const dx=e.clientX-dr
   if(drag.k==='section'){ const ddx=Math.round(dx/zoom), ddy=Math.round(dy/zoom); drag.o.x=drag.ox+ddx; drag.o.y=drag.oy+ddy; drag.mem.papers.forEach(m=>{ m.o.x=m.x+ddx; m.o.y=m.y+ddy; }); drag.mem.items.forEach(m=>{ m.o.x=m.x+ddx; m.o.y=m.y+ddy; }); renderSoonAll(); return; }
   const wx=drag.ox+dx/zoom, wy=drag.oy+dy/zoom; drag.el.style.left=wx+'px'; drag.el.style.top=wy+'px';
   if(drag.k==='paper'){ drag.o.x=Math.round(wx); drag.o.y=Math.round(wy); if(drag.o.pile) delete drag.o.pile; renderSoon(); return; }
-  drag.wx=wx; drag.wy=wy; markTarget(dropTarget(e.clientX,e.clientY,drag.o)); drawLinks(); });
-view.addEventListener('pointerup',e=>{ if(!drag) return; const d=drag; drag=null; view.classList.remove('panning');
+  drag.wx=wx; drag.wy=wy; const tg=dropTarget(e.clientX,e.clientY,drag.o); markTarget(tg); magnetHint(tg?null:magnetCol(drag.o,wx,wy)); drawLinks(); });
+view.addEventListener('pointerup',e=>{ if(!drag) return; const d=drag; drag=null; view.classList.remove('panning'); if(d.gap) d.gap.remove(); world.querySelectorAll('.colins').forEach(x=>x.remove());
   if(d.k==='marquee'){ $('band').style.display='none'; if(!d.moved){ select(null); return; } const p=toWorld(e.clientX,e.clientY);
     const R={x:Math.min(p.x,d.x0),y:Math.min(p.y,d.y0)}; R.w=Math.abs(p.x-d.x0); R.h=Math.abs(p.y-d.y0); const hit=b=>b.x<R.x+R.w&&b.x+b.w>R.x&&b.y<R.y+R.h&&b.y+b.h>R.y;
     const keys=[]; world.querySelectorAll('.paper').forEach(el=>{ if(hit(box(el))) keys.push('p:'+el.dataset.pid); }); world.querySelectorAll('.item').forEach(el=>{ const i=I(el.dataset.id); if(i&&!i.slot&&hit(box(el))) keys.push('i:'+i.id); });
@@ -1670,7 +1800,7 @@ view.addEventListener('pointerup',e=>{ if(!drag) return; const d=drag; drag=null
   if(d.k==='section'||d.k==='resize'){ if(!d.moved){ select('s:'+d.o.id); return; } save(); renderBoard(); return; }
   if(!d.moved){ if(d.k==='item') select(d.o.id); else if(d.k==='paper') select(d.o.pid); else select(null); return; }
   if(d.k==='paper'){ save(); renderBoard(); return; }
-  if(d.k==='item'){ const t=dropTarget(e.clientX,e.clientY,d.o); markTarget(null); drop(d.o,t,d.wx,d.wy); } });
+  if(d.k==='item'){ const t=dropTarget(e.clientX,e.clientY,d.o); markTarget(null); magnetHint(null); drop(d.o,t,d.wx,d.wy); } });
 function dropTarget(cx,cy,it){ const els=document.elementsFromPoint(cx,cy);
   for(const el of els){ if(el.closest('.dragging')) continue;
     const sl=el.closest('.slot'); if(sl&&it.kind!=='claim') return {slot:sl};
@@ -1683,7 +1813,8 @@ function drop(it,t,wx,wy){
   if(t&&t.slot){ const c=t.slot.dataset.c, part=t.slot.dataset.part; const was=it.slot&&it.slot.c===c&&it.slot.part===part; it.slot={c,part}; it.att=null; it.x=null; it.y=null;
     if(!was){ ev(`You placed a ${it.kind==='ai'?it.hat+' card':it.kind==='frag'?'quote from '+it.pid:'note'} as ${PARTS[part]} of C${I(c).num}.`); log('slot',{item:it.id,claim:c,part}); if(part==='G') reactGround(I(c),it); }
     save(); renderBoard(); return; }
-  if(t&&t.note){ it.att=t.note.dataset.id; it.slot=null; it.x=null; it.y=null; ev(`You put a quote from ${it.pid} into your note “${short(title(I(it.att).text),40)}”.`); log('attach',{item:it.id,note:it.att}); save(); renderBoard(); return; }
+  if(t&&t.note){ it.att=t.note.dataset.id; it.slot=null; it.x=null; it.y=null; ev(`You put a quote from ${pl(it.pid)} into your note “${short(title(I(it.att).text),40)}”.`); log('attach',{item:it.id,note:it.att}); save(); renderBoard(); return; }
+  if(magnetCol(it,wx,wy)){ if(it.att) log('detach',{item:it.id,note:it.att}); it.att=null; it.slot=null; it.x=null; it.y=null; log('quote-snap',{item:it.id,pid:it.pid}); save(); renderBoard(); return; }
   if(it.att){ ev(`You took a quote out of your note.`); log('detach',{item:it.id,note:it.att}); } it.att=null; it.slot=null; it.x=Math.round(wx); it.y=Math.round(wy); save(); renderBoard(); }
 let rsa=0; function renderSoonAll(){ cancelAnimationFrame(rsa); rsa=requestAnimationFrame(()=>renderBoard()); }
 let rs=0; function renderSoon(){ cancelAnimationFrame(rs); rs=requestAnimationFrame(()=>{ if(!drag) return; renderBoard(); const el=world.querySelector(`.paper[data-pid="${drag.o.pid}"]`); if(el){ drag.el=el; el.classList.add('dragging'); } }); }
@@ -1716,6 +1847,10 @@ function fit(again){ const r=vr(); const els=[...world.querySelectorAll('.paper,
 
 /* clicks on buttons inside cards */
 world.addEventListener('click',e=>{ const b=e.target.closest('[data-act]'); if(!b) return; e.stopPropagation(); const a=b.dataset.act;
+  if(a==='qfold'||a==='qback'){ const bp=S.papers.find(x=>x.pid===b.dataset.pid); if(!bp) return;
+    if(a==='qfold'){ bp.fold=!bp.fold; log('quotes-fold',{pid:bp.pid,fold:bp.fold}); }
+    else { const loose=S.items.filter(i=>i.pid===bp.pid&&isColQ(i)&&i.x!=null); loose.forEach(i=>{ i.x=null; i.y=null; }); bp.fold=false; log('quotes-back',{pid:bp.pid,n:loose.length}); }
+    save(); renderBoard(); return; }
   if(a==='tag'){ openCouncil(b.dataset.f); }
   if(a==='detach'){ const it=I(b.dataset.a); const n=I(it.att); it.att=null; it.x=n.x+(n.x>2900?-300:300); it.y=n.y+40; save(); renderBoard(); }
   if(a==='openatt'){ const it=I(b.dataset.a); enterReading(it.pid,{focus:it.id}); }
@@ -1747,9 +1882,17 @@ let outAccum=0;
 /* a trackpad pinch arrives as many small ctrl+wheel deltas; a mouse notch as one big one (±100). Pinch gets a stronger gain so both feel the same. */
 const zoomDelta=e=>{ const d=e.deltaY*(e.deltaMode===1?33:e.deltaMode===2?400:1), pinch=e.deltaMode===0&&(!Number.isInteger(e.deltaY)||Math.abs(e.deltaY)<50); return pinch?d*4.4:d; };
 window.addEventListener('wheel',e=>{
-  if(reading){ if(e.ctrlKey||e.metaKey){ e.preventDefault(); if(e.deltaY>0){ outAccum+=zoomDelta(e); if(outAccum>140){ outAccum=0; exitReading(); } } else outAccum=0; } return; }
+  /* in a paper, Ctrl/⌘ + scroll (or a pinch) zooms the paper itself; only zooming out past the smallest size leaves the reader */
+  if(reading){ if(e.ctrlKey||e.metaKey){ e.preventDefault();
+      if(!reading.n&&typeof RD!=='undefined'){ const z0=RD.z, nz=+Math.max(.6,Math.min(2.2,RD.z*Math.exp(-zoomDelta(e)*.002))).toFixed(2);
+        if(e.deltaY>0&&z0<=.6){ outAccum+=zoomDelta(e); if(outAccum>220){ outAccum=0; exitReading(); } return; }
+        outAccum=0; if(nz!==z0){ const pg=RD.page(); RD.z=nz; RD.apply(); clearTimeout(RD.wt); RD.wt=setTimeout(()=>{ log('reader-zoom',{z:RD.z,by:'wheel'}); $('sheet').dataset.pdf=''; renderReader(); setTimeout(()=>RD.go(pg),250); },260); } return; }
+      if(e.deltaY>0){ outAccum+=zoomDelta(e); if(outAccum>140){ outAccum=0; exitReading(); } } else outAccum=0; } return; }
   /* the writing room: zoom out far enough and you are back on the board (and the browser page never zooms) */
-  if(W.on){ if(e.ctrlKey||e.metaKey){ e.preventDefault(); if(e.deltaY>0){ outAccum+=zoomDelta(e); if(outAccum>140){ outAccum=0; closeWrite(); } } else outAccum=0; } return; }
+  if(W.on){ if(e.ctrlKey||e.metaKey){ e.preventDefault();
+      /* a note just opened by zooming in stays open: a pinch's bounce or the end of the scroll must not close it straight away */
+      if(Date.now()-(W.t0||0)<1500){ outAccum=0; return; }
+      if(e.deltaY>0){ outAccum+=zoomDelta(e); if(outAccum>220){ outAccum=0; log('write-close-by',{by:'zoom-out'}); closeWrite(); } } else outAccum=0; } return; }
   if(!e.target.closest('#view')) return; e.preventDefault();
   if(e.ctrlKey||e.metaKey){ const r=vr(); const mx=e.clientX-r.left, my=e.clientY-r.top; const nz=Math.min(4,Math.max(.1,zoom*Math.exp(-zoomDelta(e)*.0025)));
     pan.x=mx-(mx-pan.x)*(nz/zoom); pan.y=my-(my-pan.y)*(nz/zoom); zoom=nz; applyView();
@@ -1774,7 +1917,7 @@ $('rbar').onclick=e=>{ const b=e.target.closest('[data-c]'); if(!b) return; cons
   checking=null; rbar(); renderReader(); };
 /* you took the AI's pointer into your own hands: its card becomes your quote, keeping where it sat */
 function adopt(it,n){ n.via=it.hat; n.checked=Date.now(); if(it.slot) n.slot=it.slot; else if(it.x!=null){ n.x=it.x; n.y=it.y; } S.items=S.items.filter(x=>x!==it);
-  ev(`You made ${it.hat}'s line your own: it is now your quote from ${n.pid}.`); log('adopt',{from:it.id,to:n.id,hat:it.hat}); checking=null; save(); rbar(); toast("It's your quote now · found via "+it.hat); }
+  ev(`You made ${it.hat}'s line your own: it is now your quote from ${pl(n.pid)}.`); log('adopt',{from:it.id,to:n.id,hat:it.hat}); checking=null; save(); rbar(); toast("It's your quote now · found via "+it.hat); }
 /* a simple generated chart, so there is something to clip with the area tool (fictional data) */
 function figHTML(pid){ const p=P(pid), R=rng([...pid].reduce((s,c)=>s*17+c.charCodeAt(0),3)); const n=6, W=600, H=230, bw=60;
   const vals=Array.from({length:n},(_,k)=>0.25+0.55*(k/(n-1))+(R()-.5)*.2);
@@ -1782,7 +1925,7 @@ function figHTML(pid){ const p=P(pid), R=rng([...pid].reduce((s,c)=>s*17+c.charC
   return `<div class="fig"><svg viewBox="0 0 ${W} ${H}"><line x1="56" y1="${H-30}" x2="${W-10}" y2="${H-30}" stroke="#C7C7CC"/><line x1="56" y1="16" x2="56" y2="${H-30}" stroke="#C7C7CC"/><text x="16" y="${H/2}" font-size="12" fill="#6E6E73" font-family="system-ui" transform="rotate(-90 16 ${H/2})" text-anchor="middle">${esc(p.out)}</text>${bars}</svg><div class="cap">Figure 1. ${esc(p.out[0].toUpperCase()+p.out.slice(1))} across six levels of ${esc(p.ex)} (fictional data).</div></div>`; }
 
 /* the paper as HTML: shared by the reader and by area-clip thumbnails, so both lay out identically */
-function paperHTML(pid,withMarks){ const p=P(pid); let html=`<div class="meta">${p.ext?'':p.id+' · '}${p.y} · ${esc(p.kind)} · ${p.example?esc(p.venue):p.pdf?'from your PDF':p.ext?'from OpenAlex · abstract only'+(p.doi?' · <a href="'+esc(p.doi)+'" target="_blank" rel="noopener">DOI ↗</a>':''):'fictional sample'}</div><h1>${esc(p.t)}</h1><div class="by">${esc(p.by)}</div>`; let last=1;
+function paperHTML(pid,withMarks){ const p=P(pid); let html=`<div class="meta">${p.y} · ${esc(p.kind)} · ${p.example?esc(p.venue):p.pdf?'from your PDF':p.ext?'from OpenAlex · abstract only'+(p.doi?' · <a href="'+esc(p.doi)+'" target="_blank" rel="noopener">DOI ↗</a>':''):'fictional sample'}</div><h1>${esc(p.t)}</h1><div class="by">${esc(p.by)}</div>`; let last=1;
   for(const x of body(pid)){ if(x.page!==last){ html+=`<div class="page" data-page="${x.page}">${x.page}</div>`; last=x.page; }
     if(x.h) html+=`<h3>${x.h}</h3>`; else if(x.fig) html+=figHTML(pid); else html+=`<div class="para ${x.abs?'abs':''}" data-pi="${x.pi}">${withMarks?marked(x,pid):esc(x.p)}</div>`; }
   return html; }
@@ -1817,13 +1960,16 @@ function renderPanel(){ const L=$('rlist'), list=annots(); $('rptitle').textCont
   if(!list.length){ L.innerHTML=`<div class="empty">Your highlights, notes and clips collect here, in page order, all visible at once.<br><br>Select text to highlight · ▢ adds your own note · ⬚ clips a figure or table.</div>`; return; }
   L.innerHTML='';
   for(const {n,a,y} of list){ const el=document.createElement('div'); el.className='an'+(n.kind==='mine'?' m':''); el.dataset.n=n.id; const pg=pageAt(y);
-    if(n.kind==='frag'){ const c=colOf(n.col); el.style.setProperty('--hc',c.c); el.innerHTML=`<span class="pg">p.${pg}</span>${c.name?`<div class="lab">${esc(c.name)}</div>`:''}<div class="q">“${esc(n.quote)}”</div><textarea rows="1" placeholder="Your thought…">${esc(n.comment||'')}</textarea><div class="acts"><button data-del>remove</button></div>`; }
-    else if(n.kind==='area'){ el.innerHTML=`<span class="pg">p.${pg}</span><div class="thumb"></div><textarea rows="1" placeholder="What does this show?">${esc(n.comment||'')}</textarea><div class="acts"><button data-del>remove</button></div>`; el.querySelector('.thumb').appendChild(thumbFor(n,290)); }
+    if(n.kind==='frag'){ const c=colOf(n.col); el.style.setProperty('--hc',c.c); el.classList.add('hq'); el.innerHTML=`<span class="pg">p.${pg}</span><div class="q">“${esc(n.quote)}”</div><textarea rows="1" placeholder="Your thought…">${esc(n.comment||'')}</textarea><div class="acts"><button data-think>Add a thought</button><button data-del>remove</button></div>`; }
+    else if(n.kind==='area'){ el.innerHTML=`<span class="pg">p.${pg}</span><div class="thumb"></div><textarea rows="1" placeholder="What does this show?">${esc(n.comment||'')}</textarea><div class="acts"><button data-think>Add a thought</button><button data-del>remove</button></div>`; el.querySelector('.thumb').appendChild(thumbFor(n,290)); }
     else el.innerHTML=`<span class="pg">p.${pg}</span><textarea rows="1" placeholder="Write a note…">${esc(n.text||'')}</textarea><div class="acts"><button data-del>remove</button></div>`;
     L.appendChild(el);
     const ta=el.querySelector('textarea'); const grow=()=>{ ta.style.height='auto'; ta.style.height=ta.scrollHeight+'px'; }; grow();
     ta.oninput=()=>{ if(n.kind==='mine') n.text=ta.value; else n.comment=ta.value; grow(); save(); };
     ta.onblur=()=>{ if(n.kind==='mine'&&!String(n.text||'').trim()){ S.items=S.items.filter(x=>x!==n); save(); renderPanel(); } };
+    /* a highlight is left alone: the thought box only opens when you ask for it, or when you've written one */
+    if(n.kind!=='mine'){ const bare=()=>!String(n.comment||'').trim(); el.classList.add(bare()?'bare':'has'); const tb=el.querySelector('[data-think]'); if(tb) tb.onclick=e=>{ e.stopPropagation(); el.classList.add('adding'); ta.focus(); grow(); };
+      ta.addEventListener('blur',()=>{ el.classList.toggle('bare',bare()); el.classList.toggle('has',!bare()); el.classList.remove('adding'); }); }
     const on=()=>{ a.classList.add('hot'); el.classList.add('hot'); }, off=()=>{ a.classList.remove('hot'); el.classList.remove('hot'); };
     el.onmouseenter=on; el.onmouseleave=off; if(n.kind!=='mine'){ a.onmouseenter=on; a.onmouseleave=off; }
     el.onclick=e=>{ if(e.target.closest('textarea,button')) return; scrollToEl(a,n.kind==='mine'&&n.py==null?(n.dy||0):0); };
@@ -1833,7 +1979,7 @@ function flashNote(id){ const el=document.querySelector(`.an[data-n="${id}"]`); 
 function scrollToEl(a,dy=0){ const r=a.getBoundingClientRect(), sr=rscroll.getBoundingClientRect(); rscroll.scrollTo({top:rscroll.scrollTop+r.top-sr.top+dy-140,behavior:'smooth'}); }
 $('rpadd').onclick=()=>{ if(!reading||reading.n) return; if($('sheet').classList.contains('pdfsheet')){ addMine(0,0,Math.max(0,Math.round(rscroll.scrollTop-$('sheet').offsetTop+80))); return; } const pi=nearestPara(rscroll.scrollTop+40); addMine(pi.pi,pi.dy); };
 function nearestPara(ySheet){ let best={pi:0,dy:0}; $('sheet').querySelectorAll('.para').forEach(pe=>{ if(pe.offsetTop<=ySheet) best={pi:+pe.dataset.pi,dy:Math.max(0,Math.round(ySheet-pe.offsetTop))}; }); return best; }
-function addMine(pi,dy,py){ const n={id:'i'+(uid++),kind:'mine',pid:reading.p,pi,dy,text:'',rel:null}; if(py!=null) n.py=py; S.items.push(n); log('note',{pid:reading.p}); if(py!=null) drawPdfExtras(reading.p); renderPanel(); const ta=document.querySelector(`.an[data-n="${n.id}"] textarea`); if(ta){ ta.focus(); flashNote(n.id); } }
+function addMine(pi,dy,py){ const n={id:'i'+(uid++),kind:'mine',pid:reading.p,pi,dy,text:'',rel:null}; if(py!=null) n.py=py; S.items.push(n); log('note',{pid:reading.p}); if(py!=null) drawPdfExtras(reading.p); renderPanel(); const ta=document.querySelector(`.an[data-n="${n.id}"] textarea`); if(ta){ ta.closest('.an')?.classList.add('adding'); ta.focus(); flashNote(n.id); } }
 
 /* ---------- toolbar: page · highlight + colour · note · area · search ---------- */
 function setRTool(t){ rtool=rtool===t?null:t; document.querySelectorAll('#rtool [data-rt]').forEach(b=>b.classList.toggle('on',b.dataset.rt===rtool)); document.body.classList.toggle('r-area',rtool==='area'); document.body.classList.toggle('r-note',rtool==='note');
@@ -1875,7 +2021,7 @@ $('sheet').addEventListener('pointerup',e=>{ if(!areaDrag) return; const d=areaD
   const rx=Math.round(Math.min(d.x,d.x0)), ry=Math.round(Math.min(d.y,d.y0)), rw=Math.round(Math.abs(d.x-d.x0)), rh=Math.round(Math.abs(d.y-d.y0)); if(rw<30||rh<20){ toast('Drag a bigger box'); return; }
   const near=nearestPara(ry); const n={id:'i'+(uid++),kind:'area',pid:reading.p,pi:near.pi,rx,ry,rw,rh,comment:'',rel:null};
   if($('sheet').classList.contains('pdfsheet')){ n.pdf=true; n.img=cropPdf(rx,ry,rw,rh); } S.items.push(n); log('area',{pid:reading.p}); save(); setRTool('area'); renderReader();
-  const ta=document.querySelector(`.an[data-n="${n.id}"] textarea`); if(ta){ ta.focus(); flashNote(n.id); } });
+  const ta=document.querySelector(`.an[data-n="${n.id}"] textarea`); if(ta){ ta.closest('.an')?.classList.add('adding'); ta.focus(); flashNote(n.id); } });
 
 function renderNoteSheet(){ const it=I(reading.n), sheet=$('sheet'); const isC=it.kind==='claim';
   sheet.innerHTML=`<div class="meta">${isC?'◆ Claim C'+it.num:'Note'} · your words</div><input class="title" id="ntitle" value="${esc(title(it.text))}" placeholder="Title"><div id="nbody" contenteditable="true" spellcheck="false">${provHTML(it)}</div><div class="mirror" id="mirror"></div><div class="mstats" id="mstats"></div>`;
@@ -1884,7 +2030,7 @@ function renderNoteSheet(){ const it=I(reading.n), sheet=$('sheet'); const isC=i
   ti.oninput=upd; bo.addEventListener('input',upd); wireProvenance(bo,upd); setTimeout(drawMirror,30);
   const att=S.items.filter(x=>x.att===it.id||(isC&&x.slot&&x.slot.c===it.id&&x.slot.part==='G'));
   $('rptitle').textContent=isC?'Claim':'Note'; $('rpcount').textContent=''; $('rpadd').style.display='none';
-  let h=`<div class="side"><h5>${isC?'Grounds on the board':'Quotes in this note'}</h5>${att.length?att.map(a=>a.quote?`<div class="att" data-a="${a.id}"><div class="q">“${esc(short(a.quote,140))}”</div><div class="src">${a.pid} · ${esc(para(a.pid,a.pi).sec)} · open ↗</div></div>`:`<div class="att" style="background:var(--mebg);border-color:var(--me)">${esc(short(a.text,120))}</div>`).join(''):'<div style="color:var(--ink3);font-size:13px;line-height:1.5">Drag highlighted quotes onto this note on the board. They stay linked to their page.</div>'}</div>`;
+  let h=`<div class="side"><h5>${isC?'Grounds on the board':'Quotes in this note'}</h5>${att.length?att.map(a=>a.quote?`<div class="att" data-a="${a.id}"><div class="q">“${esc(short(a.quote,140))}”</div><div class="src">${esc(pl(a.pid))} · ${esc(para(a.pid,a.pi).sec)} · open ↗</div></div>`:`<div class="att" style="background:var(--mebg);border-color:var(--me)">${esc(short(a.text,120))}</div>`).join(''):'<div style="color:var(--ink3);font-size:13px;line-height:1.5">Drag highlighted quotes onto this note on the board. They stay linked to their page.</div>'}</div>`;
   if(isC){ const sl=k=>S.items.filter(x=>x.slot&&x.slot.c===it.id&&x.slot.part===k);
     h+=`<div class="side" style="margin-top:18px"><h5>Toulmin · around this claim</h5>`+['G','W','R','Q'].map(k=>{ const s2=sl(k); return `<div class="tl"><b>${PARTS[k]}</b>${s2.length?s2.map(x=>x.face?'face-down card':x.kind==='ai'?x.hat+(x.ok?' ✓':' (unchecked)'):x.kind==='frag'?x.pid+' quote':'your note').join(', '):`<span class="miss">${k==='W'?'missing, yours to write':'empty'}</span>`}</div>`; }).join('')+`</div>`; }
   $('rlist').innerHTML=h; $('rlist').querySelectorAll('.att[data-a]').forEach(el=>el.onclick=()=>{ const a=I(el.dataset.a); if(a.pid) switchTo({p:a.pid},{focus:a.id}); }); rbar(); }
@@ -1920,7 +2066,7 @@ function cardEl(o){ return o.n?world.querySelector(`[data-id="${o.n}"]`):world.q
 function enterReading(pid,opt={}){ openOverlay({p:pid},opt); }
 function openNote(id){ if(!I(id)) return; if(I(id).kind==='note') return openWrite(id); openOverlay({n:id},{}); }
 function openOverlay(o,opt){ if(reading) return; const card=cardEl(o)||(o.p&&P(o.p)?{getBoundingClientRect:()=>({left:innerWidth/2-200,top:innerHeight/2-120,width:400,height:240})}:null); if(!card) return; if(editing){ const t=world.querySelector(`[data-id="${editing}"] .t`); if(t) t.blur(); }
-  if(o.p){ const bp=S.papers.find(x=>x.pid===o.p)||(S.libOff||[]).find(x=>x.pid===o.p); if(bp&&!bp.opened){ bp.opened=true; ev(`You opened ${o.p}${opt.key?' at its keyhole line':''}.`); log('opened',{pid:o.p,via:opt.key?'keyhole':'zoom'}); save(); } }
+  if(o.p){ const bp=S.papers.find(x=>x.pid===o.p)||(S.libOff||[]).find(x=>x.pid===o.p); if(bp&&!bp.opened){ bp.opened=true; ev(`You opened ${pl(o.p)}${opt.key?' at its keyhole line':''}.`); log('opened',{pid:o.p,via:opt.key?'keyhole':'zoom'}); save(); } }
   const cr=card.getBoundingClientRect(); reading=o; checking=opt.check||null; outAccum=0; rtool=null; setRTool(null); document.body.classList.add('reading'); reader.classList.add('on','entering'); renderReader(); rscroll.scrollTop=0;
   const sheet=$('sheet'); const sr=sheet.getBoundingClientRect(); const s=cr.width/sr.width;
   reader.classList.remove('anim'); sheet.style.transform=`translate(${cr.left-sr.left}px,${cr.top-sr.top}px) scale(${s})`; reader.style.background='rgba(242,242,245,0)'; void sheet.offsetWidth;
@@ -1949,22 +2095,22 @@ $('back').onclick=exitReading;
 /* select text in the paper → highlight in the current colour (highlight tool on: instantly; off: a small bar) */
 const bar=$('selbar'); let pending=null;
 $('pdfvw').addEventListener('click',e=>{ const b=e.target.closest('[data-v]'); if(!b||!reading) return; PDFV.view=b.dataset.v; log('pdf-view',{v:PDFV.view}); $('sheet').dataset.pdf=''; renderReader(); });
-$('sheet').addEventListener('mouseup',()=>setTimeout(()=>{ if(!reading||reading.n||rtool==='area'||rtool==='note') return; if($('sheet').classList.contains('pdfsheet')) return pdfSelect(); const s=getSelection(); const txt=s.toString(); if(!txt.trim()){ bar.style.display='none'; return; }
+$('sheet').addEventListener('mouseup',ev=>ev.button===2?0:setTimeout(()=>{ if(!reading||reading.n||rtool==='area'||rtool==='note') return; if($('sheet').classList.contains('pdfsheet')) return pdfSelect(); const s=getSelection(); const txt=s.toString(); if(!txt.trim()){ bar.style.display='none'; return; }
   const a=s.anchorNode&&(s.anchorNode.nodeType===1?s.anchorNode:s.anchorNode.parentElement).closest('.para'); const f2=s.focusNode&&(s.focusNode.nodeType===1?s.focusNode:s.focusNode.parentElement).closest('.para');
   if(!a||a!==f2){ bar.style.display='none'; toast('Select within one paragraph'); return; }
   const r0=s.getRangeAt(0); const pre=document.createRange(); pre.selectNodeContents(a); pre.setEnd(r0.startContainer,r0.startOffset);
   const start=pre.toString().length; pending={pi:+a.dataset.pi,start,end:start+r0.toString().length};
-  if(rtool==='hl'){ addHighlight(false); return; }
-  const r=r0.getBoundingClientRect(); bar.style.display='flex'; bar.style.left=(r.left+r.width/2-110)+'px'; bar.style.top=(r.top-46)+'px'; },10));
+  if(rtool==='hl'&&hlOk()){ addHighlight(false); return; }
+  const r=r0.getBoundingClientRect(); bar.style.display='flex'; bar.style.left=Math.max(8,r.left+r.width/2-bar.offsetWidth/2)+'px'; bar.style.top=(r.top-46)+'px'; },10));
 document.addEventListener('mousedown',e=>{ if(!bar.contains(e.target)) bar.style.display='none'; }); bar.onmousedown=e=>e.preventDefault();
-bar.onclick=e=>{ const b=e.target.closest('[data-act]'); if(!b||!pending) return; addHighlight(b.dataset.act==='cm'); };
+bar.onclick=e=>{ const b=e.target.closest('[data-act]'); if(!b||!pending) return; if(b.dataset.act==='ex') return explainLine(); addHighlight(b.dataset.act==='cm'); };
 function addHighlight(withComment){ const pid=reading.p; const x=para(pid,pending.pi); bar.style.display='none';
   if(S.items.some(n=>n.kind==='frag'&&n.pid===pid&&n.pi===pending.pi&&n.start<pending.end&&pending.start<n.end)){ toast('That overlaps an existing highlight'); pending=null; return; }
   const quote=x.p.slice(pending.start,pending.end).trim(); if(!quote){ pending=null; return; }
   const n={id:'i'+(uid++),kind:'frag',pid,pi:pending.pi,start:pending.start,end:pending.end,quote,comment:'',col:hlCol,rel:null};
   S.items.push(n); log('highlight',{pid,col:hlCol,words:wc(quote)}); const ck=checking&&I(checking); if(ck&&ck.src&&ck.src.pid===pid&&ck.src.pi===n.pi){ const cs=x.p.indexOf(ck.src.quote); if(cs>=0&&n.start<cs+ck.src.quote.length&&cs<n.end) adopt(ck,n); }
   save(); getSelection().removeAllRanges(); pending=null; renderReader();
-  if(withComment){ const ta=document.querySelector(`.an[data-n="${n.id}"] textarea`); if(ta){ ta.focus(); flashNote(n.id); } } else flashNote(n.id); }
+  if(withComment){ const ta=document.querySelector(`.an[data-n="${n.id}"] textarea`); if(ta){ ta.closest('.an')?.classList.add('adding'); ta.focus(); flashNote(n.id); } } else flashNote(n.id); }
 
 /* ======================= council ======================= */
 let addressed=null;
@@ -1977,14 +2123,15 @@ const hcol=h=>HATS[h].t; // text-safe hat colour
 function msgTime(f){ if(!f.t) f.t=Date.now(); const d=new Date(f.t); return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0'); }
 function renderFeed(flashId){ const fd=$('feed'); let prev=null;
   const isNew=f=>{ if(!f.k) f.k='m'+(uid++); const n=feedOnce&&!seenMsg.has(f.k); seenMsg.add(f.k); return n?' new':''; };
-  const html=`<div class="sys"><span>Scripted demo: the hats answer only from the papers on your board. Drag a hat's message onto the board to keep it.</span></div>`+S.feed.map(f=>{
+  let live=false; try{ live=LLM.ok===true; }catch(e){}
+  const html=`<div class="sys"><span>${live?'Live: the hats answer from the papers on your board, through Claude on this computer.':'Scripted demo: the hats answer only from the papers on your board.'} Drag a hat's message onto the board to keep it.</span></div>`+S.feed.map(f=>{
     if(f.type==='ev'){ prev=null; return `<div class="sys${isNew(f)}"><span>${esc(f.text)}</span></div>`; }
     if(f.type==='you'){ prev=null; return `<div class="msg me${isNew(f)}"><div class="bub"><div class="who">You</div>${esc(f.text)}</div></div>`; }
     if(f.type==='think'){ if(f.tmp) return `<div class="msg hat${prev===f.hat?' cont':''}${isNew(f)}"><div class="bub typing">${esc(f.text)}</div></div>`; prev=null; return `<div class="sys pass${isNew(f)}"><span>${esc(f.text)}</span></div>`; }
     const cont=false; prev=f.hat;
-    const src=f.src?`<div class="q">“${esc(f.src.quote)}”<span>${esc(shortTitle(f.src.pid))} · ${esc(f.src.sec)} · ${f.found?'quote found ✓':'⚠ unverified'}</span></div>`:f.lead?`<div class="q lead">A lead from outside your papers · low confidence</div>`:'';
-    return `<div class="msg hat ln${cont?' cont':''}${f.gone?' gone':''}${isNew(f)}" draggable="${f.gone?'false':'true'}" data-f="${f.id}"><div class="bub" style="--hc:${HATS[f.hat].t}">${cont?'':`<div class="who">${f.hat==='CONDUCTOR'?'<span class="hn cd">CONDUCTOR</span>':f.hat}<span>${f.lead?'Lead':f.part}</span></div>`}<div class="tx">${esc(f.text)}</div>${src}${f.step?`<button class="fstep" data-fa="step">${esc(f.step.label)} →</button>`:''}</div>`+
-      `<div class="acts"><span class="hint">Drag to the board</span>${f.src?'<button data-fa="check">Check source</button>':''}<button data-fa="saw">What it saw</button><button data-fa="dismiss">Dismiss</button></div></div>`; }).join('');
+    const src=f.src?`<div class="q" data-fa="check" style="cursor:pointer" title="Open the source">“${esc(f.src.quote)}”<span>${esc(shortTitle(f.src.pid))} · ${esc(f.src.sec)} · ${f.found?'quote found ✓':'⚠ unverified'}</span></div>`:f.lead?`<div class="q lead">A lead from outside your papers · low confidence</div>`:'';
+    return `<div class="msg hat ln${cont?' cont':''}${f.gone?' gone':''}${isNew(f)}" draggable="${f.gone?'false':'true'}" data-f="${f.id}"><div class="bub" style="--hc:${HATS[f.hat].t}"><div class="wc">${f.src?'<button data-fa="check" class="wc-src" title="Check source" aria-label="Check source"><svg viewBox="0 0 12 12"><path d="M2 2.5h3.2c.5 0 .8.3.8.8v6.2c0-.5-.4-.8-.8-.8H2zM10 2.5H6.8c-.5 0-.8.3-.8.8v6.2c0-.5.4-.8.8-.8H10z"/></svg></button>':''}<button data-fa="saw" class="wc-why" title="What it saw" aria-label="What it saw">?</button><button data-fa="dismiss" class="wc-x" title="Dismiss" aria-label="Dismiss"><svg viewBox="0 0 12 12"><path d="M3.5 3.5l5 5M8.5 3.5l-5 5"/></svg></button></div>${cont?'':`<div class="who">${f.hat==='CONDUCTOR'?'<span class="hn cd">CONDUCTOR</span>':f.hat}<span>${f.lead?'Lead':f.part}</span></div>`}<div class="tx">${ldTx(f)}</div>${f.wait?'':src}${f.step?`<button class="fstep" data-fa="step">${esc(f.step.label)} →</button>`:''}</div>`+
+      '</div>'; }).join('');
   fd.innerHTML=html; feedOnce=true;
   if(flashId){ const l=fd.querySelector(`[data-f="${flashId}"]`); if(l){ l.scrollIntoView({block:'center'}); l.classList.add('flash'); } } else fd.scrollTop=fd.scrollHeight; }
 /* the hat that's talking lights up in the row, and the header says so */
@@ -2005,7 +2152,7 @@ const loadScript=src=>new Promise((ok,no)=>{ const sc=document.createElement('sc
 function loadPdfJs(){ if(pdfReady) return pdfReady; pdfReady=(async()=>{ try{ await loadScript('vendor/pdf.min.js'); if(location.protocol==='file:') await loadScript('vendor/pdf.worker.min.js'); window.pdfjsLib.GlobalWorkerOptions.workerSrc='vendor/pdf.worker.min.js'; return window.pdfjsLib; }
   catch(e){ await loadScript(PDFJS+'pdf.min.js'); const w=await fetch(PDFJS+'pdf.worker.min.js').then(r=>r.text()); window.pdfjsLib.GlobalWorkerOptions.workerSrc=URL.createObjectURL(new Blob([w],{type:'text/javascript'})); return window.pdfjsLib; } })(); pdfReady.catch(()=>{ pdfReady=null; }); return pdfReady; }
 /* lines → paragraphs: a short line, or a gap, ends a paragraph; hyphens at line ends are joined; short numbered or capitalised lines are headings */
-async function pdfToParas(doc){ const out=[]; let title='', big=0; const pages=[];
+async function pdfToParas(doc){ const out=[]; let title='', big=0, authors=''; const pages=[];
   for(let n=1;n<=doc.numPages;n++){ const pg=await doc.getPage(n), tc=await pg.getTextContent(); const lines=[]; let cur='', y=null, h=0;
     for(const it of tc.items){ const iy=it.transform[5], ih=Math.abs(it.transform[3]); if(y!==null&&Math.abs(iy-y)>ih*.6&&cur){ lines.push({t:cur.trim(),h,gap:Math.abs(iy-y)/Math.max(h,1)}); cur=''; h=0; } cur+=(cur&&!/[\s-]$/.test(cur)?' ':'')+it.str; y=iy; h=Math.max(h,ih); if(it.hasEOL){ lines.push({t:cur.trim(),h,gap:1}); cur=''; h=0; y=null; } }
     if(cur.trim()) lines.push({t:cur.trim(),h,gap:1}); pages.push(lines); }
@@ -2015,25 +2162,36 @@ async function pdfToParas(doc){ const out=[]; let title='', big=0; const pages=[
   const often=Math.max(3,Math.ceil(pages.length*.4)), noise=t=>/^[#\s.–-]*$/.test(key(t))||(t.length<140&&seen[key(t)]>=often);
   for(let n=1;n<=pages.length;n++){
     const body=pages[n-1].filter(l=>l.t&&!noise(l.t)); if(!body.length) continue; const med=body.map(l=>l.h).sort((a,b)=>a-b)[Math.floor(body.length/2)]||10, avg=body.reduce((s,l)=>s+l.t.length,0)/body.length;
-    if(n===1){ const top=body.filter(l=>l.h>=med*1.3&&l.t.length>8).slice(0,3); if(top.length){ title=top.map(l=>l.t).join(' '); big=top[0].h; } }
+    if(n===1){ const top=body.filter(l=>l.h>=med*1.3&&l.t.length>8).slice(0,3); if(top.length){ title=top.map(l=>l.t).join(' '); big=top[0].h; const ti=body.indexOf(top[top.length-1]), al=body.slice(ti+1,ti+4).find(l=>/[A-Z][a-z]+.*(,| and |&)/.test(l.t)&&l.t.length<300&&!/@|universit|department|abstract/i.test(l.t)); if(al) authors=al.t.replace(/[﻿​-‍]/g,'').replace(/[\d*†‡§¶]+/g,'').replace(/\s+,/g,',').replace(/\s+/g,' ').trim(); } }
     let para='';
-    const flush=()=>{ const t=para.replace(/(\w)-\s+(\w)/g,'$1$2').replace(/\s+/g,' ').trim(); if(t.length>40) out.push({p:t,pg:n}); para=''; };
+    const flush=()=>{ const t=para.normalize('NFKC').replace(/[-�□\u0000-\u001F﻿​-‍]/g,'').replace(/(\w)-\s+(\w)/g,'$1$2').replace(/(\w) ?(ffi|ffl|ff|fi|fl) (\w)/g,'$1$2$3').replace(/\s+/g,' ').trim(); let t2=t; const absAt=n<=2?t.search(/\bAbstract\b[:.]?\s/):-1; if(absAt>0) t2=t.slice(absAt); const junk=n<=2&&(t2.length<400&&/@|\bReceived:|\bAccepted:|\bCorresponding author|\bdoi\.org|©|\bLicen[cs]e/i.test(t2)||/^(Keywords|Key words|Data Availability|Funding|Competing interests|Citation|Editor|Edited by|Reviewed by|Published|Copyright|OPEN ACCESS)\b/i.test(t2)); const nums=(t.match(/\d+/g)||[]).join('').length/Math.max(t.replace(/\s/g,'').length,1)>.35; if(t2.length>40&&!junk&&!nums) out.push({p:t2,pg:n}); para=''; };
     for(const l of body){ if(n===1&&title&&title.includes(l.t)&&l.h>=med*1.3) continue;
       const head=l.t.length<70&&(/^(\d+(\.\d+)*\.?\s+)?[A-Z][A-Za-z ,:&-]{2,60}$/.test(l.t)&&(l.h>med*1.1||/^\d/.test(l.t)||/^(Abstract|Introduction|Method|Methods|Results|Discussion|Conclusion|Conclusions|References|Background|Limitations)$/i.test(l.t)));
       if(head){ flush(); out.push({h:l.t.replace(/\s+/g,' '),pg:n}); continue; }
       if(/^(References|Bibliography)$/i.test(l.t)) break;
       para+=(para?' ':'')+l.t; if(l.t.length<avg*.6&&/[.!?:]$/.test(l.t)) flush(); }
     flush(); }
-  const cut=out.findIndex(x=>x.h&&/^(\d+\.?\s*)?(References|Bibliography)$/i.test(x.h)); return {paras:cut>0?out.slice(0,cut):out,title}; }
+  const cut=out.findIndex(x=>x.h&&/^(\d+\.?\s*)?(References|Bibliography)$/i.test(x.h)); let res=cut>0?out.slice(0,cut):out; const ab=res.findIndex(x=>x.h&&/^abstract$/i.test(x.h)); if(ab>0&&res[ab].pg<=2) res=res.slice(ab); else if(ab<0){ const ii=res.findIndex(x=>x.h&&/^(\d+\.?\s*)?introduction$/i.test(x.h)); if(ii>0&&res[ii].pg<=2) res=res.slice(0,ii).filter(x=>x.p&&x.p.length>300).concat(res.slice(ii)); } return {paras:res,title,authors,front:pages.slice(0,2).map(ls=>ls.map(l=>l.t).join(' ')).join(' ')}; }
+function paperYear(fname,front,cdate){ const ok=y=>y>=1900&&y<=new Date().getFullYear()+1;
+  /* 1. a year in the file name ("cartlidge-2023-…") */
+  const fy=(String(fname).match(/(?:^|[^0-9])((?:19|20)[0-9]{2})(?![0-9])/)||[])[1]; if(fy&&ok(+fy)) return fy;
+  /* 2. a dated line on the front pages (©, published, received, volume…) */
+  const t=String(front||'').slice(0,6000); const cue=t.match(/(?:©|copyright|published(?: online)?|accepted|received|first published|vol(?:ume)?\.?\s*[0-9]+)[^0-9]{0,40}\b((?:19|20)[0-9]{2})\b/i); if(cue&&ok(+cue[1])) return cue[1];
+  /* 3. the commonest year in the opening text (never the PDF's file date first: that is when it was saved, not written) */
+  const c={}; (t.slice(0,2500).match(/\b(?:19|20)[0-9]{2}\b/g)||[]).map(Number).filter(ok).forEach(y=>c[y]=(c[y]||0)+1); const best=Object.keys(c).sort((x,y)=>c[y]-c[x]||y-x)[0]; if(best&&c[best]>=2) return best;
+  const m=String(cdate||'').match(/(19|20)[0-9]{2}/); return m?m[0]:(best||''); }
 async function importPdf(file,wx,wy){ if(!/\.pdf$/i.test(file.name)&&file.type!=='application/pdf'){ toast('Only PDF files for now'); return; }
+  { const rv=curReview(), same=PAPERS.find(x=>x.ext&&x.file===file.name&&(rv.papers||[]).includes(x.id)); if(same){ toast('Already in this review: '+shortTitle(same.id)); log('add-paper-dup',{pid:same.id,by:'file'}); return; } }
   const pid='PDF'+Date.now().toString(36)+(uid++), bp={pid,x:Math.round(wx-200),y:Math.round(wy-60),take:'',conf:0,opened:false,file:file.name,keyWait:true};
   const name=file.name.replace(/\.pdf$/i,'').replace(/[_-]+/g,' ');
-  PAPERS.push({id:pid,t:name,y:'',by:'From your PDF',kind:'PDF',a:'Reading the file…',ex:'',out:'',sample:'',ext:true,pdf:true,paras:[]}); S.papers.push(bp); renderBoard();
+  PAPERS.push({id:pid,file:file.name,t:name,y:'',by:'From your PDF',kind:'PDF',a:'Reading the file…',ex:'',out:'',sample:'',ext:true,pdf:true,paras:[]}); S.papers.push(bp); renderBoard();
   try{ const buf=await file.arrayBuffer(); pdfPut(pid,buf.slice(0)); /* stored in the background; reading never waits on storage */ const lib=await loadPdfJs(), doc=await lib.getDocument({data:buf,standardFontDataUrl:PDF_FONTS}).promise, info=(await doc.getMetadata().catch(()=>({})))||{}, r=await pdfToParas(doc);
-    const meta=info.info||{}, p=P(pid); const t=(meta.Title&&meta.Title.length>8&&!/untitled|microsoft word/i.test(meta.Title))?meta.Title:(r.title||name);
-    const all=r.paras.filter(x=>x.p).map(x=>x.p).join(' '), yr=(String(meta.CreationDate||'').match(/(19|20)\d\d/)||all.slice(0,3000).match(/\b(19[5-9]\d|20[0-3]\d)\b/)||[''])[0];
+    const meta=info.info||{}, p=P(pid); const badT=x=>!x||x.length<=8||/untitled|microsoft word|_|\.\.|\d{5}|\.(docx?|indd|pdf)$/i.test(x)||!/\s/.test(x.trim()); const t=!badT(meta.Title)?meta.Title:(r.title||name);
+    const all=r.paras.filter(x=>x.p).map(x=>x.p).join(' '), yr=paperYear(file.name,r.front||all.slice(0,4000),meta.CreationDate);
     const ai=r.paras.findIndex(x=>x.h&&/abstract/i.test(x.h)), abs=(ai>=0&&r.paras[ai+1]&&r.paras[ai+1].p)||(r.paras.find(x=>x.p)||{}).p||'';
-    Object.assign(p,{hasFile:true,pages:doc.numPages,t:short(t,200),y:yr,by:meta.Author||'From your PDF',kind:`PDF · ${doc.numPages} pages`,a:abs||'No text found in this PDF (it may be scanned).',paras:r.paras});
+    Object.assign(p,{hasFile:true,pages:doc.numPages,t:short(t,200),y:yr,by:String((meta.Author&&!/^(user|admin|author|unknown)$/i.test(meta.Author)?meta.Author:r.authors)||'From your PDF').replace(/[﻿​-‍]/g,'').trim(),kind:`PDF · ${doc.numPages} pages`,a:abs||'No text found in this PDF (it may be scanned).',paras:r.paras});
+    { const key=x=>String(x||'').toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,60), rv0=curReview(), twin=PAPERS.find(x=>x.ext&&x.id!==pid&&key(x.t)&&key(x.t)===key(p.t)&&(rv0.papers||[]).includes(x.id));
+      if(twin){ S.papers=S.papers.filter(b=>b.pid!==pid); const i=PAPERS.findIndex(x=>x.id===pid); if(i>=0) PAPERS.splice(i,1); renderBoard(); toast('Already in this review: '+shortTitle(twin.id)); log('add-paper-dup',{pid:twin.id,by:'title'}); return; } }
     delete BODY[pid]; SENTS=null; S.ext=S.ext||[]; S.ext.push(p); const rv=curReview(); if(!rv.papers.includes(pid)) rv.papers.push(pid);
     bp.keyWait=false; log('add-paper',{pid,file:file.name,pages:doc.numPages,paras:r.paras.length}); ev(`You added ${file.name}.`); save(); renderBoard(); toast(`${doc.numPages} pages read. Open it to read.`); }
   catch(e){ S.papers=S.papers.filter(b=>b.pid!==pid); const i=PAPERS.findIndex(x=>x.id===pid); if(i>=0) PAPERS.splice(i,1); renderBoard(); toast('Couldn’t read this PDF here (offline, or a scanned file).'); } }
@@ -2051,14 +2209,15 @@ async function renderPdfPages(pid){ const job=++PDFV.job, sheet=$('sheet'), box=
   const buf=await pdfGet(pid); if(job!==PDFV.job) return;
   if(!buf){ box.innerHTML='<p class="pdfmiss">The original file isn’t stored in this browser. Showing the text instead.</p>'; P(pid).noFile=true; setTimeout(()=>{ if(reading&&reading.p===pid){ renderReader(); } },1200); return; }
   const lib=await loadPdfJs(), doc=await lib.getDocument({data:buf.slice(0),standardFontDataUrl:PDF_FONTS}).promise; if(job!==PDFV.job) return; const W=box.clientWidth||712, dpr=Math.min(2,window.devicePixelRatio||1);
-  for(let n=1;n<=doc.numPages;n++){ const pg=await doc.getPage(n); if(job!==PDFV.job) return; const vp1=pg.getViewport({scale:1}), vp=pg.getViewport({scale:W/vp1.width});
+  const gone=()=>job!==PDFV.job||!reading||reading.n||reading.p!==pid; /* stop if the paper was closed while its pages were still drawing */
+  for(let n=1;n<=doc.numPages;n++){ const pg=await doc.getPage(n); if(gone()) return; const vp1=pg.getViewport({scale:1}), vp=pg.getViewport({scale:W/vp1.width});
     const mark=document.createElement('div'); mark.className='page pgmark'; mark.dataset.page=n; box.appendChild(mark);
     const pe=document.createElement('div'); pe.className='pdfpage'; pe.dataset.page=n; pe.style.width=vp.width+'px'; pe.style.height=vp.height+'px'; box.appendChild(pe);
     const cv=document.createElement('canvas'); cv.width=Math.floor(vp.width*dpr); cv.height=Math.floor(vp.height*dpr); cv.style.width=vp.width+'px'; cv.style.height=vp.height+'px'; pe.appendChild(cv);
     await pg.render({canvasContext:cv.getContext('2d'),viewport:vp,transform:dpr!==1?[dpr,0,0,dpr,0,0]:null}).promise;
     const tl=document.createElement('div'); tl.className='textLayer'; tl.style.setProperty('--scale-factor',vp.scale); pe.appendChild(tl);
-    await lib.renderTextLayer({textContentSource:await pg.getTextContent(),container:tl,viewport:vp,textDivs:[]}).promise; if(job===PDFV.job){ drawPdfHighlights(pid); if(n<=2||n===doc.numPages) renderPanel(); } }
-  if(job!==PDFV.job) return; drawPdfHighlights(pid); renderPanel(); pdfFocusNow(); }
+    await lib.renderTextLayer({textContentSource:await pg.getTextContent(),container:tl,viewport:vp,textDivs:[]}).promise; if(!gone()){ drawPdfHighlights(pid); if(n<=2||n===doc.numPages) renderPanel(); } }
+  if(gone()) return; drawPdfHighlights(pid); renderPanel(); pdfFocusNow(); }
 /* find a quote in the text layer (letters and digits only, so line breaks and hyphens don't matter) → a Range */
 function pdfFind(quote){ const key=alnum(quote).slice(0,120); if(key.length<6) return null;
   for(const tl of $('sheet').querySelectorAll('.textLayer')){ const map=[]; let str='';
@@ -2087,10 +2246,19 @@ function pdfSelect(){ const s=getSelection(), txt=s.toString(); if(!txt.trim()){
   const n=s.anchorNode&&(s.anchorNode.nodeType===1?s.anchorNode:s.anchorNode.parentElement); if(!n||!n.closest('.textLayer')){ bar.style.display='none'; return; }
   const hit=matchInBody(txt);
   if(!hit){ bar.style.display='none'; toast('That passage isn’t in the paper’s text (a header, caption or figure?). Try a sentence from the body.'); return; }
-  pending=hit; if(rtool==='hl'){ addHighlight(false); return; } const r=s.getRangeAt(0).getBoundingClientRect(); bar.style.display='flex'; bar.style.left=(r.left+r.width/2-110)+'px'; bar.style.top=(r.top-46)+'px'; }
+  pending=hit; if(rtool==='hl'&&hlOk()){ addHighlight(false); return; } const r=s.getRangeAt(0).getBoundingClientRect(); bar.style.display='flex'; bar.style.left=Math.max(8,r.left+r.width/2-bar.offsetWidth/2)+'px'; bar.style.top=(r.top-46)+'px'; }
 /* where a piece of text sits in the paper's body (letters and digits only, so line breaks and hyphens don't matter) → {pi,start,end} */
-function matchInBody(txt){ const key=alnum(txt); if(key.length<4) return null;
-  for(const x of body(reading.p).filter(x=>x.pi!=null)){ const map=[]; let str=''; for(let i=0;i<x.p.length;i++){ if(/[a-z0-9]/i.test(x.p[i])){ str+=x.p[i].toLowerCase(); map.push(i); } } const at=str.indexOf(key); if(at>=0) return {pi:x.pi,start:map[at],end:map[Math.min(at+key.length,map.length)-1]+1}; }
+function matchInBody(txt){ const key=alnum(String(txt||'').normalize('NFKC')); if(key.length<4) return null; const snap=(x,h)=>{ while(h.start>0&&/\w/.test(x.p[h.start-1])) h.start--; while(h.end<x.p.length&&/\w/.test(x.p[h.end])) h.end++; return h; };
+  const exact=matchExact(key); if(exact) return snap(exact.x,exact.h);
+  /* the page's text layer often adds a header, a footnote mark or a column jump: anchor on a clean piece at each end */
+  if(key.length>=30){ const W=Math.min(24,Math.floor(key.length/3)); let a=null,b=null;
+    for(let i=0;i+W<=key.length&&!a;i+=4) a=matchExact(key.slice(i,i+W));
+    for(let j=key.length;j-W>=0&&!b;j-=4) b=matchExact(key.slice(j-W,j));
+    if(a&&b&&a.x.pi===b.x.pi&&b.h.end>a.h.start) return snap(a.x,{pi:a.x.pi,start:a.h.start,end:b.h.end});
+    if(a) return snap(a.x,a.h); if(b) return snap(b.x,b.h); }
+  return null; }
+function matchExact(key){
+  for(const x of body(reading.p).filter(x=>x.pi!=null)){ const map=[]; let str=''; for(let i=0;i<x.p.length;i++){ if(/[a-z0-9]/i.test(x.p[i])){ str+=x.p[i].toLowerCase(); map.push(i); } } const at=str.indexOf(key); if(at>=0) return {x,h:{pi:x.pi,start:map[at],end:map[Math.min(at+key.length,map.length)-1]+1}}; }
   return null; }
 /* drag selected text from the paper onto the notes panel → it becomes a highlight note */
 { const PN=$('rpanel'), L=$('rlist'); let dragSel=null; const ok=e=>reading&&!reading.n&&(dragSel||[...e.dataTransfer.types].includes('text/plain'));
@@ -2128,7 +2296,7 @@ $('hatrow').onclick=e=>{ const b=e.target.closest('[data-h]'); if(!b) return; ad
 function setCtx(){ const s=S.sel; let t='the board'; if(s){ const p=S.papers.find(x=>x.pid===s); const i=I(s); if(p) t=s+' · '+short(P(s).t,40); else if(i) t=i.kind==='claim'?'Claim C'+i.num:i.kind==='frag'?'quote from '+i.pid:i.kind==='note'?'note “'+short(title(i.text),30)+'”':i.kind==='ai'?i.hat+"'s card":'your note'; } $('ctx').textContent=t; }
 function ctxText(s=S.sel){ if(!s) return {text:'',pids:null}; const p=S.papers.find(x=>x.pid===s); if(p) return {text:P(s).t,pids:[s],paper:s}; const i=I(s); if(!i) return {text:'',pids:null};
   return {text:i.text||i.quote||'',pids:i.kind==='frag'||i.kind==='mine'?[i.pid]:null,item:i}; }
-function updateBadge(){ const n=S.feed.filter(f=>f.type==='hat'&&!f.seen).length; const b=$('badge'); b.textContent=n; b.classList.toggle('on',n>0&&!document.body.classList.contains('council')); }
+function updateBadge(){ const rv=curReview(), n=S.feed.slice((rv&&rv.feedFrom)||0).filter(f=>f.type==='hat'&&!f.seen).length; const b=$('badge'); b.textContent=n; b.classList.toggle('on',n>0&&!document.body.classList.contains('council')); }
 function openCouncil(flashId){ document.body.classList.add('council'); S.feed.forEach(f=>{ if(f.type==='hat') f.seen=true; }); save(); renderFeed(flashId); updateBadge(); if(!reading) setTimeout(()=>renderBoard(),320); }
 function closeCouncil(){ document.body.classList.remove('council'); updateBadge(); }
 $('hatsBtn').onclick=()=>document.body.classList.contains('council')?closeCouncil():openCouncil(); $('cclose').onclick=closeCouncil;
@@ -2228,6 +2396,7 @@ function lineBefore(it){ const ss=sents().filter(s=>s.pid===it.pid); const k=ss.
 
 /* Bounce as a short conversation: you speak first; the hat you picked replies in its own personality.
    Today the replies are scripted from the sample papers. Later each hat is an LLM with a fixed personality (see "llm personalities/"). */
+const pl=pid=>{ const p=P(pid); if(!p) return pid; return authShort(pid)+(p.y?' '+p.y:''); }; /* every paper is named on its quotes (author and year, or its short title), never by an internal id */
 const shortTitle=pid=>{ const t=P(pid).st||P(pid).t.split(':')[0]; return t.length>46?t.slice(0,44)+'…':t; };
 function naturalName(key){ const id=key.slice(2); if(key[0]==='p') return '“'+shortTitle(id)+'”'; const i=I(id); if(!i) return 'this card';
   return i.kind==='claim'?'your claim':i.kind==='note'?'your note “'+short(title(i.text),32)+'”':i.kind==='frag'?'a quote from “'+shortTitle(i.pid)+'”':'this card'; }
@@ -2271,16 +2440,17 @@ function boardRight(){ let x=-1e9; world.querySelectorAll('.paper,.item,.section
 function renderPop(){ const pop=$('aipop'); if(!popKey){ pop.style.display='none'; return; } const id=keyTarget(popKey); if(popKey[0]==='i'&&!I(id)){ closePop(); return; }
   const hats=bounceHats(popKey); let h=`<button class="xx" data-p="close" title="Close (Esc)">✕</button>`;
   if(!hats.length){ pop.innerHTML=h+`<div class="none">Open it first. The hats talk once you've read it.</div>`; pop.style.display='block'; placePop(); return; }
-  h+=`<div class="hats">${hats.map(x=>`<button class="hp ${x===bst.hat?'on':''}" data-p="hat" data-h="${x}" style="--hc:${HATS[x].c==='#FFFFFF'?'#1D1D1F':HATS[x].c}">${x}</button>`).join('')}</div>`;
+  h+=`<div class="ahd" title="Drag to move"><span class="dots">${Object.keys(HATS).map(x=>`<i style="background:${HATS[x].c}"></i>`).join('')}</span>Ask the hats</div>`;
   if(bst.turns.length){ h+=`<div class="thread">`+bst.turns.map((t,k)=>t.who==='you'
       ?`<div class="me">${esc(t.text)}${t.kept?`<span class="kept">kept as a note ✓</span>`:`<button class="keep" data-p="keepme" data-k="${k}">Keep as a note</button>`}</div>`
-      :`<div class="ht"><span class="hn2${t.hat==='CONDUCTOR'?' cd':''}" style="color:${HATS[t.hat].t}">${t.hat}</span> ${esc(t.text)}${t.src?`<div class="qq">“${esc(t.src.quote)}”<span>${esc(shortTitle(t.src.pid))} · ${pageTxt(t.src)} · ${quoteFound(t.src)?'quote found ✓':'⚠ unverified'}</span></div>`:''}${t.lead?`<div class="lq"><b>${esc(P(t.lead).t)}</b><span>${esc(P(t.lead).kind)}</span></div>`:''}`+
+      :`<div class="ht"><span class="hn2${t.hat==='CONDUCTOR'?' cd':''}" style="color:${HATS[t.hat].t}">${t.hat}</span> ${ldTx(t)}${t.src&&!t.wait?`<div class="qq">“${esc(t.src.quote)}”<span>${esc(shortTitle(t.src.pid))} · ${pageTxt(t.src)} · ${quoteFound(t.src)?'quote found ✓':'⚠ unverified'}</span></div>`:''}${t.lead?`<div class="lq"><b>${esc(P(t.lead).t)}</b><span>${esc(P(t.lead).kind)}</span></div>`:''}`+
         (t.done?`<div class="did">${esc(t.done)}</div>`:(t.src||t.lead||t.warrant)?`<div class="la">${t.src?`<button data-p="place" data-k="${k}">Place on board</button>`:''}${t.lead?`<button data-p="lead" data-k="${k}">Bring it to the edge</button>`:''}${t.warrant?`<button data-p="warrant" data-k="${k}">Make my words the warrant</button>`:''}</div>`:'')+`</div>`).join('')+`</div>`; }
-  h+=`<div class="ask"><textarea id="bans" rows="2" placeholder="${bst.turns.length?'Reply…':esc(placeholderFor(popKey,bst.hat))}">${esc(bst.draft||'')}</textarea><button class="send" data-p="send" title="Send (Enter)" aria-label="Send"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V3.5M3.5 7.5 8 3l4.5 4.5"/></svg></button></div><div id="banserr" class="err">Say something first. The hat goes after you.</div>`;
+  h+=`<div class="ask"><textarea id="bans" rows="2" placeholder="${bst.turns.length?'Ask the hats…':esc(placeholderFor(popKey,bst.hat))}">${esc(bst.draft||'')}</textarea><button class="send" data-p="send" title="Send (Enter)" aria-label="Send"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V3.5M3.5 7.5 8 3l4.5 4.5"/></svg></button></div><div id="banserr" class="err">Say something first. The hats go after you.</div>`;
   pop.innerHTML=h; pop.style.display='block'; placePop(); const th=pop.querySelector('.thread'); if(th) th.scrollTop=th.scrollHeight; }
-function placePop(){ const pop=$('aipop'); const b=world.querySelector(`.aipill[data-key="${popKey}"]`); if(!b){ return; } const r=b.getBoundingClientRect(); const W=340;
+let POPAT=null;
+function placePop(){ const pop=$('aipop'); if(POPAT){ pop.style.left=POPAT.x+'px'; pop.style.top=POPAT.y+'px'; return; } const b=world.querySelector(`.aipill[data-key="${popKey}"]`); if(!b){ return; } const r=b.getBoundingClientRect(); const W=340;
   let x=r.right-W+14, y=r.bottom+8; x=Math.max(10,Math.min(innerWidth-W-10,x)); if(y+pop.offsetHeight>innerHeight-10) y=Math.max(54,r.top-pop.offsetHeight-8); pop.style.left=x+'px'; pop.style.top=y+'px'; }
-function openPop(key){ popKey=key; const hats=bounceHats(key); const id=key.slice(2);
+function openPop(key){ popKey=key; POPAT=null; const hats=bounceHats(key); const id=key.slice(2);
   // a hat that already reacted to you speaks first in the thread
   const waiting=S.feed.filter(f=>f.type==='hat'&&!f.seen&&f.target===id&&!f.gone); waiting.forEach(f=>f.seen=true);
   bst={hat:(waiting[0]&&hats.includes(waiting[0].hat))?waiting[0].hat:hats[0],turns:waiting.map(f=>({who:'hat',hat:f.hat,text:f.text,src:f.src})),draft:''};
@@ -2326,7 +2496,7 @@ const SVG_QUOTE=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stro
 const SVG_PIN=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.5h6l-1 6.5 3 3H7l3-3z"/><path d="M12 13v7.5"/></svg>`;
 const SVG_SEND=`<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V3.5M3.5 7.5 8 3l4.5 4.5"/></svg>`;
 
-const authShort=pid=>{ const p=P(pid); const n=p.by.split(',').map(x=>x.trim()); return n.length===2?n[0]+' & '+n[1]:n[0]+(n.length>2?' et al.':''); };
+const authShort=pid=>{ const p=P(pid); if(!p) return ''; if(!p.by||/^from your pdf$/i.test(p.by.trim())) return shortTitle(pid); /* no author found: the paper's own short title, never "From your PDF" */ const n=p.by.split(',').map(x=>x.trim()); return n.length===2?n[0]+' & '+n[1]:n[0]+(n.length>2?' et al.':''); };
 const citeTxt=(pid,pi)=>`(${authShort(pid)}, ${P(pid).y}${pi!=null?', p.'+pageOfPi(pid,pi):''})`;
 const citeHTML=(pid,pi,q)=>`<span class="cite" contenteditable="false" data-pid="${pid}"${pi!=null?` data-pi="${pi}"`:''}${q?` data-q="${esc(q)}"`:''}>${esc(citeTxt(pid,pi))}</span>&nbsp;`;
 
@@ -2511,7 +2681,7 @@ function wChipHTML(c){ const st=`style="--hc:${HATS[c.hat].t}"`; if(c.sh&&c.stat
       +((c.src||(c.offer&&c.thread.some(t=>t.who==='you')))&&!c.done?`<div class="wacts">${c.src?`<button data-ca="left">See it on the left</button>`:''}${c.offer&&c.thread.some(t=>t.who==='you')?`<button data-ca="put">Put my words in the text</button>`:''}</div>`:'')
       +(c.done?'':`<div class="wask"><textarea rows="1" placeholder="Answer ${c.hat}…">${esc(c.draft||'')}</textarea><button class="send" data-ca="send" aria-label="Send">${SVG_SEND}</button></div>`):'';
   const fb=c.fb?`<div class="wfbd">${FBDONE[c.fb]}</div>`:`<div class="wfb">${['useful','noted','later'].concat(c.src?['wrong']:[]).map(f=>`<button data-fb="${f}">${FB[f]}</button>`).join('')}</div>`;
-  return `<div class="wchip${c.open?' open':''}" data-c="${c.id}" ${st}><div class="wl" data-ca="toggle">${hn2(c.hat)} ${esc(c.text)}</div>${body}${fb}</div>`; }
+  return `<div class="wchip${c.open?' open':''}" data-c="${c.id}" ${st}><div class="wl" data-ca="toggle">${hn2(c.hat)} ${ldTx(c)}</div>${c.wait?'':body+fb}</div>`; }
 /* hover a comment: the words it's about light up in the hat's colour */
 function wHL(c){ document.querySelectorAll('#nbody .whl').forEach(e=>{ e.classList.remove('whl'); e.style.removeProperty('--hl'); }); if(window.CSS&&CSS.highlights) ['MINER','PROSPECTOR','ARCHITECT','SHADOW','CONDUCTOR'].forEach(h=>CSS.highlights.delete('whl-'+h)); if(!c) return; const b=blockById(c.b); if(!b) return;
   if(window.CSS&&CSS.highlights){ ['MINER','PROSPECTOR','ARCHITECT','SHADOW','CONDUCTOR'].forEach(h=>CSS.highlights.delete('whl-'+h)); const r=readBlock(b), s2=r&&(r.sents.find(x=>x.type===(c.on||'C'))||r.claim); if(s2&&c.on!=='none'){ CSS.highlights.set('whl-'+c.hat,new Highlight(s2.range)); return; } }
@@ -2591,10 +2761,10 @@ function shadowPick(el){ const claim=claimTxt(el), low=claim.toLowerCase(), pids
   const out=r=>OUTSIDE.find(o=>o.role===r&&o.need.every(has)&&!(S.shArch||[]).includes(o.id));
   const osrc=o=>({pid:o.id,quote:o.a,sec:'from outside your papers',outside:true});
   /* your own papers first: each says what SHADOW may use from it (EXAMPLE_META.sh). "Says less" needs the paper you cite; the others need a paper you don't */
-  const inset=kind=>{ for(const pid of pids){ const p=P(pid); for(const [cre,sre,smp] of ((p&&p.sh&&p.sh[kind])||[])){ if(!cre.test(low)) continue; const cited=cites.some(c=>c.pid===pid); if(kind==='less'?!cited:cited) continue;
-      const r=sents().find(x=>x.pid===pid&&sre.test(x.text)); if(r&&!cites.some(c=>c.q&&c.q===r.text)) return smp?{...srcOf(r),smp}:srcOf(r); } } return null; };
-  let k=inset('refutes'); if(k) return {param:'refuted',src:k,text:`Not so fast. “${shortTitle(k.pid)}” (${pageTxt(k)}) tested this on ${k.smp||P(k.pid).sample} and found no reliable effect. Does your claim survive it?`};
-  k=inset('prior'); if(k) return {param:'prior',src:k,text:`This has been said before: ${authShort(k.pid)} (${P(k.pid).y}) made the same point. What are you adding to it?`};
+  const inset=kind=>{ for(const pid of pids){ const p=P(pid); for(const [cre,sre] of ((p&&p.sh&&p.sh[kind])||[])){ if(!cre.test(low)) continue; const cited=cites.some(c=>c.pid===pid); if(kind==='less'?!cited:cited) continue;
+      const r=sents().find(x=>x.pid===pid&&sre.test(x.text)); if(r&&!cites.some(c=>c.q&&c.q===r.text)) return srcOf(r); } } return null; };
+  let k=inset('refutes'); if(k) return {param:'refuted',src:k,text:`Not so fast. “${shortTitle(k.pid)}” (${pageTxt(k)}) tested this on ${P(k.pid).sample} and found no reliable effect. Does your claim survive it?`};
+  k=inset('prior'); if(k) return {param:'prior',src:k,text:`This has been said before: ${authShort(k.pid)} (${P(k.pid).y}) ended on the same point. What are you adding to it?`};
   k=inset('less'); if(k) return {param:'content',src:k,text:`Your own source says less than you do (${pageTxt(k)}). Does your sentence claim more than it showed?`};
   k=inset('counter'); if(k) return {param:'counter',src:k,text:`Not so fast. “${shortTitle(k.pid)}” (${pageTxt(k)}) pushes the other way. Does your claim survive it?`};
   let o=out('refuted'); if(o) return {param:'refuted',src:osrc(o),text:`Not so fast. A ${o.y} study from outside your papers tested this and found it gone. Does your claim survive it?`};
@@ -2747,7 +2917,7 @@ const TLK={board:'#2C7D37',read:'#1B4FB8',write:'#B87A00'}, TLN={board:'Board',r
 const fmtMin=m=>{ m=Math.round(m); return m<60?m+' min':Math.floor(m/60)+' h'+(m%60?' '+String(m%60).padStart(2,'0'):''); };
 /* sample days for the example review only (days with no real activity), so the picture has a past */
 const TL_SAMPLE={'-29':{b:15,one:'Set up the question'},'-28':{r:[['P1',18]],b:10,h:{P1:2},one:'Find seed papers'},'-26':{r:[['P2',25]],h:{P2:3},b:8},'-25':{r:[['P2',12],['P3',9]]},
- '-23':{r:[['P1',22]],w:[[1,10]],b:12},'-22':{r:[['P2',30]],h:{P2:4},one:'Read the depression cohort study'},'-20':{r:[['P2',14]],w:[[1,15]]},'-19':{r:[['P3',20]],b:15,h:{P3:2}},'-18':{w:[[0,25]],b:6},
+ '-23':{r:[['P1',22]],w:[[1,10]],b:12},'-22':{r:[['P2',30]],h:{P2:4},one:'Read the UK Biobank study'},'-20':{r:[['P2',14]],w:[[1,15]]},'-19':{r:[['P3',20]],b:15,h:{P3:2}},'-18':{w:[[0,25]],b:6},
  '-16':{w:[[0,30]],r:[['P2',8]],one:'Write my first claims'},'-15':{b:10,w:[[0,6]],meet:true},'-14':{r:[['P3',18]],w:[[0,12]]},'-12':{r:[['P2',16]],b:20},'-11':{r:[['P1',10]],w:[[0,20]]},
  '-10':{w:[[0,35]],one:'Narrow the weather claim'},'-9':{r:[['P3',12]],w:[[0,15]]},'-7':{r:[['P2',20]],w:[[0,25]]},'-6':{w:[[0,18]],b:10},'-5':{b:22,r:[['P2',8]]},'-3':{w:[[0,30]],b:8},'-2':{w:[[0,20]],r:[['P2',6]],one:'Prepare for the guide meeting'}};
 function tlActivity(){ const rv=curReview(), today=day0(Date.now()), days=[];
@@ -2814,7 +2984,7 @@ function tlDay(A){ const d=A.days[TL.day]; if(!d) return ''; const rv=A.rv, touc
   const cards=[...bd.papers.filter(p=>p.x!=null).map(p=>({id:p.pid,x:p.x,y:p.y,w:240,h:150,kind:'paper'})),...bd.items.filter(i=>i.kind==='note'&&i.x!=null).map(i=>({id:i.id,x:i.x,y:i.y,w:230,h:130,kind:'note'}))];
   let svg=''; if(cards.length){ const x0=Math.min(...cards.map(c=>c.x))-40, y0=Math.min(...cards.map(c=>c.y))-40, x1=Math.max(...cards.map(c=>c.x+c.w))+40, y1=Math.max(...cards.map(c=>c.y+c.h))+40, MW=560, k=Math.min(MW/(x1-x0),380/(y1-y0)), MH=(y1-y0)*k;
     const cx=c=>(c.x-x0+c.w/2)*k, cy=c=>(c.y-y0+c.h/2)*k;
-    svg=cards.map(c=>{ const m=touched[c.id]||0, f=c.kind==='paper'?TLK.read:TLK.write; return `<rect x="${(c.x-x0)*k}" y="${(c.y-y0)*k}" width="${c.w*k}" height="${c.h*k}" rx="4" fill="${m?f:'#fff'}" fill-opacity="${m?.25+.65*m/mxm:1}" stroke="${m?f:'#D9D9DE'}" stroke-width="${m?1.5:1}" class="${m?'tvc on':'tvc'}" data-tlit="${c.id}"><title>${esc(tlName(c.id))}${m?' · '+fmtMin(m):''}</title></rect>`; }).join('');
+    svg=cards.map(c=>{ const m=touched[c.id]||0, f=c.kind==='paper'?TLK.read:TLK.write; return `<rect x="${(c.x-x0)*k}" y="${(c.y-y0)*k}" width="${c.w*k}" height="${c.h*k}" rx="4" fill="${m?f:'#fff'}" fill-opacity="${m?.25+.65*m/mxm:1}" stroke="${m?f:'#D9D9DE'}" stroke-width="${m?1.5:1}" class="${m?'tvc on':'tvc'}" data-tlit="${c.id}"><title>Proto Beta 3</title></rect>`; }).join('');
     const ord=d.order.map(p=>cards.find(c=>c.id===p)).filter(Boolean); if(ord.length>1) svg+=`<path d="${tlCurve(ord.map(c=>[cx(c),cy(c)]))}" fill="none" stroke="#1D1D1F" stroke-width="1.5" stroke-dasharray="4 4"/>`;
     svg+=ord.map((c,n)=>`<circle cx="${cx(c)}" cy="${cy(c)}" r="9" fill="#1D1D1F"/><text x="${cx(c)}" y="${cy(c)+4}" class="tvn" text-anchor="middle">${n+1}</text>`).join('');
     svg=`<svg class="tlsvg tvmap" width="${MW}" height="${MH}" role="img" aria-label="Board on this day">${svg}</svg>`; }
@@ -2824,7 +2994,7 @@ function tlDay(A){ const d=A.days[TL.day]; if(!d) return ''; const rv=A.rv, touc
     <div class="tvside">${d.one?`<div class="tvone"><span class="hn cd">CONDUCTOR</span> ${esc(d.one)}</div>`:''}<div class="tvstats col">${['read','write','board'].map(k=>`<span><i style="background:${TLK[k]}"></i>${TLN[k]} <b>${fmtMin(d.tot[k])}</b></span>`).join('')}</div>${list||'<p class="tlnone">Nothing opened this day.</p>'}${d.sample?'<p class="tlnone">Sample data</p>':''}</div></div>`; }
 /* level 2 · one paper or note across the month */
 function tlItem(A){ const id=TL.item, x=A.ranked.find(r=>r.id===id)||{min:0,days:[],hl:0,kind:P(id)?'paper':'note'}, days=A.days, Wd=560, H=90, bw=Wd/days.length, mx=Math.max(1,...days.map(d=>(d.read[id]||0)+(d.write[id]||0)));
-  const bars=days.map((d,i)=>{ const m=(d.read[id]||0)+(d.write[id]||0); return `<rect x="${i*bw+1}" y="${H-H*m/mx}" width="${bw-2}" height="${Math.max(m?2:0,H*m/mx)}" rx="2" fill="${x.kind==='paper'?TLK.read:TLK.write}" data-tli="${i}" class="tvbar"><title>${new Date(d.t).toLocaleDateString('en-GB',{day:'numeric',month:'short'})}${m?' · '+fmtMin(m):''}</title></rect>`; }).join('');
+  const bars=days.map((d,i)=>{ const m=(d.read[id]||0)+(d.write[id]||0); return `<rect x="${i*bw+1}" y="${H-H*m/mx}" width="${bw-2}" height="${Math.max(m?2:0,H*m/mx)}" rx="2" fill="${x.kind==='paper'?TLK.read:TLK.write}" data-tli="${i}" class="tvbar"><title>Proto Beta 3</title></rect>`; }).join('');
   return `<div class="tvitem"><div class="tvk">${x.kind==='paper'?'Paper':'Note'}</div><h2>${esc(P(id)?P(id).t:tlName(id))}</h2>
     <div class="tvstats"><span>Time <b>${fmtMin(x.min)}</b></span><span>Days <b>${x.days.length}</b></span>${x.kind==='paper'?`<span>Highlights <b>${x.hl}</b></span>`:''}</div>
     <svg class="tlsvg" width="${Wd}" height="${H+18}" role="img" aria-label="Minutes per day">${bars}<line x1="0" x2="${Wd}" y1="${H}" y2="${H}" class="grid"/><text x="0" y="${H+15}" class="ax">${new Date(days[0].t).toLocaleDateString('en-GB',{day:'numeric',month:'short'})}</text><text x="${Wd}" y="${H+15}" class="ax" text-anchor="end">Today</text></svg>
@@ -3013,7 +3183,7 @@ function cpShow(text,acts=[],key,opt={}){ const cur=sessNow(); if(!cur) return;
   if(cur.quiet||(W.on&&innerWidth<1180)) return;                                   // quieted, or no room beside your text
   if(CP.cur&&!opt.replace) return;                                                 // one at a time
   cur.cpKeys=(cur.cpKeys||[]).concat(key?[key]:[]); cur.cpN=(cur.cpN||0)+1; save();
-  CP.cur={text,acts,key,input:opt.input||null}; log('cpill-show',{key:key||null}); if(!opt.replace) S.feed.push({id:'f'+(uid++),type:'hat',hat:'CONDUCTOR',part:'Aside',text,seen:true}); cpRender(); cpArm(); }
+  CP.cur={text,acts,key,input:opt.input||null}; log('cpill-show',{key:key||null}); if(!opt.replace&&key!=='welcome') S.feed.push({id:'f'+(uid++),type:'hat',hat:'CONDUCTOR',part:'Aside',text,seen:true}); cpRender(); cpArm(); }
 function cpArm(ms=W.on?8000:14000){ clearTimeout(CP.t); CP.t=setTimeout(()=>{ if(CP.cur&&!CP.hover&&!(document.activeElement&&document.activeElement.id==='cpone')) cpFade(); },ms); }
 function cpFade(){ const el=$('cpill'); if(!el||!CP.cur) return; el.classList.add('out'); setTimeout(()=>{ if(el.classList.contains('out')) cpClear(); },400); }
 function cpRender(){ const el=$('cpill'), c=CP.cur; if(!el) return; el.style.maxWidth=W.on?Math.max(240,px('wlw')-8)+'px':''; if(!c){ el.className=''; el.innerHTML=''; return; }
@@ -3052,7 +3222,7 @@ $('cpill').addEventListener('keydown',e=>{ if(e.target.id!=='cpone') return; if(
   cur.one=v; log('one-thing',{words:wc(v),via:'pill'}); save(); if(SB.mode==='time') renderSide(); CP.cur={text:`One thing: “${short(v,48)}”. We'll go together.`,acts:[],key:'one-set'}; cpRender(); cpArm(4000); });
 
 /* ======================= resizable panes: drag an edge; double-click it to reset; widths are kept ======================= */
-const SIZES={sbw:[300,240,360],cw:[430,320,520],rpw:[360,320,520],wlw:[300,240,440],wrw:[320,300,480],ldw:[360,320,520]};
+const SIZES={sbw:[300,240,360],cw:[470,460,560],rpw:[360,320,520],wlw:[300,240,440],wrw:[320,300,480],ldw:[360,320,520]};
 const PANE_NAME={sbw:'sidebar',cw:'Hats pane',rpw:'notes panel',wlw:'material column',wrw:'hats column',ldw:'paper details'};
 const px=k=>parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--'+k))||SIZES[k][0];
 function sizeMax(k){ const W2=innerWidth, st=SIZES[k][2]; let dyn=st;
@@ -3087,6 +3257,150 @@ function initReviews(){ if(S.reviews) return; S.board=S.board||'bd1'; S.boardSto
              {id:'rv2',name:'Thesis ideas',boards:[{id:'bd2',name:'Board 1'}],papers:[]}]; S.review='rv1'; }
 function sbState(){ S.pile=S.pile||[]; S.screened=S.screened||{in:[],out:[]}; initReviews(); if(!SB.open) SB.open=new Set(S.sideOpen||['rv:'+S.review,'g:b:'+S.review,'g:n:'+S.review]); }
 function toggleSide(force){ const on=force!=null?force:!document.body.classList.contains('side'); document.body.classList.toggle('side',on); if(on) renderSide(); setTimeout(fitCrumb,280); }
+{ const _owT0=openWrite; openWrite=function(...a){ W.t0=Date.now(); return _owT0.apply(this,a); }; }
+/* Enter opens what is selected on the board: a note in the writing room, a paper in the reader (double-click was not obvious, U1) */
+window.addEventListener('keydown',e=>{ if(e.key!=='Enter'||e.shiftKey||e.ctrlKey||e.metaKey||e.altKey||W.on||reading||typeof editing!=='undefined'&&editing) return;
+  const t=e.target; if(t&&(t.closest('input,textarea,[contenteditable="true"],#side,#council,#seek,button'))) return; const sel=S.sel; if(!sel) return;
+  const id=String(sel).replace(/^[ip]:/,'');
+  if(I(id)&&['note','claim'].includes(I(id).kind)){ e.preventDefault(); log('open-by',{by:'enter',id}); openNote(id); }
+  else if(S.papers.some(b=>b.pid===id)&&P(id)){ e.preventDefault(); log('open-by',{by:'enter',pid:id}); enterReading(id); } });
+/* highlight mode highlights on release, but a stray click (one word) or a drag across columns (a page of text) asks first, through the usual bar (U1 removed 7 such) */
+function hlOk(){ const n=(String(getSelection()).match(/\S+/g)||[]).length; return n>=2&&n<=120; }
+/* a paper's quotes stand in a column down its right side (U1: "a tower of notes"). The column can be folded away, and quotes moved out can go back */
+/* the column is a tower of blocks (U1's sketch: "board notes too spammed, have a column, building blocks"): in it a quote shows only its page */
+const inCol=i=>isColQ(i)&&i.x==null;
+const qLab=i=>{ const pg='p.'+pageOfPi(i.pid,i.pi); return inCol(i)?pg:pl(i.pid)+', '+pg; };
+function magnetCol(it,wx,wy){ if(!it||!isColQ(it)) return null; const bp=S.papers.find(b=>b.pid===it.pid); if(!bp||bp.fold) return null; const card=world.querySelector('.paper[data-pid="'+bp.pid+'"]'); if(!card) return null;
+  const cx=bp.x+card.offsetWidth+36, col=[...world.querySelectorAll('.item.incol')].filter(e=>{ const j=I(e.dataset.id); return j&&j.pid===bp.pid&&j!==it; });
+  const bottom=Math.max(bp.y+card.offsetHeight,...col.map(e=>e.offsetTop+e.offsetHeight)); const mx=wx+125;
+  return mx>cx-90&&mx<cx+250+90&&wy>bp.y-80&&wy<bottom+100?bp:null; }
+function colGapOn(){ if(!drag||drag.k!=='item'||drag.gap||!drag.el||!drag.el.classList.contains('incol')) return; const g=document.createElement('div'); g.className='colgap';
+  g.style.left=drag.ox+'px'; g.style.top=drag.oy+'px'; g.style.width=drag.el.offsetWidth+'px'; g.style.height=drag.el.offsetHeight+'px'; world.appendChild(g); drag.gap=g; }
+function colInsLine(bp){ world.querySelectorAll('.colins').forEach(e=>e.remove()); if(!bp||!drag||!drag.o) return; const it=drag.o;
+  const col=[...world.querySelectorAll('.item.incol')].filter(e=>!e.classList.contains('dragging')).map(e=>({e,i:I(e.dataset.id)})).filter(x=>x.i&&x.i.pid===bp.pid&&x.i!==it).sort((a,b)=>(a.i.rel??0)-(b.i.rel??0));
+  const card=world.querySelector('.paper[data-pid="'+bp.pid+'"]'); if(!card) return; const far=document.body.classList.contains('far');
+  let x=bp.x+card.offsetWidth+(far?24:36), y=bp.y, w=drag.el?drag.el.offsetWidth:250;
+  const order=S.items.filter(i=>i.pid===bp.pid&&(i.kind==='frag'||i.kind==='mine'||i.kind==='area')&&!i.slot&&!i.att&&(i.x==null||i===it)).sort((p,q)=>(p.rel??0)-(q.rel??0)), at=order.indexOf(it);
+  if(col.length){ const after=new Set(order.slice(at+1)); const nx=col.find(c=>after.has(c.i)); x=col[0].e.offsetLeft; w=col[0].e.offsetWidth; y=nx?nx.e.offsetTop:col[col.length-1].e.offsetTop+col[col.length-1].e.offsetHeight; }
+  if(drag.gap&&col.length){ const gt=drag.gap.offsetTop, gb=gt+drag.gap.offsetHeight; if(Math.abs(y-gb)<4||Math.abs(y-gt)<4) y=gt+drag.gap.offsetHeight/2; } /* going back where it came from: the line sits in its own gap */
+  const l=document.createElement('div'); l.className='colins'; l.style.left=x+'px'; l.style.top=y+'px'; l.style.width=w+'px'; world.appendChild(l); }
+function magnetHint(bp){ colGapOn(); colInsLine(bp); world.querySelectorAll('.paper.magnet').forEach(e=>e.classList.remove('magnet')); if(bp) world.querySelector('.paper[data-pid="'+bp.pid+'"]')?.classList.add('magnet'); }
+function rpSet(off){ S.rpOff=!!off; $('reader').classList.toggle('rpoff',S.rpOff); save(); log('notes-panel',{open:!S.rpOff}); }
+$('rpclose').onclick=()=>rpSet(true); $('rpopen').onclick=()=>rpSet(false);
+setTimeout(()=>$('reader').classList.toggle('rpoff',!!(S&&S.rpOff)),0);
+/* Ask the hats: whoever fits the question answers (the same routing as the Hats pane), from the hats this card allows */
+{ const _bs3=bounceSend; bounceSend=function(){ if(bst&&popKey){ const msg=(bst.draft||'').trim(), hs=bounceHats(popKey), r=msg?route(msg):null; if(hs.length) bst.hat=hs.includes(r)?r:hs[0]; } return _bs3.apply(this,arguments); }; }
+$('aipop').addEventListener('pointerdown',e=>{ const hd=e.target.closest('.ahd'); if(!hd) return; e.preventDefault(); const pop=$('aipop'), r=pop.getBoundingClientRect(), dx=e.clientX-r.left, dy=e.clientY-r.top;
+  const mv=ev=>{ POPAT={x:Math.max(0,Math.min(innerWidth-r.width,ev.clientX-dx)),y:Math.max(44,Math.min(innerHeight-40,ev.clientY-dy))}; pop.style.left=POPAT.x+'px'; pop.style.top=POPAT.y+'px'; };
+  const up=()=>{ removeEventListener('pointermove',mv); removeEventListener('pointerup',up); hd.classList.remove('grab'); if(POPAT) log('bounce-move',{}); };
+  hd.classList.add('grab'); addEventListener('pointermove',mv); addEventListener('pointerup',up); });
+/* the views over the board update the breadcrumb when they open and close */
+setTimeout(()=>{ for(const k of ['openSeek','closeSeek','openTimeline','closeTimeline','openLibrary','closeLibrary']){ const fn=window[k]; if(typeof fn!=='function') continue; window[k]=function(){ const r=fn.apply(this,arguments); try{ setCrumb(); }catch(e){} return r; }; } },0);
+/* leaving the paper closes its right-click menu, selection bar and explanation (the menu had stayed open over the writing room) */
+setTimeout(()=>{ for(const k of ['exitReading','exitReadingQuick','openWrite','openSeek','openTimeline','openLibrary']){ const fn=window[k]; if(typeof fn!=='function') continue; window[k]=function(){ try{ rmClose(); $('explpop')?.remove(); $('selbar').style.display='none'; }catch(e){} return fn.apply(this,arguments); }; } },0);
+/* the title of a note grows to fit when the page gets narrower (Hats pane opened) or wider; it had stayed one line and cut off */
+new ResizeObserver(()=>{ const t=$('wtitle'); if(!W.on||!t) return; t.style.height='auto'; t.style.height=t.scrollHeight+'px'; }).observe($('write'));
+/* a board-level line from CONDUCTOR doesn't follow you into a paper or a note (it sat over the material column) */
+setTimeout(()=>{ for(const k of ['openWrite','enterReading']){ const fn=window[k]; if(typeof fn!=='function') continue; window[k]=function(){ try{ if(CP.cur&&!/^(writing|read)/.test(CP.cur.key||'')) cpClear(); }catch(e){} return fn.apply(this,arguments); }; } },0);
+/* on a smaller screen, opening the Hats pane while reading folds the notes panel away for as long as the pane is open,
+   so the paper keeps a readable width (paper + notes + hats left about 400 px for the paper at 1280 px); the panel icon brings it back */
+const RPA={on:false};
+function rpAuto(){ const r=$('reader'); if(!reading||!document.body.classList.contains('council')){ if(RPA.on){ RPA.on=false; r.classList.toggle('rpoff',!!S.rpOff); } return; }
+  if(S.rpOff||RPA.on) return; const cw=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--cw'))||470, rpw=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--rpw'))||360;
+  if(innerWidth-cw-rpw<620){ RPA.on=true; r.classList.add('rpoff'); log('notes-panel-auto',{w:innerWidth}); } }
+{ const _oc=openCouncil, _cc=closeCouncil; openCouncil=function(){ const x=_oc.apply(this,arguments); rpAuto(); return x; }; closeCouncil=function(){ const x=_cc.apply(this,arguments); rpAuto(); return x; }; }
+setTimeout(()=>{ const _er=window.enterReading, _xr=window.exitReading, _xq=window.exitReadingQuick;
+  window.enterReading=function(){ const x=_er.apply(this,arguments); setTimeout(rpAuto,0); return x; };
+  window.exitReading=function(){ const x=_xr.apply(this,arguments); RPA.on=false; return x; };
+  window.exitReadingQuick=function(){ const x=_xq.apply(this,arguments); RPA.on=false; return x; }; },0);
+$('rpopen').addEventListener('click',()=>{ RPA.on=false; });
+function isColQ(i){ return (i.kind==='frag'||i.kind==='mine'||i.kind==='area')&&!i.slot&&!i.att; }
+function qcolHTML(bp){ const all=S.items.filter(i=>i.pid===bp.pid&&isColQ(i)); if(!all.length) return ''; const loose=all.filter(i=>i.x!=null).length, inCol=all.length-loose;
+  return '<div class="qcol">'+(inCol?'<button data-act="qfold" data-pid="'+bp.pid+'" aria-expanded="'+(!bp.fold)+'">'+(bp.fold?'Show ':'Hide ')+inCol+' quote'+(inCol===1?'':'s')+'</button>':'')
+    +(loose?'<button data-act="qback" data-pid="'+bp.pid+'">Put '+loose+' back in the column</button>':'')+'</div>'; }
+
+/* ======================= the whole paper as context (U1, 20 Nov: "MINER only scrapes nearby areas, should read the whole paper") =======================
+   MINER now gets the 6 closest lines across your papers AND every sentence of the paper in focus (the one you're reading, the one you
+   asked about, or the paper of the closest line), in order. It can still only point at a numbered sentence, so every quote stays exact. */
+function paperWhole(pid,max=60000){ return (body(pid)||[]).map(x=>x&&(x.h?'## '+x.h:x.p)).filter(Boolean).join('\n\n').slice(0,max); }
+function wholeCands(pid){ const out=[]; (body(pid)||[]).forEach((x,k)=>{ if(!x||!x.p) return; const pi=x.pi!=null?x.pi:k; for(const sn of splitSentences(x.p)){ if(sn.text.split(' ').length<4||sn.text.length>420) continue; out.push({pid,pi,page:x.page||x.pg||pageOfPi(pid,pi),quote:sn.text}); } }); return out.slice(0,700); }
+function withWhole(hat,cands,focus,q){ withWhole.map=''; if(hat!=='MINER') return cands; focus=focus||(reading&&!reading.n&&reading.p)||(cands[0]&&cands[0].pid); if(!focus||!P(focus)) return cands;
+  ensureMap(focus); const m=S.maps&&S.maps[focus]; withWhole.last=P(focus).st||P(focus).t; withWhole.map=m?mapText(focus,m):'';
+  const seen=new Set(cands.map(c=>c.quote)); return cands.concat(focusCands(focus,q||'',m).filter(c=>!seen.has(c.quote))); }
+/* the paper map (20 Nov): built once per paper by the bigger model on the hat server and kept on disk and in S.maps. It says what is
+   where (sections, terms, measures, findings, limits, with paragraph numbers). A hat gets the map (1-2k tokens) plus the paper's
+   best-matching lines, found by your words and by the map, instead of the whole paper (tens of thousands of tokens). */
+const MAPQ={};
+function ensureMap(pid){ S.maps=S.maps||{}; if(!pid||!P(pid)||S.maps[pid]) return Promise.resolve(); if(MAPQ[pid]) return MAPQ[pid]; if(LLM.ok!==true) return Promise.resolve();
+  const text=(body(pid)||[]).map((x,k)=>x&&(x.h?'## '+x.h:x.p?'['+(x.pi!=null?x.pi:k)+'] (p.'+(x.page||x.pg||pageOfPi(pid,x.pi!=null?x.pi:k))+') '+x.p:'')).filter(Boolean).join('\n');
+  MAPQ[pid]=fetch(LLM.url+'/map',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({title:P(pid).t,text})}).then(r=>r.json())
+    .then(j=>{ if(j&&j.map){ S.maps[pid]=j.map; save(); log('paper-map',{pid,ms:j.ms,cached:!!j.map.cached}); } }).catch(()=>{}).finally(()=>{ delete MAPQ[pid]; });
+  return MAPQ[pid]; }
+function mapText(pid,m){ const ps=e=>e.paras&&e.paras.length?' [¶'+e.paras.join(',')+']':''; const L=['Paper: '+P(pid).t+(m.about?'. '+m.about:'')];
+  if(m.sections.length) L.push('Sections: '+m.sections.map(x=>x.title+(x.from!=null?' [¶'+x.from+(x.to!=null&&x.to!==x.from?'-'+x.to:'')+']':'')+(x.gist?': '+x.gist:'')).join('; '));
+  if(m.terms.length) L.push('Terms: '+m.terms.map(e=>e.term+ps(e)+': '+e.means).join('; '));
+  if(m.measures.length) L.push('Measures: '+m.measures.map(e=>e.what+': '+e.how+ps(e)).join('; '));
+  if(m.findings.length) L.push('Findings: '+m.findings.map(e=>e.what+ps(e)).join('; '));
+  if(m.limits.length) L.push('Limits: '+m.limits.map(e=>e.what+ps(e)).join('; '));
+  return L.join('\n'); }
+function focusCands(pid,q,m,k=14){ const Q=words(q), boost=new Map();
+  if(m) for(const e of [...m.terms,...m.measures,...m.findings,...m.limits]){ const ew=words((e.term||e.what||'')+' '+(e.means||e.how||'')); const hit=Q.filter(w=>ew.some(v=>v.slice(0,5)===w.slice(0,5))).length; if(hit) for(const p of e.paras||[]) boost.set(p,(boost.get(p)||0)+hit); }
+  return wholeCands(pid).map(c=>{ const ws=words(c.quote); const hit=Q.filter(w=>ws.some(v=>v.slice(0,5)===w.slice(0,5))).length; return {...c,score:hit*2+(boost.get(c.pi)||0)*1.5}; })
+    .filter(c=>c.score>0).sort((a,b)=>b.score-a.score).slice(0,k); }
+/* where the terms in a line are defined, by the map (for Explain) */
+function termParas(pid,line,pi){ const m=S.maps&&S.maps[pid]; if(!m) return ''; const lo=line.toLowerCase(), out=[];
+  for(const e of m.terms){ const t=e.term.toLowerCase().replace(/\s*\(.*\)\s*/,'').trim(); if(t.length<2||!lo.includes(t)) continue; const p=(e.paras||[]).find(x=>x!==pi&&x!==pi-1); const x=p!=null&&para(pid,p); if(x&&x.p&&!out.some(o=>o.pi===p)) out.push({pi:p,t:e.term+' (¶'+p+'): '+x.p.slice(0,900)}); if(out.length>=2) break; }
+  return out.map(o=>o.t).join('\n\n'); }
+/* a hat that is still thinking shows a small loading mark, never the scripted line first (U1 found that confusing) */
+function ldTx(x){ return x.wait&&Date.now()-x.wait<90000?'<span class="ldg" role="status" aria-label="Thinking"><i></i><i></i><i></i></span>':esc(x.text); }
+{ const _er=enterReading; enterReading=function(pid){ const r=_er.apply(this,arguments); if(typeof pid==='string'&&P(pid)) setTimeout(()=>{ (LLM.ok===true?Promise.resolve(true):llmCheck()).then(ok=>{ if(ok) ensureMap(pid); }); },400); return r; }; }
+
+/* ======================= right-click while reading (U1, 7:15: "colour, copy, place on board, search, search in browser, ask for meaning") =======================
+   On selected text: highlight in a colour, highlight + comment, place on board, copy, explain (CONDUCTOR, with the whole paper), find papers, search the web.
+   On a highlight: change its colour, copy, place on board, explain, find, search the web, remove. Anywhere else the browser's own menu stays. */
+const RM={};
+function rmPending(){ const sh=$('sheet'), s=getSelection(), txt=String(s).trim(); if(!txt) return null;
+  if(sh.classList.contains('pdfsheet')) return matchInBody(txt);
+  const el=nd=>nd&&(nd.nodeType===1?nd:nd.parentElement).closest('.para'); const a=el(s.anchorNode); if(!a||a!==el(s.focusNode)) return null;
+  const r0=s.getRangeAt(0), pre=document.createRange(); pre.selectNodeContents(a); pre.setEnd(r0.startContainer,r0.startOffset); let st=pre.toString().length, en=st+r0.toString().length;
+  const t=(para(reading.p,+a.dataset.pi)||{}).p||''; while(st>0&&/\w/.test(t[st-1])) st--; while(en<t.length&&/\w/.test(t[en])) en++; return {pi:+a.dataset.pi,start:st,end:en}; }
+/* clear space for a card: try spots around where it is, nearest first, until it overlaps nothing */
+function freeSpot(it){ const el=world.querySelector('.item[data-id="'+it.id+'"]'); if(!el) return; const w=el.offsetWidth, h=el.offsetHeight, x0=it.x, y0=it.y;
+  const others=[...world.querySelectorAll('.item, .paper')].filter(e=>e!==el&&e.offsetParent).map(e=>({l:e.offsetLeft-16,t:e.offsetTop-16,r:e.offsetLeft+e.offsetWidth+16,b:e.offsetTop+e.offsetHeight+16}));
+  const clear=(x,y)=>!others.some(o=>x<o.r&&x+w>o.l&&y<o.b&&y+h>o.t); const spots=[];
+  for(let i=-6;i<=6;i++) for(let j=-6;j<=6;j++) spots.push([x0+i*(w/2+20),y0+j*(h/2+20)]); spots.sort((a,b)=>Math.hypot(a[0]-x0,a[1]-y0)-Math.hypot(b[0]-x0,b[1]-y0));
+  const s=spots.find(([x,y])=>clear(x,y)); if(s){ it.x=Math.round(s[0]); it.y=Math.round(s[1]); } }
+function rmClose(){ $('rdm').classList.remove('on'); }
+document.addEventListener('contextmenu',e=>{ if(!reading||reading.n) return; const sh=$('sheet'); if(!sh.contains(e.target)) return;
+  let h=null; const mk=e.target.closest('mark[data-n]'); if(mk) h=I(mk.dataset.n);
+  if(!h) for(const d of sh.querySelectorAll('.pdfhl')){ const r=d.getBoundingClientRect(); if(e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom){ h=I(d.dataset.n); break; } }
+  const txt=String(getSelection()).trim(); const pd=h?null:rmPending();
+  if(!h&&!txt) return; if(!h&&!pd){ e.preventDefault(); toast(sh.classList.contains('pdfsheet')?'That passage isn’t in the paper’s text (a header, caption or figure?)':'Select within one paragraph'); return; }
+  e.preventDefault(); bar.style.display='none'; RM.rect=h?((mk||sh.querySelector('.pdfhl[data-n="'+h.id+'"]')||e.target).getBoundingClientRect()):getSelection().getRangeAt(0).getBoundingClientRect(); RM.h=h; RM.pd=pd; RM.pid=reading.p; RM.txt=h?h.quote:para(reading.p,pd.pi).p.slice(pd.start,pd.end).trim();
+  const b=(k,l,kb)=>'<button role="menuitem" data-rm="'+k+'">'+l+(kb?'<span class="k">'+kb+'</span>':'')+'</button>';
+  const m=$('rdm'); m.innerHTML='<div class="dots" role="group" aria-label="'+(h?'Highlight colour':'Highlight in')+'">'+COLS.map(c=>'<button class="dot'+(h&&h.col===c.k?' on':'')+'" data-rm="col" data-c="'+c.k+'" style="background:'+c.c+'" title="'+(h?'Change to ':'Highlight in ')+(colOf(c.k).name||'this colour')+'" aria-label="'+(h?'Change to ':'Highlight in ')+(colOf(c.k).name||c.k)+'"></button>').join('')+'</div>'
+    +(h?'':b('hl','Highlight')+b('cm','Highlight + comment'))+(h&&h.x!=null?'':b('place','Place on board'))+b('copy','Copy','Ctrl C')
+    +'<hr>'+b('ex','Explain this')+b('find','Find papers on this')+b('web','Search the web')+(h?'<hr>'+b('del','Remove highlight'):'');
+  m.classList.add('on'); const w=m.offsetWidth, hh=m.offsetHeight; m.style.left=Math.max(8,Math.min(e.clientX,innerWidth-w-8))+'px'; m.style.top=Math.max(8,Math.min(e.clientY,innerHeight-hh-8))+'px';
+  log('reader-menu',{on:h?'highlight':'selection'}); });
+document.addEventListener('mousedown',e=>{ if(!e.target.closest('#rdm')) rmClose(); },true);
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&$('rdm').classList.contains('on')) rmClose(); },true);
+rscroll.addEventListener('scroll',rmClose,{passive:true});
+$('rdm').onmousedown=e=>e.preventDefault();
+$('rdm').onclick=async e=>{ const b=e.target.closest('[data-rm]'); if(!b||!reading) return; const a=b.dataset.rm, h=RM.h, txt=RM.txt; rmClose(); log('reader-menu-do',{a,on:h?'highlight':'selection'});
+  const make=cm=>{ pending=RM.pd; addHighlight(cm); return S.items.find(x=>x.kind==='frag'&&x.pid===RM.pid&&x.pi===RM.pd.pi&&x.start<RM.pd.end&&RM.pd.start<x.end); };
+  if(a==='col'){ if(h){ h.col=b.dataset.c; log('hl-colour',{id:h.id,col:h.col}); save(); renderReader(); } else { hlCol=b.dataset.c; paintCol(); make(false); } return; }
+  if(a==='hl'||a==='cm') return make(a==='cm');
+  if(a==='copy'){ try{ await navigator.clipboard.writeText(txt); }catch(err){ const t=document.createElement('textarea'); t.value=txt; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); } getSelection().removeAllRanges(); return toast('Copied'); }
+  if(a==='ex'){ pending=h?{pi:h.pi,start:h.start,end:h.end}:RM.pd; return explainLine(); }
+  if(a==='web'){ window.open('https://www.google.com/search?q='+encodeURIComponent(short(txt,200)),'_blank','noopener'); return; }
+  if(a==='find'){ const q=short(txt,120).replace(/[“”"…]/g,''); exitReadingQuick?exitReadingQuick():exitReading(); setTimeout(()=>{ openSeek(); seekRun(q,'reader-menu'); },60); return; }
+  if(a==='del'&&h){ S.items=S.items.filter(x=>x!==h); log('remove-annot',{id:h.id}); save(); return renderReader(); }
+  if(a==='place'){ const q=h||make(false); if(!q) return; const pid=RM.pid; exitReading();
+    setTimeout(()=>{ const r=vr(), c=toWorld(r.left+r.width/2,r.top+r.height/2); q.x=Math.round(c.x+40); q.y=Math.round(c.y-40); renderBoard(); freeSpot(q); S.sel=q.id; log('place-on-board',{id:q.id,pid}); save(); renderBoard(); toast('Placed on the board. Drag it where it belongs.'); },560); } };
+
+/* opening a paper closes the side menu, so the reader gets the whole width */
+{ const _erSide=enterReading; enterReading=function(...a){ if(document.body.classList.contains('side')) toggleSide(false); return _erSide.apply(this,a); }; }
 const curReview=()=>{ initReviews(); return S.reviews.find(r=>r.id===S.review)||S.reviews[0]; };
 const reviewOfBoard=bd=>S.reviews.find(r=>r.boards.some(b=>b.id===bd));
 const boardName=bd=>{ for(const r of S.reviews){ const b=r.boards.find(x=>x.id===bd); if(b) return b.name; } return 'Board'; };
@@ -3094,16 +3408,24 @@ function reviewPids(rv){ const s=new Set(rv.papers); for(const b of rv.boards){ 
 const inAnyReview=pid=>S.reviews.some(r=>reviewPids(r).has(pid));
 function reviewNotes(rv){ const out=[]; for(const b of rv.boards){ const its=b.id===S.board?S.items:((S.boardStore||{})[b.id]||{}).items||[]; its.filter(i=>i.kind==='note').forEach(n=>out.push(n)); } return out; }
 function boardOfItem(id){ if(I(id)) return S.board; for(const [bd,st] of Object.entries(S.boardStore||{})) if((st.items||[]).some(i=>i.id===id)) return bd; return null; }
-function setCrumb(){ const c=document.querySelector('.top .crumb'); if(!c) return; const rv=curReview(); const doc=reading?(reading.n?((I(reading.n)||{}).text||'Note').split(/\n/)[0].trim()||'Note':(P(reading.p)||{}).t):''; const parts=[`<b>${esc(rv.name)}</b>${isExample(rv)?'<span class="exm">Example</span>':''}`,esc(boardName(S.board))]; if(doc) parts.push(esc(doc)); c.innerHTML=parts.map((h,i)=>`<span class="cr" title="${h.replace(/<[^>]+>/g,' ').replace(/"/g,'&quot;').trim()}">${h}</span>`).join('<span class="sep">/</span>'); fitCrumb(); }
+function setCrumb(){ const c=document.querySelector('.top .crumb'); if(!c) return; const rv=curReview(); const doc=reading?(reading.n?((I(reading.n)||{}).text||'Note').split(/\n/)[0].trim()||'Note':(P(reading.p)||{}).t):(W.on&&I(W.id)?(String(I(W.id).text||'').split(/\n/)[0].trim()||'Note'):''); const parts=[`<b>${esc(rv.name)}</b>${isExample(rv)?'<span class="exm">Example</span>':''}`,esc(boardName(S.board))]; if(doc) parts.push(esc(doc)); else { let vw=''; try{ vw=SEEK.on?'Find':TL.on?'Timeline':LIB.on?'References':''; }catch(e){} if(vw) parts.push(vw); } c.innerHTML=parts.map((h,i)=>`<span class="cr" data-cr="${i}" ${i<parts.length-1?'role="link" tabindex="0"':''} title="${h.replace(/<[^>]+>/g,' ').replace(/"/g,'&quot;').trim()}">${h}</span>`).join('<span class="sep">/</span>'); fitCrumb(); }
 /* not enough room: the review goes first, then the board; where you are (the right-most part) always stays */
 function fitCrumb(){ const c=document.querySelector('.top .crumb'); if(!c) return; const k=[...c.children]; k.forEach(e=>e.classList.remove('gone')); const last=k[k.length-1];
-  for(let i=0;i<k.length-1&&last.scrollWidth>last.clientWidth+1;i+=2){ k[i].classList.add('gone'); k[i+1].classList.add('gone'); } }
+  for(let i=0;i<k.length-1&&last.scrollWidth>last.clientWidth+1&&last.clientWidth<200;i+=2){ k[i].classList.add('gone'); k[i+1].classList.add('gone'); } }
 addEventListener('resize',fitCrumb);
+/* the breadcrumb takes you there: the board closes whatever is open over it; the review also opens the review list */
+function crumbGo(i){ const c=document.querySelector('.top .crumb'), last=c?c.querySelectorAll('.cr').length-1:0; if(i>=last) return;
+  log('crumb',{to:i?'board':'review'}); if(W.on) closeWrite(); if(SEEK.on) closeSeek(); if(TL.on) closeTimeline(); if(LIB.on) closeLibrary(); if(popKey) closePop(); if(reading) exitReading();
+  if(i===0){ SB.mode='refs'; toggleSide(true); renderSide(); } setTimeout(setCrumb,520); }
+{ const _ow=openWrite, _cw=closeWrite; openWrite=function(){ const r=_ow.apply(this,arguments); setTimeout(setCrumb,0); return r; }; closeWrite=function(){ const r=_cw.apply(this,arguments); setTimeout(setCrumb,0); return r; }; }
+document.querySelector('.top .crumb')?.addEventListener('click',e=>{ const x=e.target.closest('.cr[data-cr]'); if(x) crumbGo(+x.dataset.cr); });
+document.querySelector('.top .crumb')?.addEventListener('keydown',e=>{ const x=e.target.closest('.cr[data-cr]'); if(x&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); crumbGo(+x.dataset.cr); } });
 /* switching boards: the board you leave is put away whole; the one you open comes back exactly as you left it */
 function switchBoard(bd){ initReviews(); if(bd===S.board) return; if(LIB.on) closeLibrary(true); if(W.on) closeWrite(true); if(reading) exitReadingQuick(); if(popKey) closePop();
-  S.boardStore[S.board]={papers:S.papers,items:S.items,arrows:S.arrows,sections:S.sections};
+  S.boardStore[S.board]={papers:S.papers,items:S.items,arrows:S.arrows,sections:S.sections}; const fromRv=curReview(), toRv=reviewOfBoard(bd); if(fromRv&&toRv&&fromRv.id!==toRv.id){ fromRv.find={screened:S.screened,pile:S.pile,seekDec:S.seekDec}; const f=toRv.find||{}; S.screened=f.screened||{in:[],out:[]}; S.pile=f.pile||[]; S.seekDec=f.seekDec||[]; delete toRv.find; if(typeof SEEK!=='undefined'){ SEEK.res=[]; SEEK.q=''; } }
   const nx=S.boardStore[bd]||{papers:[],items:[],arrows:[],sections:[]}; delete S.boardStore[bd];
   S.papers=nx.papers; S.items=nx.items; S.arrows=nx.arrows; S.sections=nx.sections; S.board=bd; S.review=(reviewOfBoard(bd)||curReview()).id; curReview().lastBoard=bd; S.sel=null;
+  if(CP.cur&&fromRv&&toRv&&fromRv.id!==toRv.id) cpClear(); /* the pill belonged to the review you left */
   log('board-switch',{board:bd}); save(); renderBoard(); fit(); setCrumb(); renderSide(); }
 const ICON_REFS=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5v15M8.5 4.5v15"/><path d="M13 5.2l4.3-1.2 3.7 14.6-4.3 1.2z"/></svg>`;
 const ICON_FIND=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8M10.5 7.5v6M7.5 10.5h6"/></svg>`;
@@ -3118,7 +3440,7 @@ function sbRow(key,label,{d=0,ch=null,m='',dot=null,dim=false,cur=false,drag=fal
   return `<div class="sr${cls?' '+cls:''}${cur?' cur':''}${dim?' dim':''}" style="--d:${d}" data-k="${esc(key)}"${drag?' draggable="true"':''}${dropF?` data-drop="${dropF}"`:''}><span class="ch">${icon||(ch==null?'':ch?'▾':'▸')}</span>${dot?`<i class="dt" style="background:${dot}"></i>`:''}<span class="t">${esc(label)}</span>${m?`<span class="m">${esc(m)}</span>`:''}</div>`; }
 function renderSide(){ const el=$('side'); if(!el||!document.body.classList.contains('side')) return; sbState(); const O=k=>SB.open.has(k), mode=SB.mode;
   const ae=document.activeElement, keepId=ae&&el.contains(ae)?ae.id:null, caret=keepId&&ae.selectionStart;
-  const rail=`<nav class="srail" aria-label="Sidebar"><button class="smenu" data-sb="close" title="Close sidebar">☰</button>${[['refs','References and reviews',ICON_REFS],['find','Find papers',ICON_FIND],['time','Timeline',ICON_TIME]].map(([m,t,ic])=>`<button class="${mode===m?'on':''}" data-mode="${m}" title="${t}" aria-pressed="${mode===m}">${ic}</button>`).join('')}</nav>`;
+  const rail=`<nav class="srail" aria-label="Sidebar"><button class="smenu" data-sb="close" title="Close sidebar" aria-label="Close sidebar"><svg class="pico" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.75" y="3.75" width="14.5" height="12.5" rx="2.5"/><path d="M8 3.75v12.5"/><path d="M4.75 7h1.5M4.75 9.5h1.5M4.75 12h1.5" stroke-linecap="round"/></svg></button>${[['refs','References and reviews',ICON_REFS],['find','Find papers',ICON_FIND],['time','Timeline',ICON_TIME]].map(([m,t,ic])=>`<button class="${mode===m?'on':''}" data-mode="${m}" title="${t}" aria-pressed="${mode===m}">${ic}</button>`).join('')}</nav>`;
   let h='';
   if(mode==='refs'){ const rv=curReview();
     h+=`<div class="sbar"><div class="rvsw" role="button" tabindex="0" data-sb="rvmenu" aria-haspopup="menu" aria-expanded="${!!SB.rvMenu}" title="Click to switch review · double-click (or F2) to rename"><span class="t">${esc(rv.name)}</span><span class="cv" aria-hidden="true">▾</span></div><button data-sb="newnote" title="New note">${SVG_NEWNOTE}</button><button data-sb="collapse" title="Collapse all">${SVG_COLLAPSE}</button></div>`;
@@ -3187,7 +3509,7 @@ $('side').addEventListener('click',e=>{ if(e.target.closest('[data-sb="close"]')
   if(a==='rvpick'){ SB.rvMenu=false; const r=S.reviews.find(x=>x.id===b.dataset.id); if(r&&r.id!==S.review) switchBoard(r.lastBoard&&r.boards.some(x=>x.id===r.lastBoard)?r.lastBoard:r.boards[0].id); renderSide(); return; }
   if(a==='rvrename'){ SB.rvMenu=false; renderSide(); const t=$('side').querySelector('.rvsw .t'); if(t) sbRename(t,curReview()); return; }
   if(a==='newnote'){ SB.rvMenu=false; $('wnew').click(); return; }
-  if(a==='newreview'){ SB.rvMenu=false; const rid='rv'+(uid++), bid='bd'+(uid++); const rv={id:rid,name:'New review',boards:[{id:bid,name:'Board 1'}],papers:[]}; S.reviews.push(rv); SB.open.add('rv:'+rid); SB.open.add('g:b:'+rid); log('review-new',{}); switchBoard(bid); const t=$('side').querySelector(`.rvsw .t`); if(t) sbRename(t,rv); return; }
+  if(a==='newreview'){ SB.rvMenu=false; const rid='rv'+(uid++), bid='bd'+(uid++); const rv={id:rid,name:'New review',boards:[{id:bid,name:'Board 1'}],papers:[],fresh:true,feedFrom:S.feed.length}; S.reviews.push(rv); SB.open.add('rv:'+rid); SB.open.add('g:b:'+rid); log('review-new',{}); switchBoard(bid); const t=$('side').querySelector(`.rvsw .t`); if(t) sbRename(t,rv); return; }
   if(a==='newboard'){ const rv=S.reviews.find(r=>r.id===b.dataset.rv); const bid='bd'+(uid++); const bo={id:bid,name:'Board '+(rv.boards.length+1)}; rv.boards.push(bo); log('board-new',{review:rv.id}); switchBoard(bid); const t=$('side').querySelector(`[data-k="bd:${bid}"] .t`); if(t) sbRename(t,bo); return; }
   if(a==='skopen'){ openSeek(); renderSide(); return; }
   if(a==='trail'){ openSeek(); if(b.dataset.f){ SEEK.path=[]; seekRun(null,'you',{filter:b.dataset.f,label:b.dataset.l}); } else seekRun(b.dataset.q,'you'); return; }
@@ -3365,7 +3687,9 @@ new MutationObserver(()=>{ clearTimeout(nameButtons.t); nameButtons.t=setTimeout
 load(); applySizes(); (S.ext||[]).forEach(p=>{ if(!PAPERS.some(x=>x.id===p.id)) PAPERS.push(p); }); initReviews(); addDraft(); addShadowDraft(); if(!S.meetings) S.meetings=[+new Date(2026,9,19,11)]; condSession(); setTimeout(()=>{ try{ cpWelcome(); }catch(e){} },1200); keepOneUnread(); setCrumb(); renderHats(); applyView(); hint(HINT_BOARD); renderBoard(); renderFeed();
 fit();
 window.resetBoard=()=>{ try{ localStorage.removeItem(KEY); }catch(e){} S=seed(); addDraft(); addShadowDraft(); renderBoard(); renderFeed(); fit(); };
-window.exportLog=()=>JSON.stringify(S.log,null,1);
+window.exportLog=(who='P')=>{ const data={who,exported:new Date().toISOString(),reviews:S.reviews.map(r=>({id:r.id,name:r.name,papers:(r.papers||[]).map(id=>{ const p=P(id); return p?{id,title:p.t,by:p.by,y:p.y}:{id}; })})),items:S.items.map(i=>({id:i.id,kind:i.kind,pid:i.pid,hat:i.hat,ok:i.ok,quote:i.quote,comment:i.comment,text:i.text})),feed:S.feed,log:S.log};
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,1)],{type:'application/json'})); a.download=who+'-log.json'; document.body.appendChild(a); a.click(); a.remove(); try{ fetch('/save?name='+encodeURIComponent(who)+'-log',{method:'POST',body:JSON.stringify(data,null,1)}); fetch('/save?name='+encodeURIComponent(who)+'-state',{method:'POST',body:localStorage.getItem(KEY)}); }catch(e){} return `saved ${who}-log.json · ${S.log.length} events`; };
+window.newParticipant=()=>{ try{ localStorage.removeItem(KEY); indexedDB.deleteDatabase('p1-pdfs'); }catch(e){} location.href=location.pathname; };
 
 
 /* ======================= proto-beta2: Markdown as you type (Obsidian/Typora style) + undo / redo =======================
@@ -3447,7 +3771,7 @@ function renderSeek(){ if(!SEEK.on) return; const el=$('seek'); el.classList.add
   const ae=document.activeElement, keep=ae&&el.contains(ae)&&ae.id?ae.id:null, caret=keep&&ae.selectionStart; const lst=el.querySelector('.sk2list'), ls=lst?lst.scrollTop:0;
   const R=mine?SEEK.mine:SEEK.res, n=k=>SEEK.res.filter(r=>r.state===k).length, sel=R[SEEK.sel];
   const steps=SEEK.path.map((p,k)=>`<button class="sk2step${k===SEEK.path.length-1?' cur':''}" data-sk="back" data-k="${k}">${esc(short(p.label,60))}${k?'<i>followed from the step above</i>':''}</button>`).join('');
-  const earlier=(S.trails||[]).slice(-8).reverse().filter((t,i,a)=>t.q&&a.findIndex(x=>x.q===t.q)===i).slice(0,6).map(t=>`<button class="sk2step" data-sk2="rerun" data-v="${esc(t.q)}" data-src="${t.src==='my papers'?'mine':'world'}">${esc(short(t.q,50))}<i>${t.src==='my papers'?'in my papers':'new papers'} · ${t.n} found</i></button>`).join('');
+  const earlier=(S.trails||[]).slice(-8).reverse().filter((t,i,a)=>t.q&&t.q!==SEEK.q&&a.findIndex(x=>x.q===t.q)===i).slice(0,6).map(t=>`<button class="sk2step" data-sk2="rerun" data-v="${esc(t.q)}" data-src="${t.src==='my papers'?'mine':'world'}">${esc(short(t.q,50))}<i>${t.src==='my papers'?'in my papers':'new papers'} · ${t.n} found</i></button>`).join('');
   const trail=`<aside class="sk2trail">${steps?`<div class="sk2h">This search</div>${steps}`:''}${earlier?`<div class="sk2h">Earlier</div>${earlier}`:''}<div class="sk2h">Kept for this review</div><div class="sk2kept"><span><b>${n('in')}</b> in</span><span>${n('maybe')} maybe</span><span>${n('out')} out</span></div></aside>`;
   let list='';
   if(mine) list=R.length?R.map((r,i)=>`<div class="skr${i===SEEK.sel?' sel':''}" data-row2="${i}"><q>${sk2hl(r.text,SEEK.q)}</q><div class="m">${esc(shortTitle?shortTitle(r.pid):P(r.pid).t)} · ${esc(authShort(r.pid))} ${P(r.pid).y}${r.pg?' · p.'+r.pg:''}</div></div>`).join('')
@@ -3571,51 +3895,85 @@ $('tline').addEventListener('click',e=>{ const b=e.target.closest('[data-tl2]');
 /* LLM-MOD-START */
 
 /* ======================= proto-beta2: real hats through a local server (tools/hat-server.mjs) =======================
-   In the Stage 4 build, a local server words a hat's line with Claude. This public build never calls it: the scripted lines stay. Code still chooses what it
+   If http://localhost:8787 answers, a hat you ask in the writing room words its line with Claude. Code still chooses what it
    may quote: up to 6 sentences from your own papers, by word overlap with the paragraph. The model can only point at one of
    them, so every quote shown is exact. If the server is off or fails, the scripted line stays. A small "live" tag marks real lines. */
-const LLM={url:'',ok:false,err:'public build: the hats are scripted'}; /* public build: never reach for a local server */
-async function llmCheck(){ LLM.ok=false; return false; try{ const r=await fetch(LLM.url+'/health',{signal:AbortSignal.timeout(700)}); LLM.ok=r.ok; }catch(e){ LLM.ok=false; } return LLM.ok; }
+{ const _f=window.fetch.bind(window); window.fetch=(u,o={})=>{ try{ if(typeof u==='string'&&typeof LLM!=='undefined'&&u.startsWith(LLM.url)&&!/localhost/.test(LLM.url)){ o={...o,headers:{...(o.headers||{}),'x-pier-pass':PIER_PASS,'bypass-tunnel-reminder':'1'}}; } }catch(e){} return _f(u,o); }; } /* live hats: the passcode, and skip the tunnel's warning page */
+const PIER_Q=new URLSearchParams(location.search), PIER_PASS=PIER_Q.get('pass')||'';
+const LLM={url:(PIER_Q.get('hats')||'http://localhost:8787').replace(/\/$/,''),ok:null,err:''};
+async function llmCheck(){ LLM.at=Date.now(); try{ const r=await fetch(LLM.url+'/health',{signal:AbortSignal.timeout(2000)}); LLM.ok=r.ok; }catch(e){ LLM.ok=false; } return LLM.ok; }
+{ const _lc=llmCheck; llmCheck=async function(){ const was=LLM.ok; const r=await _lc.apply(this,arguments); if(was!==LLM.ok){ try{ renderFeed(); }catch(e){} } return r; }; } /* the Hats pane says live or scripted as soon as it knows */
 function llmCands(text){ const W2=words(text), out=[]; const pids=[...new Set(S.papers.map(b=>b.pid))].filter(p=>P(p));
   for(const pid of pids) (body(pid)||[]).forEach((x,k)=>{ if(!x||!x.p) return; const pi=x.pi!=null?x.pi:k; for(const sn of splitSentences(x.p)){ if(sn.text.split(' ').length<6||sn.text.length>320) continue; const ws=words(sn.text); const hit=W2.filter(w=>ws.some(v=>v.slice(0,5)===w.slice(0,5))).length; if(hit>=2) out.push({pid,pi,page:x.page||x.pg||pageOfPi(pid,pi),quote:sn.text,score:hit}); } });
   return out.sort((a,b)=>b.score-a.score).slice(0,6); }
-async function llmUpgrade(hat,part,el){ if(LLM.ok===null) await llmCheck(); if(!LLM.ok) return; const it=I(W.id); if(!it) return; const b=bid(el); const c=[...it.wchips].reverse().find(x=>x.b===b&&x.hat===hat&&!x.gone); if(!c) return;
-  const claim=claimTxt(el), cands=(hat==='MINER'||hat==='SHADOW'||hat==='ARCHITECT')?llmCands(el.textContent):[]; const was=c.text; c.text=was+' …'; W.chipKey=''; wChips();
-  try{ const r=await fetch(LLM.url+'/hat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({hat,part:WP[part]&&WP[part].l,claim,paragraph:el.textContent,question:curReview().name,candidates:cands.map((x,i)=>({i,paper:authShort(x.pid)+' '+P(x.pid).y,page:x.page,quote:x.quote}))})}); const j=await r.json();
+async function llmUpgrade(hat,part,el){ if(LLM.ok!==true&&Date.now()-(LLM.at||0)>4000) await llmCheck(); if(!LLM.ok) return; const it=I(W.id); if(!it) return; const b=bid(el); const c=[...it.wchips].reverse().find(x=>x.b===b&&x.hat===hat&&!x.gone); if(!c) return;
+  const claim=claimTxt(el), cands=(hat==='MINER'||hat==='SHADOW'||hat==='ARCHITECT')?withWhole(hat,llmCands(el.textContent),null,el.textContent):[]; const was=c.text; c.wait=Date.now(); W.chipKey=''; wChips();
+  try{ const r=await fetch(LLM.url+'/hat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({hat,map:hat==='MINER'?withWhole.map:'',part:WP[part]&&WP[part].l,claim,paragraph:el.textContent,question:curReview().name,candidates:cands.map((x,i)=>({i,paper:authShort(x.pid)+' '+P(x.pid).y,page:x.page,quote:x.quote}))})}); const j=await r.json();
     if(j&&j.line){ c.text=j.line; c.live=true; c.src=j.pick!=null&&cands[j.pick]?{pid:cands[j.pick].pid,pi:cands[j.pick].pi,quote:cands[j.pick].quote}:(hat==='MINER'||hat==='SHADOW'?null:c.src); log('hat-llm',{hat,ms:j.ms,model:j.model,pick:j.pick}); }
     else { c.text=was; if(j&&j.error){ LLM.err=j.error; toast('Real hats are off: '+short(j.error,80)); LLM.ok=false; } } }
   catch(e){ c.text=was; LLM.ok=false; }
-  save(); W.chipKey=''; wChips(); }
+  delete c.wait; save(); W.chipKey=''; wChips(); }
 const _wAsk2=wAsk; wAsk=function(hat,part,el,auto){ const r=_wAsk2.apply(this,arguments); if(!(hat==='SHADOW'&&part==='R')) llmUpgrade(hat,part,el); return r; };
-/* public build: no server check */
+setTimeout(llmCheck,500);
 
 /* ======================= the Hats pane and Bounce also go through the local Claude (10 Nov) =======================
    The scripted line appears first, as before (so nothing ever breaks). If the server answers, the line is re-worded by Claude,
    and its quote can only be one of the candidates code picked from your papers. The "Why are you saying this?" receipt says which. */
-async function llmLine(hat,{situation,text,claim,pids,part}){ if(LLM.ok===null) await llmCheck(); if(!LLM.ok) return null;
-  let cands=(hat==='MINER'||hat==='SHADOW'||hat==='ARCHITECT')?llmCands(text):[]; if(pids&&pids.length) cands=cands.filter(c=>pids.includes(c.pid)).concat(cands.filter(c=>!pids.includes(c.pid))).slice(0,6);
-  try{ const r=await fetch(LLM.url+'/hat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({hat,part,situation,claim:claim||'',paragraph:text,question:curReview().name,candidates:cands.map((x,i)=>({i,paper:authShort(x.pid)+' '+P(x.pid).y,page:x.page,quote:x.quote}))})});
-    const j=await r.json(); if(j&&j.line){ log('hat-llm',{hat,ms:j.ms,model:j.model,pick:j.pick,where:situation.slice(0,20)}); return {text:j.line,src:j.pick!=null&&cands[j.pick]?{pid:cands[j.pick].pid,pi:cands[j.pick].pi,quote:cands[j.pick].quote,sec:''}:null}; }
+async function llmLine(hat,{situation,text,claim,pids,part}){ if(LLM.ok!==true&&Date.now()-(LLM.at||0)>4000) await llmCheck(); if(!LLM.ok) return null;
+  let cands=(hat==='MINER'||hat==='SHADOW'||hat==='ARCHITECT')?llmCands(text):[]; if(pids&&pids.length) cands=cands.filter(c=>pids.includes(c.pid)).concat(cands.filter(c=>!pids.includes(c.pid))).slice(0,6); withWhole.last=''; cands=withWhole(hat,cands,pids&&pids[0],text); const whole=withWhole.last;
+  try{ const r=await fetch(LLM.url+'/hat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({hat,map:hat==='MINER'?withWhole.map:'',part,situation,claim:claim||'',paragraph:text,question:curReview().name,candidates:cands.map((x,i)=>({i,paper:authShort(x.pid)+' '+P(x.pid).y,page:x.page,quote:x.quote}))})});
+    const j=await r.json(); if(j&&j.line){ log('hat-llm',{hat,ms:j.ms,model:j.model,pick:j.pick,where:situation.slice(0,20)}); return {text:j.line,whole,src:j.pick!=null&&cands[j.pick]?{pid:cands[j.pick].pid,pi:cands[j.pick].pi,quote:cands[j.pick].quote,sec:''}:null}; }
     if(j&&j.error){ LLM.err=j.error; LLM.ok=false; toast('Real hats are off: '+short(j.error,80)); } }
   catch(e){ LLM.ok=false; }
   return null; }
 /* the Hats pane: say() puts the scripted line in the feed; then Claude may re-word it */
 const _llmSay=say; say=function(hat,res,opt={}){ const f=_llmSay(hat,res,opt); if(f&&!res.lead&&hat!=='CONDUCTOR'&&LLM.ok!==false&&LLM.pending){ const q=LLM.pending; LLM.pending=null;
-    const was=f.text; f.text=was+' …'; renderFeed();
+    const was=f.text; f.wait=Date.now(); renderFeed();
     llmLine(hat,{situation:'The researcher asked you this in the side pane: “'+q.q+'”'+(q.ctx?' They had this selected: “'+short(q.ctx,300)+'”':''),text:q.q+' '+(q.ctx||''),pids:q.pids,part:res.part}).then(r=>{
-      if(r){ f.text=r.text; f.live=true; if(hat==='MINER'||hat==='SHADOW'){ f.src=r.src||undefined; f.found=r.src?quoteFound(r.src):undefined; if(!r.src) delete f.src; } else if(r.src){ f.src=r.src; f.found=quoteFound(r.src); } }
+      delete f.wait; if(r){ f.text=r.text; f.live=true; if(r.whole) f.saw='your question, the closest lines in your papers, and the map of '+r.whole+' with its best-matching lines'; if(hat==='MINER'||hat==='SHADOW'){ f.src=r.src||undefined; f.found=r.src?quoteFound(r.src):undefined; if(!r.src) delete f.src; } else if(r.src){ f.src=r.src; f.found=quoteFound(r.src); } }
       else f.text=was; save(); renderFeed(); }); }
   return f; };
 const _llmAsk=ask; ask=function(q){ const c=ctxText(); LLM.pending={q,ctx:c.text,pids:c.pids}; return _llmAsk(q); };
 /* Bounce: the reply goes into the thread at once; Claude may re-word it */
 const _llmBounce=bounceSend; bounceSend=function(){ const msg=(bst&&bst.draft||'').trim(), key=popKey, hat=bst&&bst.hat; const r=_llmBounce(); if(!msg||!bst) return r;
   const t=bst.turns[bst.turns.length-1]; if(!t||t.who!=='hat'||t.lead||hat==='CONDUCTOR'||LLM.ok===false) return r; const it=key[0]==='p'?null:I(key.slice(2));
-  const card=it?(it.text||it.quote||''):(P(key.slice(2))||{}).t||''; const was=t.text; t.text=was+' …'; renderPop();
+  const card=it?(it.text||it.quote||''):(P(key.slice(2))||{}).t||''; const was=t.text; t.wait=Date.now(); const f0=[...S.feed].reverse().find(m=>m.type==='hat'&&m.hat===hat&&m.text===was); if(f0){ f0.wait=t.wait; renderFeed(); } renderPop();
   llmLine(hat,{situation:'Bounce: the researcher clicked ? on a card on their board. The card says: “'+short(card,300)+'”. You asked them first, and they answered: “'+msg+'”',text:msg+' '+card,pids:papersOf(key),part:HATS[hat].part}).then(x=>{
     if(x){ t.text=x.text; t.live=true; if(hat==='MINER'||hat==='SHADOW') t.src=x.src; else if(x.src) t.src=x.src; const f=[...S.feed].reverse().find(m=>m.type==='hat'&&m.hat===hat&&m.text===was); if(f){ f.text=t.text; f.live=true; f.src=t.src||undefined; f.found=t.src?quoteFound(t.src):undefined; } }
-    else t.text=was; save(); renderPop(); renderFeed(); });
+    delete t.wait; if(f0) delete f0.wait; if(!x) t.text=was; save(); renderPop(); renderFeed(); });
   return r; };
 /* LLM-MOD-END */
+
+/* ======================= Explain (U1, 20 Nov): when a line stops you, an explanation comes first =======================
+   Select a line in the reader → Explain. CONDUCTOR, the helper, says what the line means in plain words (terms, what the line
+   is doing in its paragraph), in the Hats pane, with the line itself as its source. It never says whether the paper is right.
+   This is language help, not thinking help (PROJECT §0.10, I-7), so it has no friction. Needs the local Claude; without it, it says so. */
+async function explainLine(){ if(!reading||!pending) return; const pid=reading.p, pi=pending.pi, x=para(pid,pi); bar.style.display='none';
+  const line=x.p.slice(pending.start,pending.end).trim(); pending=null; const gs=getSelection(); const rect=gs.rangeCount&&String(gs).trim()?gs.getRangeAt(0).getBoundingClientRect():RM.rect; RM.rect=null; gs.removeAllRanges(); if(!line) return;
+  const se=sents().find(z=>z.pid===pid&&z.pi===pi), sec=se?se.sec:'', prev=(()=>{ for(let k=pi-1;k>=0&&k>=pi-4;k--){ const z=para(pid,k); if(z&&z.p) return z; } return null; })();
+  S.feed.push({type:'you',text:'What does this mean? “'+short(line,160)+'”'});
+  const f=say('CONDUCTOR',{part:'Explain',text:'',wait:Date.now(),src:{pid,pi,sec,quote:line}},{target:pid,saw:'this line, its paragraph, and the map of the paper'});
+  f.seen=true; updateBadge(); const pop=explPop(rect,f); log('explain',{pid,words:wc(line)});
+  if(LLM.ok!==true&&Date.now()-(LLM.at||0)>4000) await llmCheck();
+  const off=()=>'Live Claude is off, so I can’t explain this line. It sits'+(sec?' under '+sec:'')+'; the paragraph before it may set it up.';
+  if(LLM.ok) await Promise.race([ensureMap(pid),new Promise(r=>setTimeout(r,6000))]);
+  if(!LLM.ok){ delete f.wait; f.text=off(); save(); renderFeed(); pop.fill(); return; }
+  try{ const r=await fetch(LLM.url+'/hat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({hat:'CONDUCTOR',mode:'explain',map:S.maps&&S.maps[pid]?mapText(pid,S.maps[pid]):'',extra:termParas(pid,line,pi),paper:P(pid).t,section:sec,before:prev&&prev.p?prev.p:'',paragraph:x.p,line,question:curReview().name})});
+    const j=await r.json(); if(j&&j.line){ f.text=j.line; f.live=true; log('hat-llm',{hat:'CONDUCTOR',ms:j.ms,model:j.model,where:'explain'}); }
+    else { f.text=off(); if(j&&j.error){ LLM.err=j.error; LLM.ok=false; } } }
+  catch(e){ LLM.ok=false; f.text=off(); }
+  delete f.wait; save(); renderFeed(); pop.fill(); }
+/* the floating card: just under the line, on the page (it scrolls with the text); × , Esc or a click elsewhere closes it */
+function explPop(rect,f){ const sh=$('sheet'); $('explpop')?.remove(); const el=document.createElement('div'); el.id='explpop'; el.setAttribute('role','dialog'); el.setAttribute('aria-label','Explanation');
+  el.innerHTML='<div class="exh"><span class="cd">CONDUCTOR</span><span class="exw">explains</span><button class="exx" title="Close (Esc)" aria-label="Close">×</button></div><div class="ext"></div>';
+  sh.appendChild(el); const sr=sh.getBoundingClientRect(), r=rect||{left:sr.left+80,bottom:sr.top+120,width:0};
+  const w=Math.min(380,sh.clientWidth-24); el.style.width=w+'px'; el.style.left=Math.max(12,Math.min(r.left+(r.width||0)/2-w/2-sr.left,sh.clientWidth-w-12))+'px'; el.style.top=(r.bottom-sr.top+8)+'px';
+  el.f=f; el.fill=()=>{ if(el.isConnected) el.querySelector('.ext').innerHTML=ldTx(f); }; el.fill();
+  el.querySelector('.exx').onclick=()=>el.remove(); return el; }
+document.addEventListener('mousedown',e=>{ const p=$('explpop'); if(p&&!p.contains(e.target)&&!e.target.closest('#rdm,#selbar,#whym,#whyp')) p.remove(); },true);
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&$('explpop')){ $('explpop').remove(); e.stopPropagation(); } },true);
+setTimeout(()=>{ const _rule=WHY.rule; WHY.rule=(hat,part)=>part==='Explain'?'When you ask, CONDUCTOR explains what a line means in plain words. It never says whether the paper is right.':_rule(hat,part); },0); /* WHY is defined further down */
+
 
 
 /* the example review carries its hunch, so the timeline and the guide page read true */
@@ -3692,15 +4050,15 @@ LT.seedPast=function(){ initReviews(); if(S.reviews.some(r=>r.id==='rv0')) retur
   S.reviews.push({id:'rv0',name:'Thesis ch.2: Time outdoors and wellbeing',sample:true,start:LTD(2026,2,10),end:LTD(2026,4,20),boards:[{id:'bd0',name:'Main board'}],papers:['P2','P3'],hunch:'Being outside is what helps, not the sun itself.'});
   S.reviews.push({id:'rv00',name:'Seminar: Screens, sleep and teens',sample:true,start:LTD(2024,9,20),end:LTD(2024,11,15),boards:[{id:'bd00',name:'Board 1'}],papers:[]});
   const ex=S.reviews.find(r=>r.id==='rv1'); if(ex&&!ex.start) ex.start=day0(Date.now())-29*DAY;
-  S.pastMeetings=[LTD(2024,10,21,11),LTD(2026,3,18,11),LTD(2026,4,15,11)];
+  S.pastMeetings=[LTD(2024,10,21,11),LTD(2025,3,18,11),LTD(2025,4,15,11)];
   S.threads=S.threads||[{id:'th0',kind:'same',a:{rv:'rv0',id:'o4'},b:{rv:'rv00',id:'s1'},t:LTD(2026,4,2,12),words:['sleep','body','clock','light'],sample:true}];
   S.revisit=S.revisit||{o1:{due:Date.now()-DAY,step:0}};
   S.pastSeen=S.pastSeen||[]; save(); };
 
 /* ---------- F1 · one index over every board of every review ---------- */
-LT.all=function(){ const out=[]; for(const rv of S.reviews) for(const b of rv.boards){ const its=b.id===S.board?S.items:((S.boardStore||{})[b.id]||{}).items||[];
+LT.all=function(){ const out=[], cur=curReview(); for(const rv of S.reviews){ if(cur&&cur.fresh&&!rv.fresh) continue; for(const b of rv.boards){ const its=b.id===S.board?S.items:((S.boardStore||{})[b.id]||{}).items||[];
     for(const it of its){ if(it.kind==='note'&&String(it.text||'').trim()) out.push({k:rv.id+':'+it.id,kind:'note',id:it.id,rv,bd:b.id,t:it.t,text:it.text,title:title(it.text)});
-      else if(it.kind==='frag'&&it.quote) out.push({k:rv.id+':'+it.id,kind:'quote',id:it.id,rv,bd:b.id,t:it.t,quote:it.quote,text:it.comment||'',pid:it.pid,pi:it.pi,col:it.col}); } }
+      else if(it.kind==='frag'&&it.quote) out.push({k:rv.id+':'+it.id,kind:'quote',id:it.id,rv,bd:b.id,t:it.t,quote:it.quote,text:it.comment||'',pid:it.pid,pi:it.pi,col:it.col}); } } }
   return out; };
 LT.find=(rvId,id)=>LT.all().find(x=>x.rv.id===rvId&&x.id===id);
 LT.share=(a,b)=>{ const B=words(b); return words(a).filter(w=>B.some(v=>v===w||(v.length>4&&w.length>4&&v.slice(0,5)===w.slice(0,5)))); };
@@ -3847,11 +4205,11 @@ LT.years=function(){ const all=LT.all(), now=Date.now(); const rvs=S.reviews.fil
   const ptOf=(end,th)=>{ const x=all.find(y=>y.rv.id===end.rv&&y.id===end.id); return {x:X(x&&x.t?x.t:th.t),y:rowY(end.rv),it:x}; };
   let svg=`<svg class="ltyrs" viewBox="0 0 ${Wd+2*L} ${H}" role="img" aria-label="Your reviews across the years, with ideas that came back">`;
   for(let y=y0;y<=y1;y++){ const x=X(+new Date(y,0,1)); svg+=`<line x1="${x}" y1="14" x2="${x}" y2="${H-8}" class="yl"/><text x="${x+4}" y="12" class="yt">${y}</text>`; }
-  for(const m of LT.meetings()) svg+=`<line x1="${X(m)}" y1="${H-14}" x2="${X(m)}" y2="${H-6}" class="mt"><title>Guide meeting, ${ltDay(m)}</title></line>`;
+  for(const m of LT.meetings()) svg+=`<line x1="${X(m)}" y1="${H-14}" x2="${X(m)}" y2="${H-6}" class="mt"><title>Proto Beta 3</title></line>`;
   rvs.forEach((v,i)=>{ const y=rowY(v.r.id); svg+=`<rect x="${X(v.a)}" y="${y-7}" width="${Math.max(6,X(v.b)-X(v.a))}" height="14" rx="7" class="band${v.r.id===curReview().id?' cur':''}"/><text x="${L}" y="${y-14}" class="bt">${esc(short(ltRvName(v.r),60))}</text>`;
-    all.filter(x=>x.rv.id===v.r.id&&x.t).forEach(x=>{ svg+=`<circle cx="${X(x.t)}" cy="${y}" r="3.2" class="${x.kind==='note'?'dn':'dq'}"><title>${esc(x.kind==='note'?x.title:'“'+short(x.quote,80)+'”')} · ${ltDay(x.t)}</title></circle>`; }); });
+    all.filter(x=>x.rv.id===v.r.id&&x.t).forEach(x=>{ svg+=`<circle cx="${X(x.t)}" cy="${y}" r="3.2" class="${x.kind==='note'?'dn':'dq'}"><title>Proto Beta 3</title></circle>`; }); });
   (S.threads||[]).forEach(th=>{ const a=ptOf(th.a,th), b=ptOf(th.b,th); if(!a.it||!b.it) return; const my=(a.y+b.y)/2, sel=TL2.tSel===th.id;
-    svg+=`<path d="M${a.x},${a.y} C${a.x},${my} ${b.x},${my} ${b.x},${b.y}" class="th ${th.kind}${sel?' sel':''}" data-tl2="thread" data-v="${th.id}"><title>${th.kind==='changed'?'You changed your mind':'Same idea'} · click for its history</title></path><circle cx="${a.x}" cy="${a.y}" r="5" class="te ${th.kind}"/><circle cx="${b.x}" cy="${b.y}" r="5" class="te ${th.kind}"/>`; });
+    svg+=`<path d="M${a.x},${a.y} C${a.x},${my} ${b.x},${my} ${b.x},${b.y}" class="th ${th.kind}${sel?' sel':''}" data-tl2="thread" data-v="${th.id}"><title>Proto Beta 3</title></path><circle cx="${a.x}" cy="${a.y}" r="5" class="te ${th.kind}"/><circle cx="${b.x}" cy="${b.y}" r="5" class="te ${th.kind}"/>`; });
   svg+='</svg>';
   const key=`<div class="ltkey"><span><i class="k-same"></i>same idea</span><span><i class="k-changed"></i>changed your mind</span><span><i class="k-n"></i>a note</span><span><i class="k-q"></i>a quote</span><span><i class="k-m"></i>guide meeting</span></div>`;
   const th=(S.threads||[]).find(t=>t.id===TL2.tSel);
@@ -3885,7 +4243,7 @@ VOC.seed=function(){ if(S.vocab) return; S.vocab={hl:{},note:{}}; const L=S.colL
   for(const k of Object.keys(L)) S.vocab.hl[k]={name:L[k],meaning:'',since:Date.now(),hist:[]};
   if(S.vocab.hl.r){ S.vocab.hl.r.meaning='I’m not sure this holds; check before leaning on it'; S.vocab.hl.r.hist=[{name:'unsure',from:LTD(2026,2,20),to:LTD(2026,4,20),sample:true}]; S.vocab.hl.r.since=LTD(2026,10,11); }
   S.vocab.hl.y={name:'the point',meaning:'the one line a paper is really about',since:LTD(2026,3,2),hist:[],sample:true};
-  S.colLabels={...L,y:'the point'}; save(); };
+  S.colLabels={...L}; save(); };
 VOC.uses=function(kind,k){ const out=[]; for(const rv of S.reviews) for(const b of rv.boards){ const its=b.id===S.board?S.items:((S.boardStore||{})[b.id]||{}).items||[];
     for(const it of its){ if(kind==='hl'&&it.kind==='frag'&&(it.col||'b')===k) out.push({it,rv}); if(kind==='note'&&it.kind==='note'&&(it.col||'yellow')===k&&String(it.text||'').trim()) out.push({it,rv}); } }
   return out; };
@@ -3963,6 +4321,7 @@ const WHY={x:0,y:0,info:null};
 WHY.trigger={welcome:'You opened the app.',bare:'You closed a paper with quotes that have nothing of yours yet.',next:'You closed a paper.',memory:'You started writing without opening a paper this session.',close:'You closed a note.',startfrom:'You named a new review.','one-set':'You set today’s one thing.'};
 WHY.snip=t=>short(String(t||'').replace(/\s+/g,' ').trim(),90);
 WHY.resolve=function(el){
+  const ex=el.closest('#explpop'); if(ex&&ex.f&&!ex.f.wait){ const x=ex.f; return {hat:'CONDUCTOR',part:'Explain',text:x.text,src:x.src,live:x.live,did:'You asked what a line means (Explain).',saw:x.saw||'this line, its paragraph, and the map of the paper',rule:WHY.rule('CONDUCTOR','Explain')}; }
   const f=el.closest('.msg.hat[data-f]'); if(f){ const x=S.feed.find(m=>m.id===f.dataset.f); if(!x) return null; const tg=x.target&&I(x.target);
     return {hat:x.hat,part:x.part,text:x.text,src:x.src,live:x.live,did:tg?`You wrote “${WHY.snip(title(tg.text))}”.`:'You asked the hats.',saw:x.saw||'your words and the papers on this board',react:tg?{note:tg.id}:null,rule:WHY.rule(x.hat,x.part)}; }
   const w=el.closest('#wchips .wchip[data-c]'); if(w&&W.on){ const it=I(W.id), c=it&&it.wchips.find(z=>z.id===w.dataset.c); if(!c) return null; const b=blockById(c.b);
@@ -4060,7 +4419,12 @@ document.addEventListener('click',e=>{ const b=e.target.closest('#rdtoc'); const
   const it=e.target.closest('[data-rdpg]'); if(it){ e.stopPropagation(); RD.open=false; p.classList.remove('on'); RD.go(+it.dataset.rdpg); return; }
   if(RD.open&&!e.target.closest('#rdtocp')){ RD.open=false; p&&p.classList.remove('on'); }
   const zb=e.target.closest('[data-rz]'); if(zb&&reading&&!reading.n){ e.stopPropagation(); const n=RD.page(), v=zb.dataset.rz; RD.z=v==='0'?1:Math.max(.6,Math.min(2.2,+(RD.z+(v==='+'?.2:-.2)).toFixed(2)));
-    RD.apply(); log('reader-zoom',{z:RD.z}); renderReader(); setTimeout(()=>RD.go(n),300); } },true);
+    RD.apply(); log('reader-zoom',{z:RD.z}); $('sheet').dataset.pdf=''; renderReader(); setTimeout(()=>RD.go(n),300); } },true);
+/* when the reader column changes width (Hats pane opened or closed), the PDF pages are drawn again at the new width, on the same page */
+RD.fitT=0;
+
+new ResizeObserver(()=>{ if(!reading||reading.n||RD.z!==1) return; const sh=$('sheet'); if(!sh.classList.contains('pdfsheet')) return; const box=sh.querySelector('.pdfpages'), pg=sh.querySelector('.pdfpage'); if(!box||!pg) return;
+  if(Math.abs(box.clientWidth-parseFloat(pg.style.width))<20) return; clearTimeout(RD.fitT); RD.fitT=setTimeout(()=>{ if(!reading||reading.n) return; const n=RD.page(); sh.dataset.pdf=""; renderReader(); setTimeout(()=>RD.go(n),350); log('reader-fit',{w:box.clientWidth}); },320); }).observe($('rscroll'));
 RD.apply=function(){ const r=$('reader'); r.style.setProperty('--rz',RD.z); r.classList.toggle('rzoom',RD.z!==1); const l=document.querySelector('#rdz [data-rz="0"]'); if(l) l.textContent=Math.round(RD.z*100)+'%'; };
 /* the zoom and contents only make sense for a paper, not a note opened in the reader */
 const _rdRender=renderReader; renderReader=function(...a){ const r=_rdRender(...a); try{ const paper=reading&&!reading.n; $('rdz').style.display=paper?'':'none'; document.querySelector('.rdx').style.display=paper?'':'none'; RD.apply(); }catch(e){} return r; };
@@ -4079,9 +4443,9 @@ LT.shot=(orig=>async function(v){ const W8=ms=>new Promise(r=>setTimeout(r,ms));
 /* ======================= proto-beta2: references out, and live citations in =======================
    1 · Under your page in the writing room: "References", built from the papers you cited (APA 7), alphabetical, updated as you write.
    2 · Export (the writing room's top bar): Word (.doc), Markdown (.md), LaTeX (.tex + .bib). Citations become text or \citep with the page.
-   3 · In a paper you're reading: click an in-text citation such as "(Crouse et al., 2025)". A small card says whether it's in your
+   3 · In a paper you're reading: click an in-text citation such as "(Keller et al., 2005)". A small card says whether it's in your
        library, whether you've read it (and in which review), and offers to open it or look for it. */
-/* real metadata for the four example papers (from the PDFs' own citation lines) */
+/* real metadata for the four example papers (⚠ checked against the PDFs' own headers where they show it; check the rest before submitting) */
 const REFMETA={
   P1:{a:['Boubekri, M.','Lee, J.','MacNaughton, P.','Woo, M.','Schuyler, L.','Tinianov, B.','Satish, U.'],j:'International Journal of Environmental Research and Public Health',v:'17',i:'9',pp:'3219',doi:'10.3390/ijerph17093219',key:'boubekri2020'},
   P2:{a:['Crouse, J. J.','Park, S. H.','Mitchell, B. L.','Byrne, E. M.','Medland, S. E.','Lin, T.','Scott, J.','de Haan, Z.','Tonini, E.','Iorfino, F.','Wray, N. R.','Martin, N. G.','Hickie, I. B.'],j:'European Psychiatry',v:'68',i:'1',pp:'e41',doi:'10.1192/j.eurpsy.2025.20',key:'crouse2025'},
@@ -4128,7 +4492,7 @@ REF.build=function(mode){ const it=I(W.id), nb=$('nbody'); const ttl=(($('wtitle
   if(mode==='tex'){ const bib=pids.map(p=>{ const m=REF.meta(p); return `@article{${m.key},\n  author = {${m.a.join(' and ')}},\n  title = {${m.t}},\n  journal = {${m.j}},\n  year = {${m.y}},${m.v?`\n  volume = {${m.v}},`:''}${m.i?`\n  number = {${m.i}},`:''}${m.pp?`\n  pages = {${m.pp.replace('–','--')}},`:''}${m.doi?`\n  doi = {${m.doi}},`:''}\n}`; }).join('\n\n');
     const base=ttl.replace(/[^\w\- ]+/g,'').trim()||'review';
     return {files:[[base+'.tex',`\\documentclass{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[authoryear,round]{natbib}\n\\title{${REF.texEsc(ttl)}}\n\\begin{document}\n\\maketitle\n\n${lines.join('\n')}\n\\bibliographystyle{apalike}\n\\bibliography{${base}}\n\\end{document}\n`],[base+'.bib',bib+'\n']]}; }
-  const doc=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><title>${esc(ttl)}</title><style>body{font-family:Cambria,Georgia,serif;font-size:12pt;line-height:1.5} h1{font-size:18pt} h2{font-size:14pt} .ref{padding-left:.5in;text-indent:-.5in}</style></head><body><h1>${esc(ttl)}</h1>${lines.join('\n')}<h2>References</h2>${pids.map(p=>`<p class="ref">${REF.apa(p,true)}</p>`).join('')}</body></html>`;
+  const doc=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><title>Proto Beta 3</title><style>body{font-family:Cambria,Georgia,serif;font-size:12pt;line-height:1.5} h1{font-size:18pt} h2{font-size:14pt} .ref{padding-left:.5in;text-indent:-.5in}</style></head><body><h1>${esc(ttl)}</h1>${lines.join('\n')}<h2>References</h2>${pids.map(p=>`<p class="ref">${REF.apa(p,true)}</p>`).join('')}</body></html>`;
   return {files:[[ttl+'.doc',doc,'application/msword']]}; };
 REF.download=function(name,text,type='text/plain'){ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob(['\ufeff'+text],{type:type+';charset=utf-8'})); a.download=name.replace(/[\\/:*?"<>|]+/g,' ').trim(); document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },500); };
 document.addEventListener('click',e=>{ const b=e.target.closest('[data-w="export"]'); const m=$('wexpm');
@@ -4343,7 +4707,7 @@ HATS.CONDUCTOR.c='#D9365A'; HATS.CONDUCTOR.t='#C2410C';
 try{ renderHats(); }catch(e){}
 /* CONDUCTOR's mark: its name set round a circle (a wheel of type), orange printed slightly off-register over pink */
 const CD_WHEEL=`<svg viewBox="0 0 38 38" aria-hidden="true"><defs><path id="cdRing" d="M19,19 m-13.5,0 a13.5,13.5 0 1,1 27,0 a13.5,13.5 0 1,1 -27,0"/></defs><g transform="translate(.8,.6)"><text fill="#FF4F9A" opacity=".8"><textPath href="#cdRing" textLength="83" lengthAdjust="spacing">CONDUCTOR ✦ </textPath></text></g><text fill="#FF5A1F"><textPath href="#cdRing" textLength="83" lengthAdjust="spacing">CONDUCTOR ✦ </textPath></text><circle cx="19" cy="19" r="2.4" fill="#1D1D1F"/></svg>`;
-const _cdRender=cpRender; cpRender=function(){ _cdRender(); const n=document.querySelector('#cpill .cpn'); if(n&&!n.querySelector('svg')){ n.innerHTML=CD_WHEEL; n.setAttribute('aria-label','CONDUCTOR'); } };
+const _cdRender=cpRender; cpRender=function(){ _cdRender(); const n=document.querySelector('#cpill .cpn'); if(false&&n&&!n.querySelector('svg')){ /* the wheel is off for now: just the purple name */ n.innerHTML=CD_WHEEL; n.setAttribute('aria-label','CONDUCTOR'); } };
 /* screenshot view: #shot=ltshadow (SHADOW's turn, with Argue on so the hats column shows) */
 LT.shot=(orig=>async function(v){ if(v!=='ltshadow') return orig(v); const W8=ms=>new Promise(r=>setTimeout(r,ms));
   openWrite('draft2'); await W8(1300); if(!W.lens) document.querySelector('[data-w="lens"]').dispatchEvent(new MouseEvent('mousedown',{bubbles:true})); await W8(300);
@@ -4368,14 +4732,15 @@ LT.shot=(orig=>async function(v){ if(v!=='ltshadow') return orig(v); const W8=ms
   if(v.startsWith('lt')&&typeof LT!=='undefined') await LT.shot(v);
   document.body.dataset.shot='ready'; })();
 </script>
+<script>/* (public build) */</script>
 <div id="pierHelp" role="dialog" aria-modal="true" aria-labelledby="pierHelpT"><div class="card">
   <h2 id="pierHelpT">How to use Pier</h2>
-  <p class="sub">A prototype. The hats are scripted, not a live AI. Nothing is saved: a reload starts the example again.</p>
+  <p class="sub">A design prototype. The hats are scripted, unless your link turns on live hats. Your work is saved in this browser; add ?reset to the address to start over.</p>
   <dl><dt>Move around</dt><dd>Scroll, or swipe with two fingers. Or hold Space and drag.</dd><dt>Zoom</dt><dd>Ctrl/⌘ + scroll, or pinch on a trackpad.</dd><dt>Open a paper or note</dt><dd>Zoom into it, or double-click it.</dd><dt>Back to the board</dt><dd>Esc, or zoom out.</dd><dt>Read from a peek line</dt><dd>Click the quoted line on a faded paper. The reader opens at that line.</dd><dt>Make a quote</dt><dd>In the reader, select text, then Highlight.</dd><dt>Put a quote in a note</dt><dd>Drag the quote card onto the note.</dd><dt>New note</dt><dd>Double-click the empty board, or press N.</dd><dt>Ask a hat</dt><dd>? on a card (Bounce). H opens the Hats pane.</dd><dt>Why did a hat say that?</dt><dd>Right-click any hat line: Why are you saying this?</dd><dt>Your own PDFs</dt><dd>Ctrl/⌘ + O, or drop a PDF on the board.</dd><dt>Undo, redo</dt><dd>Ctrl/⌘ + Z, Ctrl/⌘ + Y.</dd><dt>Find papers, timeline</dt><dd>☰ at the top left opens the sidebar.</dd><dt>Writing room</dt><dd>Write to just write. Argue marks your claims and lets the hats question them.</dd></dl>
   <div class="row"><span class="note">Open this again with ? at the top right.</span><button class="go" id="pierHelpGo">Start</button></div>
 </div></div>
 <script>
-/* the controls dialog: shown on every load (nothing is saved, so every visit is a first visit); ? in the top bar opens it again */
+/* the controls dialog: shown once per browser; ? in the top bar opens it again */
 (function(){ const box=document.getElementById('pierHelp'), go=document.getElementById('pierHelpGo'); let back=null;
   const open=()=>{ back=document.activeElement; box.classList.add('on'); setTimeout(()=>go.focus(),0); };
   const close=()=>{ box.classList.remove('on'); if(back&&back.focus) try{ back.focus(); }catch(e){} };
@@ -4383,7 +4748,7 @@ LT.shot=(orig=>async function(v){ if(v!=='ltshadow') return orig(v); const W8=ms
   document.getElementById('helpBtn').onclick=open;
   /* while it is open, keys belong to the dialog, not the board behind it */
   window.addEventListener('keydown',e=>{ if(!box.classList.contains('on')) return; if(e.key==='Escape'||e.key==='Enter'){ e.preventDefault(); close(); } else if(e.key!=='Tab') { e.preventDefault(); } e.stopImmediatePropagation(); },true);
-  if(!/#shot=/.test(location.hash)) open(); })();
+  let seen=false; try{ seen=localStorage.getItem('pier-help-seen')==='1'; localStorage.setItem('pier-help-seen','1'); }catch(e){} if(!/#shot=/.test(location.hash)&&(!seen||/[?&]reset/.test(location.search))) open(); })();
 </script>
 </body>
 </html>

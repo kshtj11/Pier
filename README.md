@@ -2,6 +2,8 @@
 
 **Pier is a web prototype only. The AI hats are scripted, not a working AI. The PDF reader works, and you can open your own PDFs. (Drag and Drop them onto any board)**
 
+In testing sessions the hats can be live, with a link that carries `?hats=`. Your work is saved in your browser; add `?reset` to the address to start over.
+
 **Try it:** https://kshtj11.github.io/Pier/
 
 ## What Pier is
